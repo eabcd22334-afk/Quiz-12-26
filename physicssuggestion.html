@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090512">
+<title>Physics 2nd Paper Suggestion | DMRC Quiz 2026</title>
+<!-- ================= FONT ================= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+ROOT
+===================================================== */
+:root {
+--bg: #05030a;
+--bg-light: #10091b;
+--card: rgba(25, 15, 38, .76);
+--text: #ffffff;
+--muted: #a99bb7;
+--dim: #766783;
+--purple: #ae7aff;
+--violet: #744dff;
+--pink: #e57aff;
+--blue: #66b8ff;
+--border: rgba(255,255,255,.09);
+--glow: rgba(174,122,255,.16);
+}
+/* =====================================================
+RESET
+===================================================== */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+min-height: 100vh;
+padding: 35px 18px;
+overflow-x: hidden;
+color: var(--text);
+font-family: "Inter", "Hind Siliguri", sans-serif;
+background:
+radial-gradient(circle at 10% 0%, rgba(147,78,255,.17), transparent 30%),
+radial-gradient(circle at 90% 10%, rgba(224,93,255,.12), transparent 28%),
+radial-gradient(circle at 50% 100%, rgba(80,110,255,.10), transparent 35%),
+linear-gradient(135deg, #030207, #0c0616 50%, #040209);
+}
+/* =====================================================
+BACKGROUND GRID
+===================================================== */
+body::before {
+content: "";
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: -2;
+opacity: .22;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+background-size: 42px 42px;
+}
+/* =====================================================
+PAGE
+===================================================== */
+.page {
+width: min(1050px, 94%);
+margin: auto;
+}
+/* =====================================================
+MAIN CONTAINER
+===================================================== */
+.container {
+position: relative;
+overflow: hidden;
+border: 1px solid var(--border);
+border-radius: 30px;
+background: linear-gradient(145deg, rgba(28,17,43,.86), rgba(5,3,11,.88));
+box-shadow: 0 40px 110px rgba(0,0,0,.58), inset 0 1px 0 rgba(255,255,255,.065);
+backdrop-filter: blur(25px);
+-webkit-backdrop-filter: blur(25px);
+}
+/* =====================================================
+TOP GLOW
+===================================================== */
+.top-glow {
+position: absolute;
+width: 480px;
+height: 480px;
+top: -350px;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 50%;
+background: rgba(159,91,255,.12);
+filter: blur(100px);
+pointer-events: none;
+}
+/* =====================================================
+HEADER
+===================================================== */
+.header {
+position: relative;
+text-align: center;
+padding: 48px 30px 36px;
+border-bottom: 1px solid var(--border);
+}
+/* =====================================================
+BACK BUTTON
+===================================================== */
+.back {
+position: absolute;
+top: 27px;
+left: 28px;
+display: inline-flex;
+align-items: center;
+gap: 7px;
+padding: 8px 15px;
+color: #a193ad;
+text-decoration: none;
+font-family: "Hind Siliguri", sans-serif;
+font-size: 12px;
+border: 1px solid rgba(255,255,255,.08);
+border-radius: 50px;
+background: rgba(255,255,255,.025);
+transition: .25s ease;
+}
+.back:hover {
+color: var(--purple);
+border-color: rgba(174,122,255,.35);
+background: rgba(174,122,255,.06);
+}
+/* =====================================================
+BADGE
+===================================================== */
+.badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+padding: 8px 18px;
+border: 1px solid rgba(174,122,255,.25);
+border-radius: 50px;
+background: rgba(174,122,255,.06);
+color: var(--purple);
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 1.8px;
+}
+.badge-dot {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+background: var(--purple);
+box-shadow: 0 0 15px var(--purple);
+}
+/* =====================================================
+TITLE
+===================================================== */
+.title {
+margin-top: 20px;
+font-family: "Inter", "Hind Siliguri", sans-serif;
+font-size: clamp(26px, 4.5vw, 45px);
+font-weight: 800;
+line-height: 1.15;
+letter-spacing: -1.5px;
+background: linear-gradient(100deg, #ffffff 10%, #d6bdff 50%, #ffffff 90%);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+.subtitle {
+margin-top: 10px;
+color: var(--muted);
+font-family: "Hind Siliguri", sans-serif;
+font-size: 17px;
+}
+/* =====================================================
+CONTENT
+===================================================== */
+.content {
+padding: 40px;
+}
+/* =====================================================
+SUGGESTION SECTIONS
+===================================================== */
+.suggestion-category {
+margin-bottom: 30px;
+}
+.suggestion-category:last-child {
+margin-bottom: 0;
+}
+.category-title {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 18px;
+color: var(--purple);
+font-family: "Hind Siliguri", sans-serif;
+font-size: 19px;
+font-weight: 700;
+}
+.suggestion-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 15px;
+}
+.suggestion-card {
+position: relative;
+padding: 20px;
+border: 1px solid var(--border);
+border-radius: 16px;
+background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
+transition: transform .25s ease, border-color .25s ease;
+}
+.suggestion-card:hover {
+transform: translateY(-3px);
+border-color: rgba(174,122,255,.30);
+}
+.suggestion-tag {
+display: inline-block;
+padding: 4px 10px;
+margin-bottom: 10px;
+font-size: 11px;
+font-weight: 600;
+color: var(--purple);
+background: rgba(174,122,255,.08);
+border-radius: 6px;
+border: 1px solid rgba(174,122,255,.15);
+}
+.suggestion-text {
+color: #f3eff8;
+font-family: "Hind Siliguri", sans-serif;
+font-size: 16px;
+font-weight: 600;
+line-height: 1.4;
+}
+/* =====================================================
+FOOTER
+===================================================== */
+.footer {
+position: relative;
+padding: 35px 20px 38px;
+text-align: center;
+overflow: hidden;
+border-top: 1px solid var(--border);
+background: linear-gradient(180deg, rgba(255,255,255,.014), rgba(0,0,0,.15));
+}
+.footer-glow {
+position: absolute;
+width: 360px;
+height: 100px;
+bottom: -80px;
+left: 50%;
+transform: translateX(-50%);
+background: rgba(158,91,255,.11);
+filter: blur(55px);
+}
+.developed {
+position: relative;
+color: #74667f;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 3px;
+}
+.developer {
+position: relative;
+margin-top: 7px;
+font-size: 19px;
+font-weight: 800;
+letter-spacing: 1.5px;
+background: linear-gradient(90deg, #ffffff, #bf8bff, #ffffff);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+.student-info {
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 10px;
+margin-top: 14px;
+color: #74687f;
+font-size: 11px;
+letter-spacing: 1px;
+}
+.separator {
+color: var(--purple);
+}
+.copyright {
+position: relative;
+margin-top: 14px;
+color: #4a3e54;
+font-size: 9px;
+letter-spacing: 1px;
+}
+/* =====================================================
+RESPONSIVE
+===================================================== */
+@media (max-width: 750px) {
+.content {
+padding: 28px;
+}
+}
+@media (max-width: 550px) {
+body {
+padding: 0;
+}
+.page {
+width: 100%;
+}
+.container {
+border-radius: 0;
+border-left: none;
+border-right: none;
+}
+.header {
+padding: 78px 18px 31px;
+}
+.back {
+top: 17px;
+left: 17px;
+}
+.title {
+font-size: 26px;
+letter-spacing: -1px;
+}
+.content {
+padding: 18px 14px;
+}
+.suggestion-grid {
+grid-template-columns: 1fr;
+}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="container">
+<div class="top-glow"></div>
+<!-- ================= HEADER ================= -->
+<header class="header">
+<a href="index.html" class="back">
+← মূল পেজ
+</a>
+<div class="badge">
+<span class="badge-dot"></span>
+PHYSICS 2ND PAPER • SUGGESTION
+</div>
+<h1 class="title">
+পদার্থবিজ্ঞান ২য় পত্র
+</h1>
+<div class="subtitle">
+১ম অধ্যায়: গুরুত্বপূর্ণ প্রশ্ন ও সলিউশন সাজেশন
+</div>
+</header>
+
+<!-- ================= CONTENT ================= -->
+<main class="content">
+<!-- বোর্ড প্রশ্ন ক্যাটাগরি -->
+<div class="suggestion-category">
+<div class="category-title">
+🎯 বোর্ড প্রশ্নসমূহ
+</div>
+<div class="suggestion-grid">
+<div class="suggestion-card">
+<span class="suggestion-tag">বোর্ড প্রশ্ন</span>
+<div class="suggestion-text">বরিশাল বোর্ড – ২৫</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">বোর্ড প্রশ্ন</span>
+<div class="suggestion-text">কুমিল্লা বোর্ড – ২৪</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">বোর্ড প্রশ্ন</span>
+<div class="suggestion-text">বরিশাল বোর্ড – ২৪</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">বোর্ড প্রশ্ন</span>
+<div class="suggestion-text">দিনাজপুর বোর্ড – ২৪</div>
+</div>
+</div>
+</div>
+
+<!-- উদাহরণ ক্যাটাগরি -->
+<div class="suggestion-category">
+<div class="category-title">
+📌 পাঠ্যবইয়ের গুরুত্বপূর্ণ উদাহরণ
+</div>
+<div class="suggestion-grid">
+<div class="suggestion-card">
+<span class="suggestion-tag">উদাহরণ</span>
+<div class="suggestion-text">উদাহরণ ১ঘ৬</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">উদাহরণ</span>
+<div class="suggestion-text">উদাহরণ ১ঙ৬</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">উদাহরণ</span>
+<div class="suggestion-text">উদাহরণ ১ঙ১০</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">উদাহরণ</span>
+<div class="suggestion-text">উদাহরণ ১চ ৩</div>
+</div>
+</div>
+</div>
+
+<!-- অনুশীলনী ও প্রতিষ্ঠান ক্যাটাগরি -->
+<div class="suggestion-category">
+<div class="category-title">
+📝 অনুশীলনীর প্রশ্ন ও কলেজ টেস্ট
+</div>
+<div class="suggestion-grid">
+<div class="suggestion-card">
+<span class="suggestion-tag">অনুশীলনী</span>
+<div class="suggestion-text">অনুশীলনী ১ক১০</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">অনুশীলনী</span>
+<div class="suggestion-text">অনুশীলনী ১ঙ১৬</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">অনুশীলনী</span>
+<div class="suggestion-text">অনুশীলনী ১চ১০</div>
+</div>
+<div class="suggestion-card">
+<span class="suggestion-tag">কলেজ প্রশ্ন</span>
+<div class="suggestion-text">ক্যান্টনমেন্ট পাবলিক স্কুল এন্ড কলেজ, সৈয়দপুর</div>
+</div>
+</div>
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+<div class="footer-glow"></div>
+<div class="developed">DEVELOPED BY</div>
+<div class="developer">JOHIRUL ISLAM SAGOR</div>
+<div class="student-info">
+<span>ROLL - 2042</span>
+<span class="separator">•</span>
+<span>SECTION - D</span>
+<span class="separator">•</span>
+<span>DMRC</span>
+</div>
+<div class="copyright">© 2026 • DMRC QUIZ EXAMINATION</div>
+</footer>
+</div>
+</div>
+</body>
+</html>
