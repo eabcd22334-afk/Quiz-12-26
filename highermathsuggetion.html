@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#080512">
+
+    <title>
+        সাজেশন • উচ্চতর গণিত ২য় পত্র | DMRC Quiz 2026
+    </title>
+
+
+    <!-- ================= GOOGLE FONTS ================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- ================= CSS ================= -->
+
+    <style>
+
+        :root {
+
+            --bg: #05030b;
+            --bg2: #0d0719;
+
+            --card: rgba(25, 15, 40, .74);
+
+            --text: #faf7ff;
+
+            --muted: #a99bb8;
+
+            --dim: #756681;
+
+            --purple: #a875ff;
+
+            --violet: #744cff;
+
+            --pink: #df77ff;
+
+            --blue: #62b8ff;
+
+            --border: rgba(255,255,255,.09);
+
+            --border-purple:
+                rgba(168,117,255,.34);
+
+        }
+
+
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            color: var(--text);
+
+            font-family:
+                "Inter",
+                "Hind Siliguri",
+                sans-serif;
+
+            padding: 35px 18px;
+
+            overflow-x: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 8% 5%,
+                    rgba(151,81,255,.17),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 92% 8%,
+                    rgba(220,86,255,.12),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(92,77,255,.11),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #030207,
+                    #0d0718 50%,
+                    #04020a
+                );
+
+        }
+
+
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .23;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 40px 40px;
+
+            z-index: -5;
+
+        }
+
+
+
+        .page {
+
+            width: min(1050px, 94%);
+
+            margin: auto;
+
+        }
+
+
+
+        .container {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 30px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(27,17,43,.84),
+                    rgba(6,3,13,.84)
+                );
+
+            box-shadow:
+
+                0 40px 100px
+                rgba(0,0,0,.55),
+
+                inset 0 1px 0
+                rgba(255,255,255,.07);
+
+            backdrop-filter: blur(25px);
+
+            -webkit-backdrop-filter:
+                blur(25px);
+
+        }
+
+
+
+        .top-glow {
+
+            position: absolute;
+
+            width: 460px;
+
+            height: 460px;
+
+            left: 50%;
+
+            top: -320px;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+                rgba(157,91,255,.09);
+
+            filter: blur(100px);
+
+            pointer-events: none;
+
+        }
+
+
+
+        .header {
+
+            position: relative;
+
+            text-align: center;
+
+            padding:
+                45px 30px 35px;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+        }
+
+
+
+        .back {
+
+            position: absolute;
+
+            left: 28px;
+
+            top: 28px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                8px 14px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 50px;
+
+            color: #9b8ca9;
+
+            background:
+                rgba(255,255,255,.025);
+
+            text-decoration: none;
+
+            font-family:
+                "Hind Siliguri",
+                sans-serif;
+
+            font-size: 12px;
+
+            transition: .25s ease;
+
+        }
+
+
+        .back:hover {
+
+            color: var(--purple);
+
+            border-color:
+                var(--border-purple);
+
+            background:
+                rgba(168,117,255,.07);
+
+        }
+
+
+
+        .subject-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                8px 17px;
+
+            border:
+                1px solid
+                rgba(168,117,255,.22);
+
+            border-radius: 50px;
+
+            background:
+                rgba(168,117,255,.06);
+
+            color:
+                var(--purple);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.8px;
+
+        }
+
+
+        .dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--purple);
+
+            box-shadow:
+                0 0 14px
+                var(--purple);
+
+        }
+
+
+   .subject-title {
+
+            margin-top: 20px;
+
+            font-family:
+                "Hind Siliguri",
+                sans-serif;
+
+            font-size:
+                clamp(25px, 4.5vw, 44px);
+
+            line-height: 1.2;
+
+            font-weight: 800;
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    #ffffff,
+                    #d8bdff,
+                    #ffffff
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+        }
+
+
+        .subject-subtitle {
+
+            margin-top: 7px;
+
+            color:
+                var(--muted);
+
+            font-family:
+                "Hind Siliguri",
+                sans-serif;
+
+            font-size: 16px;
+
+        }
+
+
+
+        .content {
+
+            padding: 40px;
+
+        }
+
+
+
+        .section-title {
+
+            font-family:
+                "Hind Siliguri",
+                sans-serif;
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            color: #f5efff;
+
+            margin-bottom: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .section-title span {
+
+            color: var(--purple);
+
+        }
+
+
+
+        .info-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .info-card {
+
+            position: relative;
+
+            padding: 20px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 18px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.012)
+                );
+
+            text-align: center;
+
+        }
+
+
+        .info-label {
+
+            color:
+                var(--dim);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .info-value {
+
+            margin-top: 8px;
+
+            color: #f5efff;
+
+            font-family:
+                "Hind Siliguri",
+                sans-serif;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+        }
+
+
+
+        .suggestion-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .suggestion-card {
+
+            position: relative;
+
+            padding: 24px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 20px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(30,18,47,.6),
+                    rgba(10,5,20,.6)
+                );
+
+            transition: .25s ease;
+
+        }
+
+
+        .suggestion-card:hover {
+
+            border-color:
+                rgba(168,117,255,.3);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .card-header-title {
+
+            font-family:
+                "Hind Siliguri",
+                sans-serif;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            color: var(--pink);
+
+            margin-bottom: 14px;
+
+            padding-bottom: 8px;
+
+            border-bottom: 1px solid rgba(255,255,255,.06);
+
+        }
+
+
+        .sub-heading {
+
+            font-family:
+                "Hind Siliguri",
+                sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #d8bdff;
+
+            margin: 12px 0 6px 0;
+
+        }
+
+
+        .suggestion-list {
+
+            list-style: none;
+
+            padding-left: 0;
+
+        }
+
+
+        .suggestion-list li {
+
+            position: relative;
+
+            padding-left: 18px;
+
+            margin-bottom: 6px;
+
+            color: var(--muted);
+
+            font-family:
+                "Hind Siliguri",
+                sans-serif;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .suggestion-list li::before {
+
+            content: "•";
+
+            position: absolute;
+
+            left: 0;
+
+            color: var(--purple);
+
+            font-weight: bold;
+
+        }
+
+
+
+        .mcq-card {
+
+            position: relative;
+
+            padding: 24px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 20px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(30,18,47,.6),
+                    rgba(10,5,20,.6)
+                );
+
+            margin-bottom: 30px;
+
+        }
+
+
+
+        .footer {
+
+            position: relative;
+
+            text-align: center;
+
+            padding:
+                34px 20px 38px;
+
+            border-top:
+                1px solid
+                var(--border);
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.014),
+                    rgba(0,0,0,.14)
+                );
+
+            overflow: hidden;
+
+        }
+
+
+        .footer-glow {
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 100px;
+
+            left: 50%;
+
+            bottom: -80px;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                rgba(160,100,255,.11);
+
+            filter: blur(50px);
+
+        }
+
+
+        .footer-label {
+
+            position: relative;
+
+            color:
+                #71647d;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .developer {
+
+            position: relative;
+
+            font-size: 19px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #bd8cff,
+                    #ffffff
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+        }
+
+
+        .student-info {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 14px;
+
+            color:
+                #74687f;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .footer-dot {
+
+            color:
+                var(--purple);
+
+        }
+
+
+        .copyright {
+
+            position: relative;
+
+            margin-top: 14px;
+
+            color:
+                #493e53;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+
+        @media (max-width: 750px) {
+
+            .content {
+
+                padding: 28px;
+
+            }
+
+            .info-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .suggestion-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            body {
+
+                padding: 0;
+
+            }
+
+            .page {
+
+                width: 100%;
+
+            }
+
+            .container {
+
+                border-radius: 0;
+
+                border-left: none;
+
+                border-right: none;
+
+            }
+
+            .header {
+
+                padding: 75px 18px 30px;
+
+            }
+
+            .back {
+
+                left: 17px;
+
+                top: 17px;
+
+            }
+
+            .subject-title {
+
+                font-size: 26px;
+
+            }
+
+            .content {
+
+                padding: 18px 14px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= PAGE ================= -->
+
+    <div class="page">
+
+
+        <div class="container">
+
+
+            <div class="top-glow"></div>
+
+
+            <!-- ================= HEADER ================= -->
+
+            <header class="header">
+
+
+                <a href="index.html"
+                   class="back">
+
+                    ← মূল পেজ
+
+                </a>
+
+
+                <div class="subject-badge">
+
+                    <span class="dot"></span>
+
+                    HIGHER MATH • SUGGESTION 2026
+
+                </div>
+
+
+                <h1 class="subject-title">
+
+                    ১ম কুইজ পরীক্ষা সাজেশন
+
+                </h1>
+
+
+                <div class="subject-subtitle">
+
+                    অধ্যায় ৩: জটিল সংখ্যা (Complex Numbers) • ২য় বর্ষ
+
+                </div>
+
+
+            </header>
+
+
+            <!-- ================= CONTENT ================= -->
+
+            <main class="content">
+
+
+                <!-- ================= MARK DISTRIBUTION ================= -->
+
+                <div class="section-title">
+
+                    <span>📊</span> মানবন্টন ও সময়
+
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <div class="info-label">সৃজনশীল (CQ)</div>
+
+                        <div class="info-value">২০ নম্বর (১০×২)</div>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <div class="info-label">বহুনির্বাচনী (MCQ)</div>
+
+                        <div class="info-value">১০ নম্বর (১×১০)</div>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <div class="info-label">বরাদ্দকৃত সময়</div>
+
+                        <div class="info-value" style="font-size: 18px;">১ ঘণ্টা (CQ ৫০ মি. + MCQ ১০ মি.)</div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= CQ SUGGESTIONS ================= -->
+
+                <div class="section-title" style="margin-top: 10px;">
+
+                    <span>✍️</span> সৃজনশীল প্রশ্ন (CQ) সাজেশন
+
+                </div>
+
+                <div class="suggestion-grid">
+
+
+                    <!-- CQ 1 & 2 -->
+
+                    <div class="suggestion-card">
+
+                        <div class="card-header-title">CQ ১ ও ২ এর "ক" নং প্রশ্ন</div>
+
+                        <div class="sub-heading">অনুশীলনী থেকে গুরুত্বপূর্ণ অংশ:</div>
+
+                        <ul class="suggestion-list">
+
+                            <li>অনুশীলনী ৩ এর ii, iii, iv</li>
+
+                            <li>অনুশীলনী ৮ এর vi</li>
+
+                            <li>অনুশীলনী ১২ এর iv, v, vi</li>
+
+                            <li>অনুশীলনী ১৪ এর i</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- CQ 1 (Khor & Gaw) -->
+
+                    <div class="suggestion-card">
+
+                        <div class="card-header-title">১ম সৃজনশীল: "খ" ও "গ" নং প্রশ্ন</div>
+
+                        <div class="sub-heading">অনুশীলনী থেকে অনুশীলন:</div>
+
+                        <ul class="suggestion-list">
+
+                            <li>অনুশীলনী ৪ এর iv</li>
+
+                            <li>অনুশীলনী ৬ এর vi</li>
+
+                            <li>অনুশীলনী ৭ এর vi</li>
+
+                            <li>অনুশীলনী ৯ এর i, ii, iv</li>
+
+                            <li>অনুশীলনী ১০ নং</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- CQ 2 (Khor & Gaw) -->
+
+                    <div class="suggestion-card" style="grid-column: span 2;">
+
+                        <div class="card-header-title">২য় সৃজনশীল: "খ" ও "গ" নং প্রশ্ন</div>
+
+                        <div class="sub-heading">উদাহরণ ও অনুশীলনী:</div>
+
+                        <ul class="suggestion-list">
+
+                            <li>উদাহরণ ৯, ১০</li>
+
+                            <li>অনুশীলনী ৫ এর সব</li>
+
+                            <li>অনুশীলনী ৬ এর ii এবং ৭ এর vii</li>
+
+                            <li>অনুশীলনী ১১ নং এবং ১২ এর viii</li>
+
+                            <li>অনুশীলনী ১৪ এর iv, v, vi</li>
+
+                            <li>অনুশীলনী ১৫ এর i</li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ================= MCQ SUGGESTION ================= -->
+
+                <div class="section-title">
+
+                    <span>🎯</span> বহুনির্বাচনী (MCQ) প্রস্তুতি
+
+                </div>
+
+                <div class="mcq-card">
+
+                    <div class="card-header-title" style="color: var(--blue);">গুরুত্বপূর্ণ নির্দেশিকা</div>
+
+                    <ul class="suggestion-list">
+
+                        <li>অনুশীলনীর ১ থেকে ৬৫ নং পর্যন্ত সকল MCQ ভালোভাবে চর্চা করতে হবে।</li>
+
+                        <li>প্রতিটি কনসেপ্ট ও শর্টকাট ভালোভাবে আয়ত্ত করো যাতে ১০ মিনিটের মধ্যে সঠিক উত্তর দেওয়া যায়।</li>
+
+                    </ul>
+
+                </div>
+
+
+            </main>
+
+
+            <!-- ================= FOOTER ================= -->
+
+            <footer class="footer">
+
+
+                <div class="footer-glow"></div>
+
+
+                <div class="footer-label">
+
+                    DEVELOPED BY
+
+                </div>
+
+
+                <div class="developer">
+
+                    JOHIRUL ISLAM SAGOR
+
+                </div>
+
+
+                <div class="student-info">
+
+
+                    <span>
+
+                        ROLL - 2042
+
+                    </span>
+
+
+                    <span class="footer-dot">
+
+                        •
+
+                    </span>
+
+
+                    <span>
+
+                        SECTION - D
+
+                    </span>
+
+
+                    <span class="footer-dot">
+
+                        •
+
+                    </span>
+
+
+                    <span>
+
+                        DMRC
+
+                    </span>
+
+
+                </div>
+
+
+                <div class="copyright">
+
+                    © 2026 • DMRC Quiz Examination
+
+                </div>
+
+
+            </footer>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
