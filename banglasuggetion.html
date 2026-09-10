@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#071018">
+
+    <title>
+        সাজেশন | বাংলা ২য় পত্র — DMRC Quiz 2026
+    </title>
+
+
+    <!-- ================= GOOGLE FONTS ================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        :root {
+
+            --bg: #03070a;
+            --bg2: #08131a;
+            --card: rgba(12,27,35,.76);
+            --text: #f5fbff;
+            --muted: #91a6b1;
+            --dim: #607783;
+            --cyan: #61d9ff;
+            --blue: #4c9dff;
+            --teal: #50e3c2;
+            --border: rgba(255,255,255,.09);
+            --border-cyan: rgba(97,217,255,.32);
+
+        }
+
+
+
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+            color: var(--text);
+            font-family: "Inter", "Hind Siliguri", sans-serif;
+            padding: 35px 18px;
+            overflow-x: hidden;
+            background:
+
+                radial-gradient(
+                    circle at 8% 5%,
+                    rgba(66,190,255,.16),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 92% 8%,
+                    rgba(65,240,205,.10),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(50,125,255,.10),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #020506,
+                    #08151c 50%,
+                    #020608
+                );
+
+        }
+
+
+
+        body::before {
+
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .22;
+            background-image:
+
+                linear-gradient(
+                    rgba(255,255,255,.024) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.024) 1px,
+                    transparent 1px
+                );
+
+            background-size: 40px 40px;
+            z-index: -5;
+
+        }
+
+
+
+        .page {
+
+            width: min(1050px, 94%);
+            margin: auto;
+
+        }
+
+
+
+        .container {
+
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(15,31,40,.84),
+                    rgba(4,10,14,.86)
+                );
+
+            box-shadow:
+
+                0 40px 100px rgba(0,0,0,.55),
+                inset 0 1px 0 rgba(255,255,255,.07);
+
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+
+        }
+
+
+
+        .top-glow {
+
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            left: 50%;
+            top: -320px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: rgba(65,205,255,.09);
+            filter: blur(100px);
+            pointer-events: none;
+
+        }
+
+
+
+        .header {
+
+            position: relative;
+            text-align: center;
+            padding: 45px 30px 35px;
+            border-bottom: 1px solid var(--border);
+
+        }
+
+
+
+        .back {
+
+            position: absolute;
+            left: 28px;
+            top: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 14px;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 50px;
+            color: #8ba1ac;
+            background: rgba(255,255,255,.025);
+            text-decoration: none;
+            font-family: "Hind Siliguri", sans-serif;
+            font-size: 12px;
+            transition: .25s ease;
+
+        }
+
+
+        .back:hover {
+
+            color: var(--cyan);
+            border-color: var(--border-cyan);
+            background: rgba(97,217,255,.06);
+
+        }
+
+
+
+        .subject-badge {
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 17px;
+            border: 1px solid rgba(97,217,255,.22);
+            border-radius: 50px;
+            background: rgba(97,217,255,.055);
+            color: var(--cyan);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+
+        }
+
+
+        .dot {
+
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 14px var(--cyan);
+
+        }
+
+
+       .subject-title {
+
+            margin-top: 15px;
+            font-family: "Hind Siliguri", sans-serif;
+            font-size: clamp(26px, 4vw, 42px);
+            line-height: 1.3;
+            font-weight: 800;
+            background: linear-gradient(100deg, #ffffff, #b9f2ff, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+        }
+
+
+        .total-marks-pill {
+
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 18px;
+            background: rgba(97,217,255,.08);
+            border: 1px solid rgba(97,217,255,.2);
+            border-radius: 50px;
+            color: var(--cyan);
+            font-family: "Hind Siliguri", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+
+        }
+
+
+
+        .content {
+
+            padding: 40px;
+
+        }
+
+
+
+        .section-heading {
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Hind Siliguri", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--cyan);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,.06);
+
+        }
+
+
+
+        .table-responsive {
+
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 35px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+
+        }
+
+        .custom-table {
+
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-family: "Hind Siliguri", sans-serif;
+
+        }
+
+        .custom-table th, .custom-table td {
+
+            padding: 14px 18px;
+            font-size: 15px;
+
+        }
+
+        .custom-table th {
+
+            background: rgba(97,217,255,.08);
+            color: var(--cyan);
+            font-weight: 700;
+            border-bottom: 1px solid var(--border);
+
+        }
+
+        .custom-table td {
+
+            background: rgba(255,255,255,.015);
+            border-bottom: 1px solid rgba(255,255,255,.04);
+            color: #eaf3f8;
+
+        }
+
+        .custom-table tr:last-child td {
+
+            border-bottom: none;
+
+        }
+
+        .total-row td {
+
+            font-weight: 700;
+            color: var(--teal);
+            background: rgba(80,227,194,.05);
+
+        }
+
+
+
+        .suggestion-card {
+
+            position: relative;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
+            margin-bottom: 20px;
+            transition: .25s ease;
+
+        }
+
+        .suggestion-card:hover {
+
+            border-color: rgba(97,217,255,.3);
+            background: rgba(15,34,43,.6);
+
+        }
+
+        .card-title {
+
+            font-family: "Hind Siliguri", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #eefaff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+        }
+
+        .suggestion-list {
+
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+        }
+
+        .suggestion-list li {
+
+            font-family: "Hind Siliguri", sans-serif;
+            font-size: 15px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+
+        }
+
+        .tag-badge {
+
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+
+        }
+
+        .tag-board {
+
+            background: rgba(255, 107, 107, 0.12);
+            color: #ff8b8b;
+            border: 1px solid rgba(255, 107, 107, 0.25);
+
+        }
+
+        .tag-sheet {
+
+            background: rgba(76, 157, 255, 0.12);
+            color: #73b3ff;
+            border: 1px solid rgba(76, 157, 255, 0.25);
+
+        }
+
+        .tag-none {
+
+            background: rgba(255, 75, 75, 0.1);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 75, 75, 0.2);
+
+        }
+
+        .sub-option {
+
+            margin-left: 20px;
+            margin-top: 6px;
+            font-size: 14px;
+            color: var(--muted);
+
+        }
+
+
+
+        .footer {
+
+            position: relative;
+            text-align: center;
+            padding: 34px 20px 38px;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255,255,255,.014), rgba(0,0,0,.14));
+            overflow: hidden;
+
+        }
+
+        .footer-glow {
+
+            position: absolute;
+            width: 350px;
+            height: 100px;
+            left: 50%;
+            bottom: -80px;
+            transform: translateX(-50%);
+            background: rgba(75,200,255,.10);
+            filter: blur(50px);
+
+        }
+
+        .footer-label {
+
+            position: relative;
+            color: #637984;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 7px;
+
+        }
+
+        .developer {
+
+            position: relative;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            background: linear-gradient(90deg, #ffffff, #73dfff, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+        }
+
+        .student-info {
+
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+            color: #687d86;
+            font-size: 11px;
+            letter-spacing: 1px;
+
+        }
+
+        .footer-dot {
+
+            color: var(--cyan);
+
+        }
+
+        .copyright {
+
+            position: relative;
+            margin-top: 14px;
+            color: #40545c;
+            font-size: 9px;
+            letter-spacing: 1px;
+
+        }
+
+
+
+        @media (max-width: 550px) {
+
+            body {
+                padding: 0;
+            }
+
+            .page {
+                width: 100%;
+            }
+
+            .container {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .header {
+                padding: 75px 18px 25px;
+            }
+
+            .back {
+                left: 17px;
+                top: 17px;
+            }
+
+            .content {
+                padding: 18px 14px;
+            }
+
+            .suggestion-card {
+                padding: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="page">
+
+        <div class="container">
+
+            <div class="top-glow"></div>
+
+            <!-- ================= HEADER ================= -->
+
+            <header class="header">
+
+                <a href="bangla-2nd.html" class="back">
+                    ← পেছনের পেজ
+                </a>
+
+                <div class="subject-badge">
+                    <span class="dot"></span>
+                    DMRC QUIZ 2026
+                </div>
+
+                <h1 class="subject-title">
+                    ড. মাহবুবুর রহমান মোল্লা কলেজ<br>
+                    <span style="font-size: 80%; color: var(--muted);">বাংলা দ্বিতীয় পত্র — কুইজ পরীক্ষার সাজেশন</span>
+                </h1>
+
+                <div class="total-marks-pill">
+                    মোট নম্বর: ৩০
+                </div>
+
+            </header>
+
+
+            <!-- ================= CONTENT ================= -->
+
+            <main class="content">
+
+                <!-- ================= MARK DISTRIBUTION ================= -->
+
+                <div class="section-heading">
+                    <span>📊</span> মানবণ্টন (Mark Distribution)
+                </div>
+
+                <div class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ক্রমিক</th>
+                                <th>বিষয় / অংশ</th>
+                                <th style="text-align: right;">নম্বর</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>১</td>
+                                <td>ব্যাকরণ অংশ (২টি প্রশ্ন × ৫ নম্বর)</td>
+                                <td style="text-align: right;">১০</td>
+                            </tr>
+                            <tr>
+                                <td>২</td>
+                                <td>পারিভাষিক শব্দ</td>
+                                <td style="text-align: right;">১০</td>
+                            </tr>
+                            <tr>
+                                <td>৩</td>
+                                <td>দিনলিপি / অভিজ্ঞতা বর্ণনা <b>অথবা</b> ভাষণ / প্রতিবেদন</td>
+                                <td style="text-align: right;">১০</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2" style="text-align: right;">সর্বমোট নম্বর =</td>
+                                <td style="text-align: right;">৩০</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- ================= QUIZ SUGGESTION ================= -->
+
+                <div class="section-heading" style="margin-top: 40px;">
+                    <span>🎯</span> কুইজ সাজেশন (Quiz Suggestion)
+                </div>
+
+
+                <!-- PART A -->
+                <div class="suggestion-card">
+                    <div class="card-title">
+                        ক. ব্যাকরণ অংশ (নম্বর: ৫ + ৫ = ১০) 
+                    </div>
+                    <ul class="suggestion-list">
+                        <li>
+                            <span>১. বাংলা উচ্চারণের নিয়ম:</span>
+                            <span class="tag-badge tag-board"> ২৫ ও ২৬ বোর্ড</span>
+                        </li>
+                        <li>
+                            <span>২. বাংলা বানানর নিয়ম:</span>
+                            <span class="tag-badge tag-board"> ২৫ ও ২৬ বোর্ড</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- PART B -->
+                <div class="suggestion-card">
+                    <div class="card-title">
+                        খ. নির্মিতি অংশ (নম্বর: ১০ + ১০ =০) 
+                    </div>
+                    <ul class="suggestion-list">
+                        <li>
+                            <span>৩. পারিভাষিক শব্দ:</span>
+                            <span class="tag-badge tag-board"> ২৫ ও ২৬ বোর্ড</span>
+                        </li>
+                        <li style="margin-top: 8px; flex-direction: column; align-items: flex-start;">
+                            <span>৪. (যে-কোনো একটির উত্তর দিতে হবে — নম্বর: ১০):</span>
+                            
+                            <div class="sub-option">
+                                <b>(ক) দিনলিপি / অভিজ্ঞতা বর্ণনা:</b> 
+                                <span class="tag-badge tag-sheet" style="margin-left: 5px;">📄 শীট থেকে পড়তে হবে</span>
+                            </div>
+
+                            <div class="sub-option" style="margin-top: 8px;">
+                                <b>(খ) ভাষণ / প্রতিবেদন:</b> 
+                                <span class="tag-badge tag-none" style="margin-left: 5px;">❌ কোনো সাজেশন নেই</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </main>
+
+
+            <!-- ================= FOOTER ================= -->
+
+            <footer class="footer">
+
+                <div class="footer-glow"></div>
+
+                <div class="footer-label">
+                    DEVELOPED BY
+                </div>
+
+                <div class="developer">
+                    JOHIRUL ISLAM SAGOR
+                </div>
+
+                <div class="student-info">
+                    <span>ROLL - 2042</span>
+                    <span class="footer-dot">•</span>
+                    <span>SECTION - D</span>
+                    <span class="footer-dot">•</span>
+                    <span>DMRC</span>
+                </div>
+
+                <div class="copyright">
+                    © 2026 • DMRC Quiz Examination
+                </div>
+
+            </footer>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+                                        
