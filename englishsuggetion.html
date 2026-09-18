@@ -1,1091 +1,658 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color: #f7f2f0;">
-
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#05030a">
-    <title>সাজেশন | DMRC Quiz 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#05030a">
+<title>সাজেশন | DMRC Quiz 2026</title>
 
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- ইনস্ট্যান্ট থিম অ্যাপ্লাই স্ক্রিপ্ট -->
-    <script>
-        const themePalettes = {
-            dusty_rose: { bg: "#f7f2f0", card: "#e8ded8", heading: "#5a3e36", subHeading: "#7c584d", text: "#4a332c", muted: "#8c7268", border: "rgba(90, 62, 54, 0.15)" },
-            olive_green: { bg: "#f4f5f0", card: "#e2e6db", heading: "#384232", subHeading: "#55634d", text: "#2e3629", muted: "#6f7d67", border: "rgba(56, 66, 50, 0.15)" },
-            warm_toupe: { bg: "#24201e", card: "#1b1715", heading: "#d8c5b2", subHeading: "#b39c87", text: "#e6d7cc", muted: "#8c7c70", border: "rgba(216, 197, 178, 0.15)" },
-            sage_green: { bg: "#f2f7f5", card: "#e3ede9", heading: "#2c4a3e", subHeading: "#44705e", text: "#223b31", muted: "#6a8c7f", border: "rgba(44, 74, 62, 0.15)" },
-            mocha: { bg: "#f5f0eb", card: "#e6dbd0", heading: "#4a3525", subHeading: "#73533c", text: "#3b2a1d", muted: "#8c7362", border: "rgba(74, 53, 37, 0.15)" },
-            dusty_blue: { bg: "#f0f4f8", card: "#dce6f0", heading: "#23405c", subHeading: "#3a6085", text: "#1b3147", muted: "#6a85a3", border: "rgba(35, 64, 92, 0.15)" },
-            warm_caramel: { bg: "#241e1b", card: "#1a1513", heading: "#e09f63", subHeading: "#b8763a", text: "#f2d6bd", muted: "#9c7c63", border: "rgba(224, 159, 99, 0.15)" }
-        };
-        const savedTheme = localStorage.getItem('dmrc_theme') || 'dusty_rose';
-        const p = themePalettes[savedTheme] || themePalettes['dusty_rose'];
-        const r = document.documentElement;
-        r.style.setProperty('--bg', p.bg);
-        r.style.setProperty('--card', p.card);
-        r.style.setProperty('--heading-color', p.heading);
-        r.style.setProperty('--sub-heading', p.subHeading);
-        r.style.setProperty('--text', p.text);
-        r.style.setProperty('--muted', p.muted);
-        r.style.setProperty('--border', p.border);
-        r.style.backgroundColor = p.bg;
-    </script>
+<script>
+const themePalettes = {
+ dusty_rose:{bg:"#f7f2f0",card:"#e8ded8",heading:"#5a3e36",subHeading:"#7c584d",text:"#4a332c",muted:"#8c7268",border:"rgba(90,62,54,.15)"},
+ olive_green:{bg:"#f4f5f0",card:"#e2e6db",heading:"#384232",subHeading:"#55634d",text:"#2e3629",muted:"#6f7d67",border:"rgba(56,66,50,.15)"},
+ warm_toupe:{bg:"#24201e",card:"#1b1715",heading:"#d8c5b2",subHeading:"#b39c87",text:"#e6d7cc",muted:"#8c7c70",border:"rgba(216,197,178,.15)"},
+ sage_green:{bg:"#f2f7f5",card:"#e3ede9",heading:"#2c4a3e",subHeading:"#44705e",text:"#223b31",muted:"#6a8c7f",border:"rgba(44,74,62,.15)"},
+ mocha:{bg:"#f5f0eb",card:"#e6dbd0",heading:"#4a3525",subHeading:"#73533c",text:"#3b2a1d",muted:"#8c7362",border:"rgba(74,53,37,.15)"},
+ dusty_blue:{bg:"#f0f4f8",card:"#dce6f0",heading:"#23405c",subHeading:"#3a6085",text:"#1b3147",muted:"#6a85a3",border:"rgba(35,64,92,.15)"},
+ warm_caramel:{bg:"#241e1b",card:"#1a1513",heading:"#e09f63",subHeading:"#b8763a",text:"#f2d6bd",muted:"#9c7c63",border:"rgba(224,159,99,.15)"}
+};
 
-    <style>
-        :root {
-            --bg: #f7f2f0;
-            --card: #e8ded8;
-            --card-text: #5a3e36;
-            --heading-color: #5a3e36;
-            --sub-heading: #7c584d;
-            --text: #4a332c;
-            --muted: #8c7268;
-            --border: rgba(90, 62, 54, 0.15);
-            --card-padding: 30px;
-            --card-width: 100%;
-        }
+const savedTheme=localStorage.getItem("dmrc_theme")||"dusty_rose";
+const p=themePalettes[savedTheme]||themePalettes.dusty_rose;
+const r=document.documentElement;
+r.style.setProperty("--bg",p.bg);
+r.style.setProperty("--card",p.card);
+r.style.setProperty("--heading-color",p.heading);
+r.style.setProperty("--sub-heading",p.subHeading);
+r.style.setProperty("--text",p.text);
+r.style.setProperty("--muted",p.muted);
+r.style.setProperty("--border",p.border);
+</script>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            min-height: 100vh;
-            padding: 35px 18px;
-            overflow-x: hidden;
-            color: var(--text);
-            font-family: "Inter", "Hind Siliguri", sans-serif;
-            background: var(--bg);
-        }
-
-        .page {
-            width: min(1050px, 94%);
-            margin: auto;
-        }
-
-        .container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            min-height: calc(100vh - 70px);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            background: var(--card);
-            box-shadow: 0 30px 80px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.1);
-        }
-
-        /* Header Centered & Cleaned */
-        .app-header {
-            text-align: center;
-            padding: 45px 20px 25px 20px;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .badge-top {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 16px;
-            background: rgba(0,0,0,0.06);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 13px;
-            color: var(--sub-heading);
-            font-weight: 600;
-        }
-
-        .badge-top span {
-            width: 6px;
-            height: 6px;
-            background: var(--sub-heading);
-            border-radius: 50%;
-        }
-
-        .super-sub-header {
-            font-size: 14px;
-            color: var(--muted);
-            font-family: "Hind Siliguri", sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .college-title {
-            font-size: clamp(22px, 4vw, 30px);
-            font-weight: 800;
-            font-family: "Hind Siliguri", sans-serif;
-            color: var(--heading-color);
-            line-height: 1.3;
-        }
-
-        .exam-title {
-            font-size: clamp(16px, 3vw, 22px);
-            font-weight: 700;
-            color: var(--sub-heading);
-            font-family: "Hind Siliguri", sans-serif;
-        }
-
-        .class-info {
-            font-size: 14px;
-            color: var(--muted);
-            font-family: "Hind Siliguri", sans-serif;
-        }
-
-        .notice-banner {
-            display: none;
-            background: rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid var(--border);
-            padding: 12px 20px;
-            text-align: left;
-            color: var(--text);
-            font-size: 14px;
-            font-family: "Hind Siliguri", sans-serif;
-        }
-        .notice-banner strong {
-            color: var(--heading-color);
-            margin-right: 8px;
-        }
-
-        .admin-trigger-btn {
-            display: none;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: 0.2s;
-            z-index: 10;
-        }
-
-        .admin-trigger-btn:hover {
-            opacity: 0.8;
-        }
-
-        .content {
-            padding: 40px;
-            flex: 1;
-        }
-
-        .suggestion-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .suggestion-card {
-            padding: var(--card-padding);
-            width: var(--card-width);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-super-sub {
-            font-size: 12px;
-            color: var(--sub-heading);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-            font-weight: 700;
-            text-align: right; 
-        }
-
-        .card-sub-head {
-            font-size: 14px;
-            color: var(--sub-heading);
-            font-weight: 600;
-            margin-bottom: 8px;
-            text-align: right; 
-        }
-
-        .suggestion-card h3 {
-            color: var(--heading-color);
-            margin-bottom: 12px;
-            font-size: 20px;
-            font-family: "Hind Siliguri", sans-serif;
-        }
-
-        .suggestion-card p {
-            color: var(--text);
-            opacity: 0.95;
-            font-size: 16px;
-            line-height: 1.6;
-            white-space: pre-line;
-            font-family: "Hind Siliguri", sans-serif;
-        }
-
-        .card-meta-row {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 15px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .marks-badge {
-            display: inline-block;
-            padding: 5px 14px;
-            background: rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 13px;
-            color: var(--heading-color);
-            font-weight: 700;
-        }
-
-        .signature-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 16px;
-            background: var(--heading-color);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 13px;
-            color: #fff;
-            font-weight: 600;
-            margin-left: auto;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-        .signature-btn:hover {
-            opacity: 0.85;
-        }
-
-        .no-data {
-            text-align: center;
-            color: var(--muted);
-            font-size: 16px;
-            padding: 40px;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 13px;
-            background: rgba(0, 0, 0, 0.03);
-            margin-top: auto;
-        }
-
-        .footer .dev-name {
-            color: var(--heading-color);
-            font-weight: 700;
-        }
-
-        .footer .details {
-            margin-top: 5px;
-            color: var(--muted);
-            font-size: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .footer .copy {
-            margin-top: 8px;
-            color: var(--muted);
-            font-size: 11px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 999;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            backdrop-filter: blur(8px);
-        }
-
-        .modal-content {
-            width: min(500px, 100%);
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-            color: var(--text);
-        }
-
-        .modal-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--heading-color);
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 12px;
-            color: var(--sub-heading);
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            color: inherit;
-            font-size: 15px;
-            font-family: inherit;
-            outline: none;
-            transition: 0.2s;
-        }
-
-        .form-control:focus {
-            border-color: var(--heading-color);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 12px;
-            border-radius: 12px;
-            border: none;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-primary {
-            background: var(--heading-color);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
-
-        .btn-secondary {
-            background: rgba(0,0,0,0.08);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(0,0,0,0.12);
-        }
-
-        .btn-danger {
-            background: #d9534f;
-            color: #fff;
-        }
-
-        .menu-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .menu-option-btn {
-            width: 100%;
-            padding: 15px;
-            text-align: left;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            color: inherit;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .menu-option-btn:hover {
-            background: rgba(255,255,255,0.08);
-        }
-
-        .delete-item-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .delete-item-row span {
-            font-size: 14px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            max-width: 70%;
-        }
-
-        @media (max-width: 550px) {
-            body { padding: 0; }
-            .page { width: 100%; }
-            .container { border-radius: 0; border: none; min-height: 100vh; }
-            .content { padding: 20px 14px; }
-        }
-    </style>
+<style>
+:root{
+--bg:#f7f2f0;--card:#e8ded8;--heading-color:#5a3e36;
+--sub-heading:#7c584d;--text:#4a332c;--muted:#8c7268;
+--border:rgba(90,62,54,.15);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+min-height:100vh;padding:35px 18px;overflow-x:hidden;
+font-family:"Inter","Hind Siliguri",sans-serif;
+background:var(--bg);color:var(--text);
+transition:.3s;
+}
+.page{width:min(1050px,94%);margin:auto}
+.container{
+position:relative;display:flex;flex-direction:column;
+min-height:calc(100vh - 70px);overflow:hidden;
+border:1px solid var(--border);border-radius:30px;
+background:var(--card);
+box-shadow:0 30px 80px rgba(0,0,0,.25);
+}
+.app-header{
+text-align:center;padding:40px 20px 20px;
+border-bottom:1px solid var(--border);position:relative;
+}
+.badge-top{
+display:inline-flex;align-items:center;gap:8px;padding:6px 16px;
+background:rgba(0,0,0,.06);border:1px solid var(--border);
+border-radius:50px;font-size:13px;color:var(--sub-heading);
+font-weight:600;margin-bottom:15px;
+}
+.badge-top span{width:6px;height:6px;background:var(--sub-heading);border-radius:50%}
+.super-sub-header{font-size:14px;color:var(--muted);margin-bottom:6px;letter-spacing:1px}
+.college-title{font-size:clamp(22px,4vw,30px);font-weight:800;margin-bottom:8px;color:var(--heading-color)}
+.exam-title{font-size:clamp(16px,3vw,22px);font-weight:700;color:var(--sub-heading);margin-bottom:6px}
+.class-info{font-size:14px;color:var(--muted)}
+.notice-banner{
+display:none;background:rgba(0,0,0,.05);border-bottom:1px solid var(--border);
+padding:12px 20px;text-align:left;font-size:14px;
+}
+.notice-banner strong{color:var(--heading-color);margin-right:8px}
+.admin-trigger-btn{
+display:none;position:absolute;top:25px;right:25px;
+background:rgba(0,0,0,.05);border:1px solid var(--border);
+color:var(--text);padding:8px 16px;border-radius:50px;
+font-size:13px;cursor:pointer;
+}
+.content{padding:40px;flex:1}
+.suggestion-list{display:flex;flex-direction:column;gap:20px;align-items:center}
+.suggestion-card{
+padding:30px;width:100%;border:1px solid var(--border);
+border-radius:20px;background:rgba(255,255,255,.04);
+text-align:left;position:relative;overflow:hidden;
+}
+.card-super-sub{font-size:12px;color:var(--sub-heading);letter-spacing:1px;margin-bottom:4px;font-weight:700;text-align:right}
+.card-sub-head{font-size:14px;color:var(--sub-heading);font-weight:600;margin-bottom:8px;text-align:right}
+.suggestion-card h3{color:var(--heading-color);margin-bottom:12px;font-size:20px;font-family:"Hind Siliguri",sans-serif}
+.suggestion-card p{font-size:16px;line-height:1.6;white-space:pre-line;font-family:"Hind Siliguri",sans-serif}
+.card-meta-row{display:flex;align-items:center;gap:15px;margin-top:15px;flex-wrap:wrap}
+.marks-badge{
+padding:5px 14px;background:rgba(0,0,0,.08);
+border:1px solid var(--border);border-radius:20px;
+font-size:13px;color:var(--heading-color);font-weight:700;
+}
+.signature-btn{
+display:inline-flex;align-items:center;gap:6px;padding:6px 16px;
+background:var(--heading-color);border-radius:20px;
+font-size:13px;color:#fff;font-weight:600;
+margin-left:auto;text-decoration:none;
+}
+.no-data{text-align:center;color:var(--muted);font-size:16px;padding:40px}
+.footer{text-align:center;padding:30px 20px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;margin-top:auto}
+.dev-name{color:var(--heading-color);font-weight:700}
+.details{margin-top:5px;font-size:12px}
+.copy{margin-top:8px;font-size:11px}
+.modal{
+display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+z-index:999;justify-content:center;align-items:center;
+padding:20px;backdrop-filter:blur(8px);
+}
+.modal-content{
+width:min(500px,100%);background:var(--card);
+border:1px solid var(--border);border-radius:24px;
+padding:30px;max-height:90vh;overflow-y:auto;color:var(--text);
+}
+.modal-title{text-align:center;font-size:20px;font-weight:700;margin-bottom:20px;color:var(--heading-color)}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:12px;color:var(--sub-heading);margin-bottom:6px;font-weight:700}
+.form-control{
+width:100%;padding:12px 16px;background:rgba(255,255,255,.06);
+border:1px solid var(--border);border-radius:12px;
+color:inherit;font-size:15px;font-family:inherit;outline:none;
+}
+textarea.form-control{resize:vertical;min-height:100px}
+.btn-group{display:flex;gap:10px;margin-top:20px}
+.btn{flex:1;padding:12px;border-radius:12px;border:none;font-weight:700;cursor:pointer}
+.btn-primary{background:var(--heading-color);color:#fff}
+.btn-secondary{background:rgba(0,0,0,.08);color:var(--text);border:1px solid var(--border)}
+.btn-danger{background:#d9534f;color:#fff}
+.menu-options{display:flex;flex-direction:column;gap:12px}
+.menu-option-btn{
+width:100%;padding:15px;text-align:left;background:rgba(255,255,255,.04);
+border:1px solid var(--border);border-radius:14px;color:inherit;
+font-size:15px;font-weight:600;cursor:pointer;
+display:flex;align-items:center;justify-content:space-between;
+}
+.delete-item-row{
+display:flex;justify-content:space-between;align-items:center;
+padding:12px;background:rgba(255,255,255,.03);
+border:1px solid var(--border);border-radius:10px;margin-bottom:10px;
+}
+.delete-item-row span{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70%}
+@media(max-width:550px){
+body{padding:0}.page{width:100%}.container{border-radius:0;border:none;min-height:100vh}
+.content{padding:20px 14px}.admin-trigger-btn{top:15px;right:15px}
+}
+</style>
 </head>
 
 <body>
-    <div class="page">
-        <div class="container">
-            <!-- HEADER (Centered) -->
-            <header class="app-header">
-                <button class="admin-trigger-btn" id="settingsBtn">⚙️ অ্যাডমিন</button>
-                <div class="badge-top">
-                    <span id="displayBadgeText">DMRC • QUIZ ROUTINE 2026</span>
-                </div>
-                <div class="super-sub-header" id="displaySuperSub">শ্রেণি: দ্বাদশ</div>
-                <h1 class="college-title" id="displayHeaderTitle">ড. মাহবুবুর রহমান মোল্লা কলেজ</h1>
-                <div class="exam-title" id="displaySubHeader">ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬</div>
-                <div class="class-info" id="displayClassInfo">পরীক্ষার্থী: বিজ্ঞান বিভাগ</div>
-            </header>
+<div class="page">
+<div class="container">
 
-            <!-- NOTICE BANNER -->
-            <div id="noticeBanner" class="notice-banner">
-                <strong>📢 নোটিশ:</strong> <span id="noticeTextContent">এখানে নোটিশ প্রদর্শিত হবে।</span>
-            </div>
+<header class="app-header">
+<button class="admin-trigger-btn" id="settingsBtn">⚙️ অ্যাডমিন</button>
+<div class="badge-top"><span></span> DMRC • QUIZ ROUTINE 2026</div>
+<div class="super-sub-header" id="displaySuperSub">শ্রেণি: দ্বাদশ</div>
+<h1 class="college-title" id="displayHeaderTitle">ড. মাহবুবুর রহমান মোল্লা কলেজ</h1>
+<div class="exam-title" id="displaySubHeader">ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬</div>
+<div class="class-info" id="displayClassInfo">পরীক্ষার্থী: বিজ্ঞান বিভাগ</div>
+</header>
 
-            <!-- CONTENT -->
-            <main class="content">
-                <div id="suggestionContainer" class="suggestion-list">
-                    <div class="no-data">সাজেশন লোড হচ্ছে...</div>
-                </div>
-            </main>
+<div id="noticeBanner" class="notice-banner">
+<strong>📢 নোটিশ:</strong><span id="noticeTextContent"></span>
+</div>
 
-            <!-- FOOTER -->
-            <footer class="footer">
-                <div>Developed by <span class="dev-name">JOHIRUL ISLAM SAGOR</span></div>
-                <div class="details">ROLL - 2042 • SECTION - D • DMRC</div>
-                <div class="copy">© 2026 • DMRC QUIZ EXAMINATION</div>
-            </footer>
-        </div>
-    </div>
+<main class="content">
+<div id="suggestionContainer" class="suggestion-list">
+<div class="no-data">সাজেশন লোড হচ্ছে...</div>
+</div>
+</main>
 
-    <!-- MODALS -->
+<footer class="footer">
+<div>Developed by <span class="dev-name">JOHIRUL ISLAM SAGOR</span></div>
+<div class="details">ROLL - 2042 • SECTION - D • DMRC</div>
+<div class="copy">© 2026 • DMRC QUIZ EXAMINATION</div>
+</footer>
 
-    <!-- 1. Firebase Auth Login Modal -->
-    <div class="modal" id="passwordModal">
-        <div class="modal-content">
-            <div class="modal-title">ফায়ারবেস অ্যাডমিন লগইন</div>
-            <div class="form-group">
-                <label>অ্যাডমিন ইমেইল</label>
-                <input type="email" id="adminEmailInput" class="form-control" placeholder="admin@gmail.com">
-            </div>
-            <div class="form-group">
-                <label>পাসওয়ার্ড</label>
-                <input type="password" id="adminPasswordInput" class="form-control" placeholder="পাসওয়ার্ড লিখুন...">
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary" onclick="closeModals()">বাতিল</button>
-                <button type="button" class="btn btn-primary" id="verifyPasswordBtn">লগইন করুন</button>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
 
-    <!-- 2. Settings Options Menu Modal -->
-    <div class="modal" id="settingsMenuModal">
-        <div class="modal-content">
-            <div class="modal-title">অ্যাডমিন কন্ট্রোল প্যানেল</div>
-            <div class="menu-options">
-                <button class="menu-option-btn" onclick="openHeaderEditModal()">
-                    <span>১. হেডার ও এক্সাম নেম এডিট করুন</span> <span>✏️</span>
-                </button>
-                <button class="menu-option-btn" onclick="openAddSuggestionModal()">
-                    <span>২. নতুন সাজেশন যোগ করুন</span> <span>➕</span>
-                </button>
-                <button class="menu-option-btn" onclick="openThemeModal()">
-                    <span>৩. থিম প্যালেট সিলেক্ট করুন</span> <span>🎨</span>
-                </button>
-                <button class="menu-option-btn" onclick="openNoticeModal()">
-                    <span>৪. নোটিশ ম্যানেজ করুন</span> <span>📢</span>
-                </button>
-                <button class="menu-option-btn" onclick="openDeleteModal()">
-                    <span>৫. সাজেশন ডিলিট করুন</span> <span>🗑️</span>
-                </button>
-            </div>
-            <div class="btn-group" style="margin-top: 25px;">
-                <button type="button" class="btn btn-secondary" onclick="closeModals()">বন্ধ করুন</button>
-            </div>
-        </div>
-    </div>
+<!-- LOGIN -->
+<div class="modal" id="passwordModal">
+<div class="modal-content">
+<div class="modal-title">ফায়ারবেস অ্যাডমিন লগইন</div>
+<div class="form-group">
+<label>অ্যাডমিন ইমেইল</label>
+<input type="email" id="adminEmailInput" class="form-control" placeholder="admin@gmail.com">
+</div>
+<div class="form-group">
+<label>পাসওয়ার্ড</label>
+<input type="password" id="adminPasswordInput" class="form-control" placeholder="পাসওয়ার্ড লিখুন...">
+</div>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="closeModals()">বাতিল</button>
+<button class="btn btn-primary" id="verifyPasswordBtn">লগইন করুন</button>
+</div>
+</div>
+</div>
 
-    <!-- 3. Header Edit Modal -->
-    <div class="modal" id="headerEditModal">
-        <div class="modal-content">
-            <div class="modal-title">হেডার ও এক্সাম নেম কাস্টমাইজেশন</div>
-            <div class="form-group">
-                <label>ব্যাজ টেক্সট (যেমন: DMRC • QUIZ ROUTINE 2026)</label>
-                <input type="text" id="editBadgeText" class="form-control" placeholder="যেমন: DMRC • QUIZ ROUTINE 2026">
-            </div>
-            <div class="form-group">
-                <label>সাজেশন সুপার সাব হেড</label>
-                <input type="text" id="editSuperSub" class="form-control" placeholder="যেমন: শ্রেণি: দ্বাদশ">
-            </div>
-            <div class="form-group">
-                <label>সাজেশন হেডলাইন (কলেজের নাম)</label>
-                <input type="text" id="editHeaderTitle" class="form-control" placeholder="যেমন: ড. মাহবুবুর রহমান মোল্লা কলেজ">
-            </div>
-            <div class="form-group">
-                <label>এক্সামের নাম / সাব হেড (যেমন: Dmrc কুইজ -২০২৬)</label>
-                <input type="text" id="editSubHeader" class="form-control" placeholder="যেমন: Dmrc কুইজ -২০২৬">
-            </div>
-            <div class="form-group">
-                <label>নিচের ইনফো</label>
-                <input type="text" id="editClassInfo" class="form-control" placeholder="যেমন: পরীক্ষার্থী: বিজ্ঞান বিভাগ">
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
-                <button type="button" class="btn btn-primary" id="saveHeaderBtn">আপডেট করুন</button>
-            </div>
-        </div>
-    </div>
+<!-- SETTINGS -->
+<div class="modal" id="settingsMenuModal">
+<div class="modal-content">
+<div class="modal-title">অ্যাডমিন কন্ট্রোল প্যানেল</div>
+<div class="menu-options">
+<button class="menu-option-btn" onclick="openHeaderEditModal()">১. হেডার, সাব ও সুপার হেডার এডিট করুন ✏️</button>
+<button class="menu-option-btn" onclick="openAddSuggestionModal()">২. নতুন সাজেশন যোগ করুন ➕</button>
+<button class="menu-option-btn" onclick="openThemeModal()">৩. থিম প্যালেট সিলেক্ট করুন 🎨</button>
+<button class="menu-option-btn" onclick="openNoticeModal()">৪. নোটিশ ম্যানেজ করুন 📢</button>
+<button class="menu-option-btn" onclick="openDeleteModal()">৫. সাজেশন ডিলিট করুন 🗑️</button>
+</div>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="closeModals()">বন্ধ করুন</button>
+</div>
+</div>
+</div>
 
-    <!-- 4. Add Suggestion Modal -->
-    <div class="modal" id="addSuggestionModal">
-        <div class="modal-content">
-            <div class="modal-title">নতুন সাজেশন যোগ করুন</div>
-            <div class="form-group">
-                <label>সাজেশন সুপার সাব হেড</label>
-                <input type="text" id="sugSuperSubField" class="form-control" placeholder="যেমন: PART - A">
-            </div>
-            <div class="form-group">
-                <label>সাজেশন সাব হেড</label>
-                <input type="text" id="sugSubHeadField" class="form-control" placeholder="যেমন: Reading Test">
-            </div>
-            <div class="form-group">
-                <label>সাজেশন হেডলাইন</label>
-                <input type="text" id="suggestionHeadline" class="form-control" placeholder="যেমন: Seen Passage 1...">
-            </div>
-            <div class="form-group">
-                <label>কনটেন্ট / মূল বিবরণ</label>
-                <textarea id="suggestionContent" class="form-control" placeholder="সাজেশনের বিস্তারিত লিখুন..."></textarea>
-            </div>
-            <div class="form-group">
-                <label>মান বণ্টন (ঐচ্ছিক)</label>
-                <input type="text" id="suggestionMarks" class="form-control" placeholder="যেমন: পূর্ণমান: ১০">
-            </div>
-            <div class="form-group">
-                <label>সিগন্যাচার বাটন (টেক্সট ও লিংক)</label>
-                <div style="display: flex; gap: 8px;">
-                    <input type="text" id="suggestionSigText" class="form-control" placeholder="বাটনের নাম (যেমন: Sagor)" style="flex:1;">
-                    <input type="text" id="suggestionSigLink" class="form-control" placeholder="লিংক (ঐচ্ছিক)" style="flex:1;">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>কনটেন্ট বক্সের ধরন (Class অপশন)</label>
-                <input type="text" id="sugBoxType" class="form-control" placeholder="যেমন: custom-card">
-            </div>
-            <div class="form-group">
-                <label>কনটেন্ট বক্স ডাইমেনশন (দৈর্ঘ্য ও প্রস্থ)</label>
-                <div style="display: flex; gap: 8px;">
-                    <input type="text" id="sugBoxWidth" class="form-control" placeholder="Width যেমন: 100%" value="100%">
-                    <input type="text" id="sugBoxHeight" class="form-control" placeholder="Min-Height যেমন: auto" value="auto">
-                </div>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
-                <button type="button" class="btn btn-primary" id="saveSuggestionBtn">সেভ করুন</button>
-            </div>
-        </div>
-    </div>
+<!-- HEADER EDIT -->
+<div class="modal" id="headerEditModal">
+<div class="modal-content">
+<div class="modal-title">হেডার কাস্টমাইজেশন</div>
+<div class="form-group"><label>সাজেশন সুপার সাব হেড</label><input id="editSuperSub" class="form-control"></div>
+<div class="form-group"><label>সাজেশন হেডলাইন</label><input id="editHeaderTitle" class="form-control"></div>
+<div class="form-group"><label>সাজেশন সাব হেড</label><input id="editSubHeader" class="form-control"></div>
+<div class="form-group"><label>নিচের ইনফো</label><input id="editClassInfo" class="form-control"></div>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+<button class="btn btn-primary" id="saveHeaderBtn">আপডেট করুন</button>
+</div>
+</div>
+</div>
 
-    <!-- 5. Theme Palette Select Modal -->
-    <div class="modal" id="themeModal">
-        <div class="modal-content">
-            <div class="modal-title">থিম কালার প্যালেট নির্বাচন</div>
-            <div class="form-group">
-                <label>পছন্দের কালার কম্বিনেশন সিলেক্ট করুন</label>
-                <select id="themeSelectDropdown" class="form-control">
-                    <option value="dusty_rose">Dusty rose + warm beige</option>
-                    <option value="olive_green">Olive green + warm beige</option>
-                    <option value="warm_toupe">Warm toupe + dark walnut</option>
-                    <option value="sage_green">Sage green + ivory</option>
-                    <option value="mocha">Mocha + beige</option>
-                    <option value="dusty_blue">Dusty blue + crisp white</option>
-                    <option value="warm_caramel">Warm caramel + chocolate</option>
-                </select>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
-                <button type="button" class="btn btn-primary" id="saveThemeBtn">থিম এপ্লাই করুন</button>
-            </div>
-        </div>
-    </div>
+<!-- ADD SUGGESTION -->
+<div class="modal" id="addSuggestionModal">
+<div class="modal-content">
+<div class="modal-title">নতুন সাজেশন যোগ করুন</div>
+<div class="form-group"><label>সুপার সাব হেড</label><input id="sugSuperSubField" class="form-control"></div>
+<div class="form-group"><label>সাব হেড</label><input id="sugSubHeadField" class="form-control"></div>
+<div class="form-group"><label>সাজেশন হেডলাইন</label><input id="suggestionHeadline" class="form-control"></div>
+<div class="form-group"><label>কনটেন্ট</label><textarea id="suggestionContent" class="form-control"></textarea></div>
+<div class="form-group"><label>মান বণ্টন</label><input id="suggestionMarks" class="form-control"></div>
+<div class="form-group"><label>বাটন টেক্সট</label><input id="suggestionSigText" class="form-control"></div>
+<div class="form-group"><label>বাটন লিংক</label><input id="suggestionSigLink" class="form-control"></div>
+<div class="form-group"><label>Box Class</label><input id="sugBoxType" class="form-control"></div>
+<div class="form-group"><label>Box Width</label><input id="sugBoxWidth" class="form-control" value="100%"></div>
+<div class="form-group"><label>Box Height</label><input id="sugBoxHeight" class="form-control" value="auto"></div>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+<button class="btn btn-primary" id="saveSuggestionBtn">সেভ করুন</button>
+</div>
+</div>
+</div>
 
-    <!-- 6. Notice Edit Modal -->
-    <div class="modal" id="noticeModal">
-        <div class="modal-content">
-            <div class="modal-title">নোটিশ ম্যানেজ করুন</div>
-            <div class="form-group">
-                <label>নোটিশ টেক্সট (খালি রাখলে নোটিশ হাইড থাকবে)</label>
-                <textarea id="noticeInputText" class="form-control" placeholder="গুরুত্বপূর্ণ নোটিশ এখানে লিখুন..."></textarea>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
-                <button type="button" class="btn btn-primary" id="saveNoticeBtn">নোটিশ পাবলিশ করুন</button>
-            </div>
-        </div>
-    </div>
+<!-- THEME -->
+<div class="modal" id="themeModal">
+<div class="modal-content">
+<div class="modal-title">থিম কালার প্যালেট নির্বাচন</div>
+<div class="form-group">
+<label>কালার কম্বিনেশন</label>
+<select id="themeSelectDropdown" class="form-control">
+<option value="dusty_rose">Dusty rose + warm beige</option>
+<option value="olive_green">Olive green + warm beige</option>
+<option value="warm_toupe">Warm toupe + dark walnut</option>
+<option value="sage_green">Sage green + ivory</option>
+<option value="mocha">Mocha + beige</option>
+<option value="dusty_blue">Dusty blue + crisp white</option>
+<option value="warm_caramel">Warm caramel + chocolate</option>
+</select>
+</div>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+<button class="btn btn-primary" id="saveThemeBtn">থিম এপ্লাই করুন</button>
+</div>
+</div>
+</div>
 
-    <!-- 7. Delete Suggestion Modal -->
-    <div class="modal" id="deleteSuggestionModal">
-        <div class="modal-content">
-            <div class="modal-title">সাজেশন ডিলিট করুন</div>
-            <div id="deleteAllContainer" style="margin-bottom: 15px; display: none;">
-                <button type="button" class="btn btn-danger" style="width: 100%; padding: 12px; font-size: 14px;" onclick="deleteAllSuggestions()">⚠️ সব সাজেশন একসাথে ডিলিট করুন</button>
-                <hr style="border: 0; border-top: 1px solid var(--border); margin: 15px 0;">
-            </div>
-            <div id="deleteItemList" style="max-height: 220px; overflow-y: auto; margin-bottom: 15px;"></div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
-            </div>
-        </div>
-    </div>
+<!-- NOTICE -->
+<div class="modal" id="noticeModal">
+<div class="modal-content">
+<div class="modal-title">নোটিশ ম্যানেজ করুন</div>
+<div class="form-group">
+<label>নোটিশ টেক্সট</label>
+<textarea id="noticeInputText" class="form-control"></textarea>
+</div>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+<button class="btn btn-primary" id="saveNoticeBtn">নোটিশ পাবলিশ করুন</button>
+</div>
+</div>
+</div>
 
-    <!-- FIREBASE AND APP SCRIPT -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, getDoc, setDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+<!-- DELETE -->
+<div class="modal" id="deleteSuggestionModal">
+<div class="modal-content">
+<div class="modal-title">সাজেশন ডিলিট করুন</div>
+<div id="deleteAllContainer" style="display:none;margin-bottom:15px">
+<button class="btn btn-danger" style="width:100%" onclick="deleteAllSuggestions()">⚠️ সব সাজেশন ডিলিট</button>
+<hr style="margin:15px 0;border:0;border-top:1px solid var(--border)">
+</div>
+<div id="deleteItemList"></div>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+</div>
+</div>
+</div>
 
-        const firebaseConfig = {
-          apiKey: "AIzaSyDaNdM-tMKoC1ljHjj--TN9Yzqj2t68GK0",
-          authDomain: "english-suggestion-1bbbe.firebaseapp.com",
-          projectId: "english-suggestion-1bbbe",
-          storageBucket: "english-suggestion-1bbbe.firebasestorage.app",
-          messagingSenderId: "92971469167",
-          appId: "1:92971469167:web:b97cddf414c617a287c09a",
-          measurementId: "G-J4XK10K778"
-        };
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import {
+getFirestore,collection,addDoc,getDocs,deleteDoc,doc,getDoc,setDoc,query,orderBy
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import {getAuth,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
+const firebaseConfig={
+apiKey:"AIzaSyDaNdM-tMKoC1ljHjj--TN9Yzqj2t68GK0",
+authDomain:"english-suggestion-1bbbe.firebaseapp.com",
+projectId:"english-suggestion-1bbbe",
+storageBucket:"english-suggestion-1bbbe.firebasestorage.app",
+messagingSenderId:"92971469167",
+appId:"1:92971469167:web:b97cddf414c617a287c09a",
+measurementId:"G-J4XK10K778"
+};
 
-        const suggestionContainer = document.getElementById("suggestionContainer");
-        const settingsBtn = document.getElementById("settingsBtn");
-        const displayBadgeText = document.getElementById("displayBadgeText");
-        const displaySuperSub = document.getElementById("displaySuperSub");
-        const displayHeaderTitle = document.getElementById("displayHeaderTitle");
-        const displaySubHeader = document.getElementById("displaySubHeader");
-        const displayClassInfo = document.getElementById("displayClassInfo");
-        const noticeBanner = document.getElementById("noticeBanner");
-        const noticeTextContent = document.getElementById("noticeTextContent");
-        
-        const passwordModal = document.getElementById("passwordModal");
-        const settingsMenuModal = document.getElementById("settingsMenuModal");
-        const headerEditModal = document.getElementById("headerEditModal");
-        const addSuggestionModal = document.getElementById("addSuggestionModal");
-        const themeModal = document.getElementById("themeModal");
-        const noticeModal = document.getElementById("noticeModal");
-        const deleteSuggestionModal = document.getElementById("deleteSuggestionModal");
+const app=initializeApp(firebaseConfig);
+const db=getFirestore(app);
+const auth=getAuth(app);
 
-        // URL চেক করে ?admin=admin69 থাকলে অ্যাডমিন বাটন শো করা
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('admin') === 'admin69') {
-            settingsBtn.style.display = "block";
-        }
+const $=id=>document.getElementById(id);
 
-        const themePalettesObj = {
-            dusty_rose: { bg: "#f7f2f0", card: "#e8ded8", heading: "#5a3e36", subHeading: "#7c584d", text: "#4a332c", muted: "#8c7268", border: "rgba(90, 62, 54, 0.15)" },
-            olive_green: { bg: "#f4f5f0", card: "#e2e6db", heading: "#384232", subHeading: "#55634d", text: "#2e3629", muted: "#6f7d67", border: "rgba(56, 66, 50, 0.15)" },
-            warm_toupe: { bg: "#24201e", card: "#1b1715", heading: "#d8c5b2", subHeading: "#b39c87", text: "#e6d7cc", muted: "#8c7c70", border: "rgba(216, 197, 178, 0.15)" },
-            sage_green: { bg: "#f2f7f5", card: "#e3ede9", heading: "#2c4a3e", subHeading: "#44705e", text: "#223b31", muted: "#6a8c7f", border: "rgba(44, 74, 62, 0.15)" },
-            mocha: { bg: "#f5f0eb", card: "#e6dbd0", heading: "#4a3525", subHeading: "#73533c", text: "#3b2a1d", muted: "#8c7362", border: "rgba(74, 53, 37, 0.15)" },
-            dusty_blue: { bg: "#f0f4f8", card: "#dce6f0", heading: "#23405c", subHeading: "#3a6085", text: "#1b3147", muted: "#6a85a3", border: "rgba(35, 64, 92, 0.15)" },
-            warm_caramel: { bg: "#241e1b", card: "#1a1513", heading: "#e09f63", subHeading: "#b8763a", text: "#f2d6bd", muted: "#9c7c63", border: "rgba(224, 159, 99, 0.15)" }
-        };
+const passwordModal=$("passwordModal");
+const settingsMenuModal=$("settingsMenuModal");
+const headerEditModal=$("headerEditModal");
+const addSuggestionModal=$("addSuggestionModal");
+const themeModal=$("themeModal");
+const noticeModal=$("noticeModal");
+const deleteSuggestionModal=$("deleteSuggestionModal");
 
-        window.closeModals = function() {
-            passwordModal.style.display = "none";
-            settingsMenuModal.style.display = "none";
-            headerEditModal.style.display = "none";
-            addSuggestionModal.style.display = "none";
-            themeModal.style.display = "none";
-            noticeModal.style.display = "none";
-            deleteSuggestionModal.style.display = "none";
-        }
+const settingsBtn=$("settingsBtn");
 
-        window.openSettingsMenu = function() {
-            closeModals();
-            settingsMenuModal.style.display = "flex";
-        }
+const urlParams=new URLSearchParams(location.search);
+if(urlParams.get("admin")==="admin69"){
+settingsBtn.style.display="block";
+}
 
-        window.openHeaderEditModal = async function() {
-            closeModals();
-            headerEditModal.style.display = "flex";
-            try {
-                const docSnap = await getDoc(doc(db, "settings", "headerConfig"));
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    document.getElementById("editBadgeText").value = data.badgeText || "DMRC • QUIZ ROUTINE 2026";
-                    document.getElementById("editSuperSub").value = data.superSub || "শ্রেণি: দ্বাদশ";
-                    document.getElementById("editHeaderTitle").value = data.headerTitle || "ড. মাহবুবুর রহমান মোল্লা কলেজ";
-                    document.getElementById("editSubHeader").value = data.subHeader || "Dmrc কুইজ -২০২৬";
-                    document.getElementById("editClassInfo").value = data.classInfo || "পরীক্ষার্থী: বিজ্ঞান বিভাগ";
-                }
-            } catch (e) {}
-        }
+window.closeModals=()=>{
+[passwordModal,settingsMenuModal,headerEditModal,addSuggestionModal,themeModal,noticeModal,deleteSuggestionModal]
+.forEach(m=>m.style.display="none");
+};
 
-        window.openAddSuggestionModal = function() {
-            closeModals();
-            addSuggestionModal.style.display = "flex";
-        }
+window.openSettingsMenu=()=>{
+closeModals();
+settingsMenuModal.style.display="flex";
+};
 
-        window.openThemeModal = async function() {
-            closeModals();
-            themeModal.style.display = "flex";
-            try {
-                const docSnap = await getDoc(doc(db, "settings", "themeConfig"));
-                if (docSnap.exists() && docSnap.data().themeName) {
-                    document.getElementById("themeSelectDropdown").value = docSnap.data().themeName;
-                }
-            } catch (e) {}
-        }
+window.openHeaderEditModal=async()=>{
+closeModals();
+headerEditModal.style.display="flex";
+try{
+const s=await getDoc(doc(db,"settings","headerConfig"));
+const d=s.exists()?s.data():{};
+$("editSuperSub").value=d.superSub||"শ্রেণি: দ্বাদশ";
+$("editHeaderTitle").value=d.headerTitle||"ড. মাহবুবুর রহমান মোল্লা কলেজ";
+$("editSubHeader").value=d.subHeader||"ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬";
+$("editClassInfo").value=d.classInfo||"পরীক্ষার্থী: বিজ্ঞান বিভাগ";
+}catch(e){console.error(e);}
+};
 
-        window.openNoticeModal = async function() {
-            closeModals();
-            noticeModal.style.display = "flex";
-            try {
-                const docSnap = await getDoc(doc(db, "settings", "noticeConfig"));
-                if (docSnap.exists()) {
-                    document.getElementById("noticeInputText").value = docSnap.data().noticeText || "";
-                }
-            } catch (e) {}
-        }
+window.openAddSuggestionModal=()=>{
+closeModals();
+addSuggestionModal.style.display="flex";
+};
 
-        settingsBtn.addEventListener("click", () => {
-            document.getElementById("adminEmailInput").value = "";
-            document.getElementById("adminPasswordInput").value = "";
-            closeModals();
-            passwordModal.style.display = "flex";
-        });
+window.openThemeModal=async()=>{
+closeModals();
+themeModal.style.display="flex";
+try{
+const s=await getDoc(doc(db,"settings","themeConfig"));
+if(s.exists())$("themeSelectDropdown").value=s.data().themeName||"dusty_rose";
+}catch(e){}
+};
 
-        document.getElementById("verifyPasswordBtn").addEventListener("click", async () => {
-            const email = document.getElementById("adminEmailInput").value.trim();
-            const password = document.getElementById("adminPasswordInput").value;
+window.openNoticeModal=async()=>{
+closeModals();
+noticeModal.style.display="flex";
+try{
+const s=await getDoc(doc(db,"settings","noticeConfig"));
+$("noticeInputText").value=s.exists()?s.data().noticeText||"":"";
+}catch(e){}
+};
 
-            if (!email || !password) {
-                alert("দয়া করে ইমেইল ও পাসওয়ার্ড দিন।");
-                return;
-            }
+settingsBtn.addEventListener("click",()=>{
+$("adminEmailInput").value="";
+$("adminPasswordInput").value="";
+closeModals();
+passwordModal.style.display="flex";
+});
 
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                openSettingsMenu();
-            } catch (error) {
-                alert("লগইন ব্যর্থ হয়েছে: " + error.message);
-            }
-        });
+$("verifyPasswordBtn").addEventListener("click",async()=>{
+const email=$("adminEmailInput").value.trim();
+const password=$("adminPasswordInput").value;
+if(!email||!password)return alert("ইমেইল ও পাসওয়ার্ড দিন।");
+try{
+await signInWithEmailAndPassword(auth,email,password);
+openSettingsMenu();
+}catch(e){
+alert("লগইন ব্যর্থ: "+e.message);
+}
+});
 
-        function applyThemeToDOM(themeKey) {
-            localStorage.setItem('dmrc_theme', themeKey);
-            const palette = themePalettesObj[themeKey] || themePalettesObj["dusty_rose"];
-            const root = document.documentElement;
-            root.style.setProperty('--bg', palette.bg);
-            root.style.setProperty('--card', palette.card);
-            root.style.setProperty('--heading-color', palette.heading);
-            root.style.setProperty('--sub-heading', palette.subHeading);
-            root.style.setProperty('--text', palette.text);
-            root.style.setProperty('--muted', palette.muted);
-            root.style.setProperty('--border', palette.border);
-            root.style.backgroundColor = palette.bg;
-        }
+function applyTheme(key){
+const p=themePalettes[key]||themePalettes.dusty_rose;
+localStorage.setItem("dmrc_theme",key);
+const r=document.documentElement;
+r.style.setProperty("--bg",p.bg);
+r.style.setProperty("--card",p.card);
+r.style.setProperty("--heading-color",p.heading);
+r.style.setProperty("--sub-heading",p.subHeading);
+r.style.setProperty("--text",p.text);
+r.style.setProperty("--muted",p.muted);
+r.style.setProperty("--border",p.border);
+}
 
-        async function loadAppData() {
-            try {
-                const docSnap = await getDoc(doc(db, "settings", "headerConfig"));
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    displayBadgeText.innerText = data.badgeText || "DMRC • QUIZ ROUTINE 2026";
-                    displaySuperSub.innerText = data.superSub || "শ্রেণি: দ্বাদশ";
-                    displayHeaderTitle.innerText = data.headerTitle || "ড. মাহবুবুর রহমান মোল্লা কলেজ";
-                    displaySubHeader.innerText = data.subHeader || "Dmrc কুইজ -২০২৬";
-                    displayClassInfo.innerText = data.classInfo || "পরীক্ষার্থী: বিজ্ঞান বিভাগ";
-                }
-            } catch (e) {}
+function escapeHtml(value){
+return String(value??"").replace(/[&<>"']/g,m=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+}[m]));
+}
 
-            try {
-                const themeSnap = await getDoc(doc(db, "settings", "themeConfig"));
-                if (themeSnap.exists() && themeSnap.data().themeName) {
-                    applyThemeToDOM(themeSnap.data().themeName);
-                }
-            } catch (e) {}
+async function loadAppData(){
+ document.body.classList.remove("app-ready");
+ const loader=document.getElementById("initialLoader");
+ if(loader) loader.classList.remove("hidden");
 
-            try {
-                const noticeSnap = await getDoc(doc(db, "settings", "noticeConfig"));
-                if (noticeSnap.exists() && noticeSnap.data().noticeText) {
-                    noticeTextContent.innerText = noticeSnap.data().noticeText;
-                    noticeBanner.style.display = "block";
-                } else {
-                    noticeBanner.style.display = "none";
-                }
-            } catch (e) {
-                noticeBanner.style.display = "none";
-            }
+try{
+const s=await getDoc(doc(db,"settings","headerConfig"));
+if(s.exists()){
+const d=s.data();
+$("displaySuperSub").innerText=d.superSub||"শ্রেণি: দ্বাদশ";
+$("displayHeaderTitle").innerText=d.headerTitle||"ড. মাহবুবুর রহমান মোল্লা কলেজ";
+$("displaySubHeader").innerText=d.subHeader||"ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬";
+$("displayClassInfo").innerText=d.classInfo||"পরীক্ষার্থী: বিজ্ঞান বিভাগ";
+}
+}catch(e){console.error("Header:",e);}
 
-            suggestionContainer.innerHTML = `<div class="no-data">সাজেশন লোড হচ্ছে...</div>`;
-            try {
-                const q = query(collection(db, "suggestions"), orderBy("createdAt", "asc"));
-                const querySnapshot = await getDocs(q);
-                suggestionContainer.innerHTML = "";
-                
-                if (querySnapshot.empty) {
-                    suggestionContainer.innerHTML = `<div class="no-data">কোনো সাজেশন পাওয়া যায়নি।</div>`;
-                    return;
-                }
+try{
+const s=await getDoc(doc(db,"settings","themeConfig"));
+if(s.exists()&&s.data().themeName)applyTheme(s.data().themeName);
+}catch(e){}
 
-                querySnapshot.forEach((docSnap) => {
-                    const data = docSnap.data();
-                    const card = document.createElement("div");
-                    
-                    card.className = "suggestion-card " + (data.sugBoxType || "");
-                    if (data.boxWidth) card.style.width = data.boxWidth;
-                    if (data.boxHeight) card.style.minHeight = data.boxHeight;
-                    
-                    let htmlContent = "";
-                    if (data.superSubField) {
-                        htmlContent += `<div class="card-super-sub">${escapeHtml(data.superSubField)}</div>`;
-                    }
-                    if (data.subHeadField) {
-                        htmlContent += `<div class="card-sub-head">${escapeHtml(data.subHeadField)}</div>`;
-                    }
-                    if (data.headline) {
-                        htmlContent += `<h3>${escapeHtml(data.headline)}</h3>`;
-                    }
-                    htmlContent += `<p>${escapeHtml(data.content)}</p>`;
-                    
-                    if (data.marks || data.sigText) {
-                        htmlContent += `<div class="card-meta-row">`;
-                        if (data.marks) {
-                            htmlContent += `<div class="marks-badge">${escapeHtml(data.marks)}</div>`;
-                        }
-                        if (data.sigText) {
-                            if (data.sigLink) {
-                                htmlContent += `<a href="${escapeHtml(data.sigLink)}" target="_blank" class="signature-btn">${escapeHtml(data.sigText)} ↗</a>`;
-                            } else {
-                                htmlContent += `<div class="signature-btn">${escapeHtml(data.sigText)}</div>`;
-                            }
-                        }
-                        htmlContent += `</div>`;
-                    }
-                    
-                    card.innerHTML = htmlContent;
-                    suggestionContainer.appendChild(card);
-                });
-            } catch (error) {
-                suggestionContainer.innerHTML = `<div class="no-data">ডেটা লোড করতে সমস্যা হয়েছে।</div>`;
-            }
-        }
+try{
+const s=await getDoc(doc(db,"settings","noticeConfig"));
+const text=s.exists()?s.data().noticeText||"":"";
+if(text){
+$("noticeTextContent").innerText=text;
+$("noticeBanner").style.display="block";
+}else $("noticeBanner").style.display="none";
+}catch(e){$("noticeBanner").style.display="none";}
 
-        document.getElementById("saveHeaderBtn").addEventListener("click", async () => {
-            const badgeText = document.getElementById("editBadgeText").value.trim();
-            const superSub = document.getElementById("editSuperSub").value.trim();
-            const headerTitle = document.getElementById("editHeaderTitle").value.trim();
-            const subHeader = document.getElementById("editSubHeader").value.trim();
-            const classInfo = document.getElementById("editClassInfo").value.trim();
+const box=$("suggestionContainer");
+box.innerHTML='<div class="no-data">সাজেশন লোড হচ্ছে...</div>';
 
-            try {
-                await setDoc(doc(db, "settings", "headerConfig"), { badgeText, superSub, headerTitle, subHeader, classInfo });
-                alert("হেডার সফলভাবে আপডেট করা হয়েছে!");
-                closeModals();
-                loadAppData();
-            } catch (error) {
-                alert("আপডেট করতে সমস্যা হয়েছে: " + error.message);
-            }
-        });
+try{
+const snap=await getDocs(collection(db,"suggestions"));
+box.innerHTML="";
 
-        document.getElementById("saveSuggestionBtn").addEventListener("click", async () => {
-            const superSubField = document.getElementById("sugSuperSubField").value.trim();
-            const subHeadField = document.getElementById("sugSubHeadField").value.trim();
-            const headline = document.getElementById("suggestionHeadline").value.trim();
-            const content = document.getElementById("suggestionContent").value.trim();
-            const marks = document.getElementById("suggestionMarks").value.trim();
-            const sigText = document.getElementById("suggestionSigText").value.trim();
-            const sigLink = document.getElementById("suggestionSigLink").value.trim();
-            const sugBoxType = document.getElementById("sugBoxType").value.trim();
-            const boxWidth = document.getElementById("sugBoxWidth").value.trim();
-            const boxHeight = document.getElementById("sugBoxHeight").value.trim();
+if(snap.empty){
+box.innerHTML='<div class="no-data">কোনো সাজেশন পাওয়া যায়নি।</div>';
+return;
+}
 
-            if (!content) {
-                alert("দয়া করে কনটেন্ট লিখুন।");
-                return;
-            }
+const docs=[...snap.docs].sort((a,b)=>{
+const x=a.data().createdAt?.seconds||0;
+const y=b.data().createdAt?.seconds||0;
+return x-y;
+});
 
-            try {
-                await addDoc(collection(db, "suggestions"), {
-                    superSubField, subHeadField, headline, content, marks, sigText, sigLink, sugBoxType, boxWidth, boxHeight, createdAt: new Date()
-                });
-                
-                alert("সাজেশন সফলভাবে যোগ করা হয়েছে!");
-                document.getElementById("sugSuperSubField").value = "";
-                document.getElementById("sugSubHeadField").value = "";
-                document.getElementById("suggestionHeadline").value = "";
-                document.getElementById("suggestionContent").value = "";
-                document.getElementById("suggestionMarks").value = "";
-                document.getElementById("suggestionSigText").value = "";
-                document.getElementById("suggestionSigLink").value = "";
-                document.getElementById("sugBoxType").value = "";
-                
-                closeModals();
-                loadAppData();
-            } catch (error) {
-                alert("সেভ করতে সমস্যা হয়েছে: " + error.message);
-            }
-        });
+docs.forEach(ds=>{
+const d=ds.data();
+const card=document.createElement("div");
+card.className="suggestion-card "+(d.sugBoxType||"");
 
-        document.getElementById("saveThemeBtn").addEventListener("click", async () => {
-            const themeName = document.getElementById("themeSelectDropdown").value;
-            try {
-                await setDoc(doc(db, "settings", "themeConfig"), { themeName });
-                applyThemeToDOM(themeName);
-                alert("থিম সফলভাবে এপ্লাই করা হয়েছে!");
-                closeModals();
-                loadAppData();
-            } catch (error) {
-                alert("থিম সেভ করতে সমস্যা হয়েছে: " + error.message);
-            }
-        });
+if(d.boxWidth)card.style.width=d.boxWidth;
+if(d.boxHeight&&d.boxHeight!=="auto")card.style.minHeight=d.boxHeight;
 
-        document.getElementById("saveNoticeBtn").addEventListener("click", async () => {
-            const noticeText = document.getElementById("noticeInputText").value.trim();
-            try {
-                await setDoc(doc(db, "settings", "noticeConfig"), { noticeText });
-                alert("নোটিশ সফলভাবে আপডেট করা হয়েছে!");
-                closeModals();
-                loadAppData();
-            } catch (error) {
-                alert("নোটিশ সেভ করতে সমস্যা হয়েছে: " + error.message);
-            }
-        });
+let html="";
 
-        window.openDeleteModal = async function() {
-            closeModals();
-            deleteSuggestionModal.style.display = "flex";
-            const deleteItemList = document.getElementById("deleteItemList");
-            const deleteAllContainer = document.getElementById("deleteAllContainer");
-            deleteItemList.innerHTML = `<div class="no-data" style="padding:10px;">লোড হচ্ছে...</div>`;
-            deleteAllContainer.style.display = "none";
+if(d.superSubField)html+=`<div class="card-super-sub">${escapeHtml(d.superSubField)}</div>`;
+if(d.subHeadField)html+=`<div class="card-sub-head">${escapeHtml(d.subHeadField)}</div>`;
+if(d.headline)html+=`<h3>${escapeHtml(d.headline)}</h3>`;
 
-            try {
-                const q = query(collection(db, "suggestions"), orderBy("createdAt", "asc"));
-                const querySnapshot = await getDocs(q);
-                deleteItemList.innerHTML = "";
+html+=`<p>${escapeHtml(d.content)}</p>`;
 
-                if (querySnapshot.empty) {
-                    deleteItemList.innerHTML = `<div class="no-data" style="padding:10px;">ডিলিট করার মতো কিছু নেই।</div>`;
-                    return;
-                }
+if(d.marks||d.sigText){
+html+='<div class="card-meta-row">';
+if(d.marks)html+=`<div class="marks-badge">${escapeHtml(d.marks)}</div>`;
+if(d.sigText){
+if(d.sigLink){
+html+=`<a href="${escapeHtml(d.sigLink)}" target="_blank" rel="noopener" class="signature-btn">${escapeHtml(d.sigText)} ↗</a>`;
+}else{
+html+=`<div class="signature-btn">${escapeHtml(d.sigText)}</div>`;
+}
+}
+html+="</div>";
+}
 
-                deleteAllContainer.style.display = "block";
-                querySnapshot.forEach((docSnap) => {
-                    const data = docSnap.data();
-                    const row = document.createElement("div");
-                    row.className = "delete-item-row";
-                    const titleText = data.headline ? data.headline : (data.content.substring(0, 30) + "...");
-                    row.innerHTML = `
-                        <span>${escapeHtml(titleText)}</span>
-                        <button class="btn btn-danger" style="padding: 6px 12px; font-size:12px; flex:none;" onclick="deleteSuggestionItem('${docSnap.id}')">ডিলিট</button>
-                    `;
-                    deleteItemList.appendChild(row);
-                });
-            } catch (error) {
-                deleteItemList.innerHTML = `<div class="no-data" style="padding:10px;">লোড করতে সমস্যা হয়েছে।</div>`;
-            }
-        }
+card.innerHTML=html;
+box.appendChild(card);
+});
 
-        window.deleteSuggestionItem = async function(id) {
-            if (confirm("সাজেশনটি ডিলিট করতে চান?")) {
-                try {
-                    await deleteDoc(doc(db, "suggestions", id));
-                    alert("সাজেশন সফলভাবে ডিলিট করা হয়েছে!");
-                    openDeleteModal();
-                    loadAppData();
-                } catch (error) {
-                    alert("ডিলিট করতে সমস্যা হয়েছে: " + error.message);
-                }
-            }
-        }
+}catch(e){
+console.error("Suggestions:",e);
+box.innerHTML='<div class="no-data">ডেটা লোড করতে সমস্যা হয়েছে।</div>';
+}
+}
 
-        window.deleteAllSuggestions = async function() {
-            if (confirm("⚠️ সতর্কতা: সব সাজেশন একসাথে ডিলিট করতে চান?")) {
-                try {
-                    const querySnapshot = await getDocs(collection(db, "suggestions"));
-                    const deletePromises = [];
-                    querySnapshot.forEach((docSnap) => {
-                        deletePromises.push(deleteDoc(doc(db, "suggestions", docSnap.id)));
-                    });
-                    await Promise.all(deletePromises);
-                    alert("সকল সাজেশন সফলভাবে ডিলিট করা হয়েছে!");
-                    openDeleteModal();
-                    loadAppData();
-                } catch (error) {
-                    alert("সব সাজেশন ডিলিট করতে সমস্যা হয়েছে: " + error.message);
-                }
-            }
-        }
+$("saveHeaderBtn").addEventListener("click",async()=>{
+try{
+await setDoc(doc(db,"settings","headerConfig"),{
+superSub:$("editSuperSub").value.trim(),
+headerTitle:$("editHeaderTitle").value.trim(),
+subHeader:$("editSubHeader").value.trim(),
+classInfo:$("editClassInfo").value.trim()
+});
+alert("হেডার আপডেট হয়েছে!");
+closeModals();
+loadAppData();
+}catch(e){alert("আপডেট সমস্যা: "+e.message);}
+});
 
-        function escapeHtml(text) {
-            if (!text) return "";
-            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
-        }
+$("saveSuggestionBtn").addEventListener("click",async()=>{
+const content=$("suggestionContent").value.trim();
+if(!content)return alert("কনটেন্ট লিখুন।");
 
-        loadAppData();
-    </script>
+try{
+await addDoc(collection(db,"suggestions"),{
+superSubField:$("sugSuperSubField").value.trim(),
+subHeadField:$("sugSubHeadField").value.trim(),
+headline:$("suggestionHeadline").value.trim(),
+content,
+marks:$("suggestionMarks").value.trim(),
+sigText:$("suggestionSigText").value.trim(),
+sigLink:$("suggestionSigLink").value.trim(),
+sugBoxType:$("sugBoxType").value.trim(),
+boxWidth:$("sugBoxWidth").value.trim()||"100%",
+boxHeight:$("sugBoxHeight").value.trim()||"auto",
+createdAt:new Date()
+});
+
+alert("সাজেশন যোগ হয়েছে!");
+document.querySelectorAll("#addSuggestionModal input,#addSuggestionModal textarea").forEach(x=>x.value="");
+$("sugBoxWidth").value="100%";
+$("sugBoxHeight").value="auto";
+closeModals();
+loadAppData();
+}catch(e){alert("সেভ সমস্যা: "+e.message);}
+});
+
+$("saveThemeBtn").addEventListener("click",async()=>{
+const themeName=$("themeSelectDropdown").value;
+try{
+await setDoc(doc(db,"settings","themeConfig"),{themeName});
+applyTheme(themeName);
+alert("থিম এপ্লাই হয়েছে!");
+closeModals();
+}catch(e){alert("থিম সমস্যা: "+e.message);}
+});
+
+$("saveNoticeBtn").addEventListener("click",async()=>{
+try{
+await setDoc(doc(db,"settings","noticeConfig"),{
+noticeText:$("noticeInputText").value.trim()
+});
+alert("নোটিশ আপডেট হয়েছে!");
+closeModals();
+loadAppData();
+}catch(e){alert("নোটিশ সমস্যা: "+e.message);}
+});
+
+window.openDeleteModal=async()=>{
+closeModals();
+deleteSuggestionModal.style.display="flex";
+
+const list=$("deleteItemList");
+const all=$("deleteAllContainer");
+list.innerHTML='<div class="no-data" style="padding:10px">লোড হচ্ছে...</div>';
+all.style.display="none";
+
+try{
+const snap=await getDocs(collection(db,"suggestions"));
+list.innerHTML="";
+
+if(snap.empty){
+list.innerHTML='<div class="no-data" style="padding:10px">ডিলিট করার মতো কিছু নেই।</div>';
+return;
+}
+
+all.style.display="block";
+
+snap.forEach(ds=>{
+const d=ds.data();
+const row=document.createElement("div");
+row.className="delete-item-row";
+
+const span=document.createElement("span");
+span.textContent=d.headline||String(d.content||"").substring(0,30)+"...";
+
+const btn=document.createElement("button");
+btn.className="btn btn-danger";
+btn.style.cssText="padding:6px 12px;font-size:12px;flex:none";
+btn.textContent="ডিলিট";
+btn.onclick=()=>deleteSuggestionItem(ds.id);
+
+row.append(span,btn);
+list.appendChild(row);
+});
+
+}catch(e){
+list.innerHTML='<div class="no-data">লোড সমস্যা হয়েছে।</div>';
+}
+};
+
+window.deleteSuggestionItem=async id=>{
+if(!confirm("সাজেশনটি ডিলিট করতে চান?"))return;
+try{
+await deleteDoc(doc(db,"suggestions",id));
+alert("ডিলিট হয়েছে!");
+openDeleteModal();
+loadAppData();
+}catch(e){alert("ডিলিট সমস্যা: "+e.message);}
+};
+
+window.deleteAllSuggestions=async()=>{
+if(!confirm("সব সাজেশন ডিলিট করতে চান?"))return;
+try{
+const snap=await getDocs(collection(db,"suggestions"));
+await Promise.all(snap.docs.map(x=>deleteDoc(doc(db,"suggestions",x.id))));
+alert("সব সাজেশন ডিলিট হয়েছে!");
+openDeleteModal();
+loadAppData();
+}catch(e){alert("সমস্যা: "+e.message);}
+};
+
+loadAppData();
+setTimeout(()=>{
+ document.body.classList.add("app-ready");
+ const loader=document.getElementById("initialLoader");
+ if(loader) loader.classList.add("hidden");
+},8000);
+</script>
+
 </body>
-
 </html>
