@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090512">
+    <title>সাজেশন | DMRC Quiz 2026</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #05030a;
+            --bg-light: #10091b;
+            --card: rgba(25, 15, 38, .76);
+            --text: #ffffff;
+            --muted: #a99bb7;
+            --dim: #766783;
+            --purple: #ae7aff;
+            --violet: #744dff;
+            --pink: #e57aff;
+            --blue: #66b8ff;
+            --border: rgba(255,255,255,.09);
+            --glow: rgba(174,122,255,.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 35px 18px;
+            overflow-x: hidden;
+            color: var(--text);
+            font-family: "Inter", "Hind Siliguri", sans-serif;
+            background: radial-gradient(circle at 10% 0%, rgba(147,78,255,.17), transparent 30%),
+                        radial-gradient(circle at 90% 10%, rgba(224,93,255,.12), transparent 28%),
+                        radial-gradient(circle at 50% 100%, rgba(80,110,255,.10), transparent 35%),
+                        linear-gradient(135deg, #030207, #0c0616 50%, #040209);
+        }
+
+        .page {
+            width: min(1050px, 94%);
+            margin: auto;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 70px);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: linear-gradient(145deg, rgba(28,17,43,.86), rgba(5,3,11,.88));
+            box-shadow: 0 40px 110px rgba(0,0,0,.58), inset 0 1px 0 rgba(255,255,255,.065);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+        }
+
+        /* Header Centered */
+        .app-header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .badge-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(174,122,255,0.06);
+            border: 1px solid rgba(174,122,255,0.2);
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--purple);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .badge-top span {
+            width: 6px;
+            height: 6px;
+            background: var(--purple);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--purple);
+        }
+
+        .super-sub-header {
+            font-size: 14px;
+            color: var(--muted);
+            font-family: "Hind Siliguri", sans-serif;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .college-title {
+            font-size: clamp(22px, 4vw, 30px);
+            font-weight: 800;
+            font-family: "Hind Siliguri", sans-serif;
+            margin-bottom: 8px;
+            background: linear-gradient(100deg, #ffffff 20%, #d6bdff 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .exam-title {
+            font-size: clamp(16px, 3vw, 22px);
+            font-weight: 700;
+            color: #ded6e8;
+            margin-bottom: 6px;
+            font-family: "Hind Siliguri", sans-serif;
+        }
+
+        .class-info {
+            font-size: 14px;
+            color: var(--muted);
+            font-family: "Hind Siliguri", sans-serif;
+        }
+
+        /* Notice Banner */
+        .notice-banner {
+            display: none;
+            background: rgba(174, 122, 255, 0.1);
+            border-bottom: 1px solid rgba(174, 122, 255, 0.2);
+            padding: 12px 20px;
+            text-align: left;
+            color: #d6bdff;
+            font-size: 14px;
+            font-family: "Hind Siliguri", sans-serif;
+        }
+        .notice-banner strong {
+            color: var(--pink);
+            margin-right: 8px;
+        }
+
+        .admin-trigger-btn {
+            display: none; /* скрыত থাকে, ইউআরএলে /admin69 থাকলে দেখাবে */
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .admin-trigger-btn:hover {
+            color: var(--purple);
+            border-color: rgba(174,122,255,0.3);
+            background: rgba(174,122,255,0.08);
+        }
+
+        .content {
+            padding: 40px;
+            flex: 1;
+        }
+
+        .suggestion-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .suggestion-card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+            text-align: left;
+            position: relative;
+        }
+
+        .suggestion-card h3 {
+            color: var(--purple);
+            margin-bottom: 12px;
+            font-size: 20px;
+            font-family: "Hind Siliguri", sans-serif;
+        }
+
+        .suggestion-card p {
+            color: #ded6e8;
+            font-size: 16px;
+            line-height: 1.6;
+            white-space: pre-line;
+            font-family: "Hind Siliguri", sans-serif;
+        }
+
+        .card-meta-row {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .marks-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(116, 77, 255, 0.15);
+            border: 1px solid rgba(116, 77, 255, 0.3);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #d6bdff;
+            font-weight: 600;
+        }
+
+        .edited-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--muted);
+            margin-left: auto; /* ডান দিকে সরানোর জন্য */
+        }
+
+        .no-data {
+            text-align: center;
+            color: var(--muted);
+            font-size: 16px;
+            padding: 40px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 13px;
+            background: rgba(3, 2, 7, 0.3);
+            margin-top: auto;
+        }
+
+        .footer .dev-name {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .footer .details {
+            margin-top: 5px;
+            color: var(--dim);
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer .copy {
+            margin-top: 8px;
+            color: var(--dim);
+            font-size: 11px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 2, 7, 0.85);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            width: min(500px, 100%);
+            background: #130a21;
+            border: 1px solid rgba(174,122,255,0.3);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--purple);
+            background: rgba(174,122,255,0.05);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--violet), var(--purple));
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.06);
+            color: var(--muted);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .btn-danger {
+            background: #ff4d6d;
+            color: #fff;
+        }
+
+        .menu-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-option-btn {
+            width: 100%;
+            padding: 15px;
+            text-align: left;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .menu-option-btn:hover {
+            background: rgba(174,122,255,0.08);
+            border-color: rgba(174,122,255,0.3);
+            color: var(--purple);
+        }
+
+        .delete-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .delete-item-row span {
+            font-size: 14px;
+            color: #ddd;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 70%;
+        }
+
+        @media (max-width: 550px) {
+            body { padding: 0; }
+            .page { width: 100%; }
+            .container { border-radius: 0; border: none; min-height: 100vh; }
+            .content { padding: 20px 14px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <!-- HEADER (Centered) -->
+            <header class="app-header">
+                <button class="admin-trigger-btn" id="settingsBtn">⚙️ অ্যাডমিন</button>
+                <div class="badge-top">
+                    <span></span> DMRC • QUIZ ROUTINE 2026
+                </div>
+                <div class="super-sub-header" id="displaySuperSub">শ্রেণি: দ্বাদশ</div>
+                <h1 class="college-title" id="displayHeaderTitle">ড. মাহবুবুর রহমান মোল্লা কলেজ</h1>
+                <div class="exam-title" id="displaySubHeader">ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬</div>
+                <div class="class-info" id="displayClassInfo">পরীক্ষার্থী: বিজ্ঞান বিভাগ</div>
+            </header>
+
+            <!-- NOTICE BANNER -->
+            <div id="noticeBanner" class="notice-banner">
+                <strong>📢 নোটিশ:</strong> <span id="noticeTextContent">এখানে নোটিশ প্রদর্শিত হবে।</span>
+            </div>
+
+            <!-- CONTENT (Left-aligned suggestions) -->
+            <main class="content">
+                <div id="suggestionContainer" class="suggestion-list">
+                    <div class="no-data">সাজেশন লোড হচ্ছে...</div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div>Developed by <span class="dev-name">JOHIRUL ISLAM SAGOR</span></div>
+                <div class="details">ROLL - 2042 • SECTION - D • DMRC</div>
+                <div class="copy">© 2026 • DMRC QUIZ EXAMINATION</div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODALS -->
+
+    <!-- 1. Firebase Auth Login Modal -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-content">
+            <div class="modal-title">ফায়ারবেস অ্যাডমিন লগইন</div>
+            <div class="form-group">
+                <label>অ্যাডমিন ইমেইল</label>
+                <input type="email" id="adminEmailInput" class="form-control" placeholder="admin@gmail.com">
+            </div>
+            <div class="form-group">
+                <label>পাসওয়ার্ড</label>
+                <input type="password" id="adminPasswordInput" class="form-control" placeholder="পাসওয়ার্ড লিখুন...">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary" onclick="closeModals()">বাতিল</button>
+                <button type="button" class="btn btn-primary" id="verifyPasswordBtn">লগইন করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Settings Options Menu Modal -->
+    <div class="modal" id="settingsMenuModal">
+        <div class="modal-content">
+            <div class="modal-title">অ্যাডমিন কন্ট্রোল প্যানেল</div>
+            <div class="menu-options">
+                <button class="menu-option-btn" onclick="openHeaderEditModal()">
+                    <span>১. হেডার, সাব ও সুপার হেডার এডিট করুন</span> <span>✏️</span>
+                </button>
+                <button class="menu-option-btn" onclick="openAddSuggestionModal()">
+                    <span>২. নতুন সাজেশন যোগ করুন</span> <span>➕</span>
+                </button>
+                <button class="menu-option-btn" onclick="openNoticeModal()">
+                    <span>৩. নোটিশ ম্যানেজ করুন</span> <span>📢</span>
+                </button>
+                <button class="menu-option-btn" onclick="openDeleteModal()">
+                    <span>৪. সাজেশন ডিলিট করুন</span> <span>🗑️</span>
+                </button>
+            </div>
+            <div class="btn-group" style="margin-top: 25px;">
+                <button type="button" class="btn btn-secondary" onclick="closeModals()">বন্ধ করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Header Edit Modal -->
+    <div class="modal" id="headerEditModal">
+        <div class="modal-content">
+            <div class="modal-title">হেডার কাস্টমাইজেশন</div>
+            <div class="form-group">
+                <label>সুপার সাব-হেডার</label>
+                <input type="text" id="editSuperSub" class="form-control" placeholder="যেমন: শ্রেণি: দ্বাদশ">
+            </div>
+            <div class="form-group">
+                <label>হেডার (মূল শিরোনাম)</label>
+                <input type="text" id="editHeaderTitle" class="form-control" placeholder="যেমন: ড. মাহবুবুর রহমান মোল্লা কলেজ">
+            </div>
+            <div class="form-group">
+                <label>সাব-হেডার</label>
+                <input type="text" id="editSubHeader" class="form-control" placeholder="যেমন: ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬">
+            </div>
+            <div class="form-group">
+                <label>নিচের ইনফো</label>
+                <input type="text" id="editClassInfo" class="form-control" placeholder="যেমন: পরীক্ষার্থী: বিজ্ঞান বিভাগ">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+                <button type="button" class="btn btn-primary" id="saveHeaderBtn">আপডেট করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Add Suggestion Modal (with Header fields inside) -->
+    <div class="modal" id="addSuggestionModal">
+        <div class="modal-content">
+            <div class="modal-title">সাজেশন ও হেডার আপডেট</div>
+            <div class="form-group">
+                <label>সুপার সাব-হেডার (ঐচ্ছিক)</label>
+                <input type="text" id="sugSuperSub" class="form-control" placeholder="যেমন: শ্রেণি: দ্বাদশ">
+            </div>
+            <div class="form-group">
+                <label>হেডার / কলেজ নাম (ঐচ্ছিক)</label>
+                <input type="text" id="sugHeaderTitle" class="form-control" placeholder="যেমন: ড. মাহবুবুর রহমান মোল্লা কলেজ">
+            </div>
+            <div class="form-group">
+                <label>সাব-হেডার (ঐচ্ছিক)</label>
+                <input type="text" id="sugSubHeader" class="form-control" placeholder="যেমন: ইংরেজি দ্বিতীয়পত্র সাজেশন">
+            </div>
+            <hr style="border:0; border-top:1px solid var(--border); margin: 15px 0;">
+            <div class="form-group">
+                <label>সাজেশন হেডলাইন (ঐচ্ছিক)</label>
+                <input type="text" id="suggestionHeadline" class="form-control" placeholder="যেমন: Part A - Seen Passage...">
+            </div>
+            <div class="form-group">
+                <label>কনটেন্ট / মূল বিবরণ</label>
+                <textarea id="suggestionContent" class="form-control" placeholder="সাজেশনের বিস্তারিত লিখুন..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>মান বণ্টন (ঐচ্ছিক)</label>
+                <input type="text" id="suggestionMarks" class="form-control" placeholder="যেমন: পূর্ণমান: ১০">
+            </div>
+            <div class="form-group">
+                <label>এডিটেড বাই (ঐচ্ছিক)</label>
+                <input type="text" id="suggestionEditedBy" class="form-control" placeholder="যেমন: Edited by: Sagor">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+                <button type="button" class="btn btn-primary" id="saveSuggestionBtn">সেভ করুন</button>
+            </div>
+        </div>
+    </div>
+
+<!-- 5. Notice Edit Modal -->
+    <div class="modal" id="noticeModal">
+        <div class="modal-content">
+            <div class="modal-title">নোটিশ ম্যানেজ করুন</div>
+            <div class="form-group">
+                <label>নোটিশ টেক্সট (খালি রাখলে নোটিশ হাইড থাকবে)</label>
+                <textarea id="noticeInputText" class="form-control" placeholder="গুরুত্বপূর্ণ নোটিশ এখানে লিখুন..."></textarea>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+                <button type="button" class="btn btn-primary" id="saveNoticeBtn">নোটিশ পাবলিশ করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Delete Suggestion Modal -->
+    <div class="modal" id="deleteSuggestionModal">
+        <div class="modal-content">
+            <div class="modal-title">সাজেশন ডিলিট করুন</div>
+            <div id="deleteAllContainer" style="margin-bottom: 15px; display: none;">
+                <button type="button" class="btn btn-danger" style="width: 100%; padding: 12px; font-size: 14px;" onclick="deleteAllSuggestions()">⚠️ সব সাজেশন একসাথে ডিলিট করুন</button>
+                <hr style="border: 0; border-top: 1px solid var(--border); margin: 15px 0;">
+            </div>
+            <div id="deleteItemList" style="max-height: 220px; overflow-y: auto; margin-bottom: 15px;"></div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIREBASE AND APP SCRIPT -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, getDoc, setDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyDaNdM-tMKoC1ljHjj--TN9Yzqj2t68GK0",
+          authDomain: "english-suggestion-1bbbe.firebaseapp.com",
+          projectId: "english-suggestion-1bbbe",
+          storageBucket: "english-suggestion-1bbbe.firebasestorage.app",
+          messagingSenderId: "92971469167",
+          appId: "1:92971469167:web:b97cddf414c617a287c09a",
+          measurementId: "G-J4XK10K778"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        // সিক্রেট ইউআরএল চেক (/admin69)
+        const urlParams = new URLSearchParams(window.location.search);
+        const hashVal = window.location.hash;
+        if (urlParams.get("admin") === "admin69" || hashVal.includes("admin69")) {
+            document.getElementById("settingsBtn").style.display = "block";
+        }
+
+        const suggestionContainer = document.getElementById("suggestionContainer");
+        const settingsBtn = document.getElementById("settingsBtn");
+        const displaySuperSub = document.getElementById("displaySuperSub");
+        const displayHeaderTitle = document.getElementById("displayHeaderTitle");
+        const displaySubHeader = document.getElementById("displaySubHeader");
+        const displayClassInfo = document.getElementById("displayClassInfo");
+        const noticeBanner = document.getElementById("noticeBanner");
+        const noticeTextContent = document.getElementById("noticeTextContent");
+        
+        const passwordModal = document.getElementById("passwordModal");
+        const settingsMenuModal = document.getElementById("settingsMenuModal");
+        const headerEditModal = document.getElementById("headerEditModal");
+        const addSuggestionModal = document.getElementById("addSuggestionModal");
+        const noticeModal = document.getElementById("noticeModal");
+        const deleteSuggestionModal = document.getElementById("deleteSuggestionModal");
+
+        window.closeModals = function() {
+            passwordModal.style.display = "none";
+            settingsMenuModal.style.display = "none";
+            headerEditModal.style.display = "none";
+            addSuggestionModal.style.display = "none";
+            noticeModal.style.display = "none";
+            deleteSuggestionModal.style.display = "none";
+        }
+
+        window.openSettingsMenu = function() {
+            closeModals();
+            settingsMenuModal.style.display = "flex";
+        }
+
+        window.openHeaderEditModal = async function() {
+            closeModals();
+            headerEditModal.style.display = "flex";
+            try {
+                const docSnap = await getDoc(doc(db, "settings", "headerConfig"));
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    document.getElementById("editSuperSub").value = data.superSub || "শ্রেণি: দ্বাদশ";
+                    document.getElementById("editHeaderTitle").value = data.headerTitle || "ড. মাহবুবুর রহমান মোল্লা কলেজ";
+                    document.getElementById("editSubHeader").value = data.subHeader || "ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬";
+                    document.getElementById("editClassInfo").value = data.classInfo || "পরীক্ষার্থী: বিজ্ঞান বিভাগ";
+                }
+            } catch (e) {}
+        }
+
+        window.openAddSuggestionModal = async function() {
+            closeModals();
+            addSuggestionModal.style.display = "flex";
+            try {
+                const docSnap = await getDoc(doc(db, "settings", "headerConfig"));
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    document.getElementById("sugSuperSub").value = data.superSub || "";
+                    document.getElementById("sugHeaderTitle").value = data.headerTitle || "";
+                    document.getElementById("sugSubHeader").value = data.subHeader || "";
+                }
+            } catch (e) {}
+        }
+
+        window.openNoticeModal = async function() {
+            closeModals();
+            noticeModal.style.display = "flex";
+            try {
+                const docSnap = await getDoc(doc(db, "settings", "noticeConfig"));
+                if (docSnap.exists()) {
+                    document.getElementById("noticeInputText").value = docSnap.data().noticeText || "";
+                }
+            } catch (e) {}
+        }
+
+        settingsBtn.addEventListener("click", () => {
+            document.getElementById("adminEmailInput").value = "";
+            document.getElementById("adminPasswordInput").value = "";
+            closeModals();
+            passwordModal.style.display = "flex";
+        });
+
+        document.getElementById("verifyPasswordBtn").addEventListener("click", async () => {
+            const email = document.getElementById("adminEmailInput").value.trim();
+            const password = document.getElementById("adminPasswordInput").value;
+
+            if (!email || !password) {
+                alert("দয়া করে ইমেইল ও পাসওয়ার্ড দিন।");
+                return;
+            }
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                openSettingsMenu();
+            } catch (error) {
+                let errCode = error.code;
+                if (errCode === "auth/invalid-email") {
+                    alert("invalid email");
+                } else if (errCode === "auth/wrong-password" || errCode === "auth/invalid-credential" || errCode === "auth/user-not-found") {
+                    alert("invalid password");
+                } else {
+                    alert("লগইন ব্যর্থ হয়েছে: " + error.message);
+                }
+            }
+        });
+
+        async function loadAppData() {
+            try {
+                const docSnap = await getDoc(doc(db, "settings", "headerConfig"));
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    displaySuperSub.innerText = data.superSub || "শ্রেণি: দ্বাদশ";
+                    displayHeaderTitle.innerText = data.headerTitle || "ড. মাহবুবুর রহমান মোল্লা কলেজ";
+                    displaySubHeader.innerText = data.subHeader || "ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬";
+                    displayClassInfo.innerText = data.classInfo || "পরীক্ষার্থী: বিজ্ঞান বিভাগ";
+                }
+            } catch (e) {}
+
+            try {
+                const noticeSnap = await getDoc(doc(db, "settings", "noticeConfig"));
+                if (noticeSnap.exists() && noticeSnap.data().noticeText) {
+                    noticeTextContent.innerText = noticeSnap.data().noticeText;
+                    noticeBanner.style.display = "block";
+                } else {
+                    noticeBanner.style.display = "none";
+                }
+            } catch (e) {
+                noticeBanner.style.display = "none";
+            }
+
+            suggestionContainer.innerHTML = `<div class="no-data">সাজেশন লোড হচ্ছে...</div>`;
+            try {
+                // ক্রমান্বয়ে নিচে যাওয়ার জন্য createdAt অনুযায়ী সাজানো (Oldest to Newest অথবা Newest to Oldest)
+                const q = query(collection(db, "suggestions"), orderBy("createdAt", "asc"));
+                const querySnapshot = await getDocs(q);
+                suggestionContainer.innerHTML = "";
+                
+                if (querySnapshot.empty) {
+                    suggestionContainer.innerHTML = `<div class="no-data">কোনো সাজেশন পাওয়া যায়নি।</div>`;
+                    return;
+                }
+
+                querySnapshot.forEach((docSnap) => {
+                    const data = docSnap.data();
+                    const card = document.createElement("div");
+                    card.className = "suggestion-card";
+                    
+                    let htmlContent = "";
+                    if (data.headline) {
+                        htmlContent += `<h3>${escapeHtml(data.headline)}</h3>`;
+                    }
+                    htmlContent += `<p>${escapeHtml(data.content)}</p>`;
+                    
+                    if (data.marks || data.editedBy) {
+                        htmlContent += `<div class="card-meta-row">`;
+                        if (data.marks) {
+                            htmlContent += `<div class="marks-badge">${escapeHtml(data.marks)}</div>`;
+                        }
+                        if (data.editedBy) {
+                            htmlContent += `<div class="edited-badge">${escapeHtml(data.editedBy)}</div>`;
+                        }
+                        htmlContent += `</div>`;
+                    }
+                    
+                    card.innerHTML = htmlContent;
+                    suggestionContainer.appendChild(card);
+                });
+            } catch (error) {
+                suggestionContainer.innerHTML = `<div class="no-data">ডেটা লোড করতে সমস্যা হয়েছে।</div>`;
+            }
+        }
+
+        document.getElementById("saveHeaderBtn").addEventListener("click", async () => {
+            const superSub = document.getElementById("editSuperSub").value.trim();
+            const headerTitle = document.getElementById("editHeaderTitle").value.trim();
+            const subHeader = document.getElementById("editSubHeader").value.trim();
+            const classInfo = document.getElementById("editClassInfo").value.trim();
+
+            try {
+                await setDoc(doc(db, "settings", "headerConfig"), {
+                    superSub: superSub,
+                    headerTitle: headerTitle,
+                    subHeader: subHeader,
+                    classInfo: classInfo
+                });
+                alert("হেডার সফলভাবে আপডেট করা হয়েছে!");
+                closeModals();
+                loadAppData();
+            } catch (error) {
+                alert("আপডেট করতে সমস্যা হয়েছে: " + error.message);
+            }
+        });
+
+        document.getElementById("saveSuggestionBtn").addEventListener("click", async () => {
+            const sugSuperSub = document.getElementById("sugSuperSub").value.trim();
+            const sugHeaderTitle = document.getElementById("sugHeaderTitle").value.trim();
+            const sugSubHeader = document.getElementById("sugSubHeader").value.trim();
+            const headline = document.getElementById("suggestionHeadline").value.trim();
+            const content = document.getElementById("suggestionContent").value.trim();
+            const marks = document.getElementById("suggestionMarks").value.trim();
+            const editedBy = document.getElementById("suggestionEditedBy").value.trim();
+
+            if (!content) {
+                alert("দয়া করে কনটেন্ট লিখুন।");
+                return;
+            }
+
+            try {
+                // যদি হেডারের কোনো ফিল্ড দেওয়া হয়, তা হেডার কনফিগেও আপডেট করে দেবো
+                if (sugSuperSub || sugHeaderTitle || sugSubHeader) {
+                    const currentHeaderSnap = await getDoc(doc(db, "settings", "headerConfig"));
+                    let currentHeaderData = currentHeaderSnap.exists() ? currentHeaderSnap.data() : {};
+                    await setDoc(doc(db, "settings", "headerConfig"), {
+                        superSub: sugSuperSub || currentHeaderData.superSub || "",
+                        headerTitle: sugHeaderTitle || currentHeaderData.headerTitle || "",
+                        subHeader: sugSubHeader || currentHeaderData.subHeader || "",
+                        classInfo: currentHeaderData.classInfo || ""
+                    });
+                }
+
+                await addDoc(collection(db, "suggestions"), {
+                    headline: headline,
+                    content: content,
+                    marks: marks,
+                    editedBy: editedBy,
+                    createdAt: new Date()
+                });
+                
+                alert("সাজেশন সফলভাবে যোগ করা হয়েছে!");
+                
+                document.getElementById("suggestionHeadline").value = "";
+                document.getElementById("suggestionContent").value = "";
+                document.getElementById("suggestionMarks").value = "";
+                document.getElementById("suggestionEditedBy").value = "";
+                
+                closeModals();
+                loadAppData();
+            } catch (error) {
+                alert("সেভ করতে সমস্যা হয়েছে: " + error.message);
+            }
+        });
+
+        document.getElementById("saveNoticeBtn").addEventListener("click", async () => {
+            const noticeText = document.getElementById("noticeInputText").value.trim();
+            try {
+                await setDoc(doc(db, "settings", "noticeConfig"), {
+                    noticeText: noticeText
+                });
+                alert("নোটিশ সফলভাবে আপডেট করা হয়েছে!");
+                closeModals();
+                loadAppData();
+            } catch (error) {
+                alert("নোটিশ সেভ করতে সমস্যা হয়েছে: " + error.message);
+            }
+        });
+
+        window.openDeleteModal = async function() {
+            closeModals();
+            deleteSuggestionModal.style.display = "flex";
+            const deleteItemList = document.getElementById("deleteItemList");
+            const deleteAllContainer = document.getElementById("deleteAllContainer");
+            deleteItemList.innerHTML = `<div class="no-data" style="padding:10px;">লোড হচ্ছে...</div>`;
+            deleteAllContainer.style.display = "none";
+
+            try {
+                const q = query(collection(db, "suggestions"), orderBy("createdAt", "asc"));
+                const querySnapshot = await getDocs(q);
+                deleteItemList.innerHTML = "";
+
+                if (querySnapshot.empty) {
+                    deleteItemList.innerHTML = `<div class="no-data" style="padding:10px;">ডিলিট করার মতো কিছু নেই।</div>`;
+                    return;
+                }
+
+                deleteAllContainer.style.display = "block";
+
+                querySnapshot.forEach((docSnap) => {
+                    const data = docSnap.data();
+                    const row = document.createElement("div");
+                    row.className = "delete-item-row";
+                    
+                    const titleText = data.headline ? data.headline : (data.content.substring(0, 30) + "...");
+                    
+                    row.innerHTML = `
+                        <span>${escapeHtml(titleText)}</span>
+                        <button class="btn btn-danger" style="padding: 6px 12px; font-size:12px; flex:none;" onclick="deleteSuggestionItem('${docSnap.id}')">ডিলিট</button>
+                    `;
+                    deleteItemList.appendChild(row);
+                });
+            } catch (error) {
+                deleteItemList.innerHTML = `<div class="no-data" style="padding:10px;">লোড করতে সমস্যা হয়েছে।</div>`;
+            }
+        }
+
+        window.deleteSuggestionItem = async function(id) {
+            if (confirm("সাজেশনটি ডিলিট করতে চান?")) {
+                try {
+                    await deleteDoc(doc(db, "suggestions", id));
+                    alert("সাজেশন সফলভাবে ডিলিট করা হয়েছে!");
+                    openDeleteModal();
+                    loadAppData();
+                } catch (error) {
+                    alert("ডিলিট করতে সমস্যা হয়েছে: " + error.message);
+                }
+            }
+        }
+
+        window.deleteAllSuggestions = async function() {
+            if (confirm("⚠️ সতর্কতা: সব সাজেশন একসাথে ডিলিট করতে চান?")) {
+                try {
+                    const querySnapshot = await getDocs(collection(db, "suggestions"));
+                    const deletePromises = [];
+                    querySnapshot.forEach((docSnap) => {
+                        deletePromises.push(deleteDoc(doc(db, "suggestions", docSnap.id)));
+                    });
+
+                    await Promise.all(deletePromises);
+                    alert("সকল সাজেশন সফলভাবে ডিলিট করা হয়েছে!");
+                    openDeleteModal();
+                    loadAppData();
+                } catch (error) {
+                    alert("সব সাজেশন ডিলিট করতে সমস্যা হয়েছে: " + error.message);
+                }
+            }
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        loadAppData();
+    </script>
+</body>
+
+</html>
+
