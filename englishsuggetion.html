@@ -87,11 +87,15 @@ font-size:13px;cursor:pointer;
 padding:30px;width:100%;border:1px solid var(--border);
 border-radius:20px;background:rgba(255,255,255,.04);
 text-align:left;position:relative;overflow:hidden;
+display:flex;flex-direction:column;
 }
 .card-super-sub{font-size:12px;color:var(--sub-heading);letter-spacing:1px;margin-bottom:4px;font-weight:700;text-align:right}
 .card-sub-head{font-size:14px;color:var(--sub-heading);font-weight:600;margin-bottom:8px;text-align:right}
-.suggestion-card h3{color:var(--heading-color);margin-bottom:12px;font-size:20px;font-family:"Hind Siliguri",sans-serif}
-.suggestion-card p{font-size:16px;line-height:1.6;white-space:pre-line;font-family:"Hind Siliguri",sans-serif}
+.suggestion-card h3{color:var(--heading-color);margin-bottom:12px;font-size:20px;font-family:"Hind Siliguri",sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}
+.suggestion-card p{font-size:16px;line-height:1.6;white-space:pre-line;font-family:"Hind Siliguri",sans-serif;overflow-wrap:anywhere}
+.card-top-title{font-size:clamp(24px,5vw,42px);font-weight:800;color:var(--heading-color);margin-bottom:22px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.25;font-family:"Hind Siliguri",sans-serif}
+.card-content-wrap{display:flex;flex-direction:column;justify-content:center}
+.align-left{text-align:left}.align-center{text-align:center}.align-right{text-align:right}
 .card-meta-row{display:flex;align-items:center;gap:15px;margin-top:15px;flex-wrap:wrap}
 .marks-badge{
 padding:5px 14px;background:rgba(0,0,0,.08);
@@ -240,19 +244,47 @@ body{padding:0}.page{width:100%}.container{border-radius:0;border:none;min-heigh
 <div class="modal" id="addSuggestionModal">
 <div class="modal-content">
 <div class="modal-title">নতুন সাজেশন যোগ করুন</div>
-<div class="form-group"><label>সুপার সাব হেড</label><input id="sugSuperSubField" class="form-control"></div>
-<div class="form-group"><label>সাব হেড</label><input id="sugSubHeadField" class="form-control"></div>
-<div class="form-group"><label>সাজেশন হেডলাইন</label><input id="suggestionHeadline" class="form-control"></div>
-<div class="form-group"><label>কনটেন্ট</label><textarea id="suggestionContent" class="form-control"></textarea></div>
-<div class="form-group"><label>মান বণ্টন</label><input id="suggestionMarks" class="form-control"></div>
-<div class="form-group"><label>বাটন টেক্সট</label><input id="suggestionSigText" class="form-control"></div>
-<div class="form-group"><label>বাটন লিংক</label><input id="suggestionSigLink" class="form-control"></div>
-<div class="form-group"><label>Box Class</label><input id="sugBoxType" class="form-control"></div>
+<div class="form-group"><label>টপ সেন্টার টেক্সট (অপশনাল)</label><textarea id="suggestionTopTitle" class="form-control" placeholder="সবচেয়ে বড় লেখা এখানে লিখুন..."></textarea></div>
+<div class="form-group"><label>টপ টেক্সট Alignment</label><select id="suggestionTopAlign" class="form-control"><option value="center">Center</option><option value="left">Left</option><option value="right">Right</option></select></div>
+<div class="form-group"><label>সুপার সাব হেড (অপশনাল)</label><textarea id="sugSuperSubField" class="form-control"></textarea></div>
+<div class="form-group"><label>সুপার সাব হেড Alignment</label><select id="sugSuperSubAlign" class="form-control"><option value="right">Right</option><option value="center">Center</option><option value="left">Left</option></select></div>
+<div class="form-group"><label>সাব হেড (অপশনাল)</label><textarea id="sugSubHeadField" class="form-control"></textarea></div>
+<div class="form-group"><label>সাব হেড Alignment</label><select id="sugSubHeadAlign" class="form-control"><option value="right">Right</option><option value="center">Center</option><option value="left">Left</option></select></div>
+<div class="form-group"><label>সাজেশন হেডলাইন (অপশনাল)</label><textarea id="suggestionHeadline" class="form-control"></textarea></div>
+<div class="form-group"><label>সাজেশন হেডলাইন Alignment</label><select id="suggestionHeadlineAlign" class="form-control"><option value="left">Left</option><option value="center">Center</option><option value="right">Right</option></select></div>
+<div class="form-group"><label>কনটেন্ট (অপশনাল)</label><textarea id="suggestionContent" class="form-control"></textarea></div>
+<div class="form-group"><label>কনটেন্ট Alignment</label><select id="suggestionContentAlign" class="form-control"><option value="left">Left</option><option value="center">Center</option><option value="right">Right</option></select></div>
+<div class="form-group"><label>মান বণ্টন (অপশনাল)</label><input id="suggestionMarks" class="form-control"></div>
+<div class="form-group"><label>বাটন টেক্সট (অপশনাল)</label><input id="suggestionSigText" class="form-control"></div>
+<div class="form-group"><label>বাটন লিংক (অপশনাল)</label><input id="suggestionSigLink" class="form-control"></div>
 <div class="form-group"><label>Box Width</label><input id="sugBoxWidth" class="form-control" value="100%"></div>
-<div class="form-group"><label>Box Height</label><input id="sugBoxHeight" class="form-control" value="auto"></div>
+<div class="form-group"><label>Box Height</label><input id="sugBoxHeight" class="form-control" value="auto" placeholder="যেমন: 300px বা auto"></div>
 <div class="btn-group">
 <button class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
 <button class="btn btn-primary" id="saveSuggestionBtn">সেভ করুন</button>
+</div>
+</div>
+</div>
+
+<!-- THEME -->
+<div class="modal" id="themeModal">
+<div class="modal-content">
+<div class="modal-title">থিম কালার প্যালেট নির্বাচন</div>
+<div class="form-group">
+<label>কালার কম্বিনেশন</label>
+<select id="themeSelectDropdown" class="form-control">
+<option value="dusty_rose">Dusty rose + warm beige</option>
+<option value="olive_green">Olive green + warm beige</option>
+<option value="warm_toupe">Warm toupe + dark walnut</option>
+<option value="sage_green">Sage green + ivory</option>
+<option value="mocha">Mocha + beige</option>
+<option value="dusty_blue">Dusty blue + crisp white</option>
+<option value="warm_caramel">Warm caramel + chocolate</option>
+</select>
+</div>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+<button class="btn btn-primary" id="saveThemeBtn">থিম এপ্লাই করুন</button>
 </div>
 </div>
 </div>
@@ -433,9 +465,6 @@ return String(value??"").replace(/[&<>"']/g,m=>({
 }
 
 async function loadAppData(){
- document.body.classList.remove("app-ready");
- const loader=document.getElementById("initialLoader");
- if(loader) loader.classList.remove("hidden");
 
 try{
 const s=await getDoc(doc(db,"settings","headerConfig"));
@@ -483,32 +512,27 @@ return x-y;
 docs.forEach(ds=>{
 const d=ds.data();
 const card=document.createElement("div");
-card.className="suggestion-card "+(d.sugBoxType||"");
+card.className="suggestion-card";
 
 if(d.boxWidth)card.style.width=d.boxWidth;
 if(d.boxHeight&&d.boxHeight!=="auto")card.style.minHeight=d.boxHeight;
 
 let html="";
-
-if(d.superSubField)html+=`<div class="card-super-sub">${escapeHtml(d.superSubField)}</div>`;
-if(d.subHeadField)html+=`<div class="card-sub-head">${escapeHtml(d.subHeadField)}</div>`;
-if(d.headline)html+=`<h3>${escapeHtml(d.headline)}</h3>`;
-
-html+=`<p>${escapeHtml(d.content)}</p>`;
-
+const alignClass=value=>"align-"+(["left","center","right"].includes(value)?value:"left");
+if(d.topTitle)html+=`<div class="card-top-title ${alignClass(d.topTitleAlign||"center")}">${escapeHtml(d.topTitle)}</div>`;
+if(d.superSubField)html+=`<div class="card-super-sub ${alignClass(d.superSubAlign||"right")}">${escapeHtml(d.superSubField)}</div>`;
+if(d.subHeadField)html+=`<div class="card-sub-head ${alignClass(d.subHeadAlign||"right")}">${escapeHtml(d.subHeadField)}</div>`;
+if(d.headline)html+=`<h3 class="${alignClass(d.headlineAlign||"left")}">${escapeHtml(d.headline)}</h3>`;
+if(String(d.content||"").trim())html+=`<div class="card-content-wrap"><p class="${alignClass(d.contentAlign||"left")}">${escapeHtml(d.content)}</p></div>`;
 if(d.marks||d.sigText){
 html+='<div class="card-meta-row">';
 if(d.marks)html+=`<div class="marks-badge">${escapeHtml(d.marks)}</div>`;
 if(d.sigText){
-if(d.sigLink){
-html+=`<a href="${escapeHtml(d.sigLink)}" target="_blank" rel="noopener" class="signature-btn">${escapeHtml(d.sigText)} ↗</a>`;
-}else{
-html+=`<div class="signature-btn">${escapeHtml(d.sigText)}</div>`;
-}
+if(d.sigLink)html+=`<a href="${escapeHtml(d.sigLink)}" target="_blank" rel="noopener" class="signature-btn">${escapeHtml(d.sigText)} ↗</a>`;
+else html+=`<div class="signature-btn">${escapeHtml(d.sigText)}</div>`;
 }
 html+="</div>";
 }
-
 card.innerHTML=html;
 box.appendChild(card);
 });
@@ -535,18 +559,21 @@ loadAppData();
 
 $("saveSuggestionBtn").addEventListener("click",async()=>{
 const content=$("suggestionContent").value.trim();
-if(!content)return alert("কনটেন্ট লিখুন।");
-
 try{
 await addDoc(collection(db,"suggestions"),{
+topTitle:$("suggestionTopTitle").value.trim(),
+topTitleAlign:$("suggestionTopAlign").value,
 superSubField:$("sugSuperSubField").value.trim(),
+superSubAlign:$("sugSuperSubAlign").value,
 subHeadField:$("sugSubHeadField").value.trim(),
+subHeadAlign:$("sugSubHeadAlign").value,
 headline:$("suggestionHeadline").value.trim(),
+headlineAlign:$("suggestionHeadlineAlign").value,
 content,
+contentAlign:$("suggestionContentAlign").value,
 marks:$("suggestionMarks").value.trim(),
 sigText:$("suggestionSigText").value.trim(),
 sigLink:$("suggestionSigLink").value.trim(),
-sugBoxType:$("sugBoxType").value.trim(),
 boxWidth:$("sugBoxWidth").value.trim()||"100%",
 boxHeight:$("sugBoxHeight").value.trim()||"auto",
 createdAt:new Date()
@@ -554,6 +581,7 @@ createdAt:new Date()
 
 alert("সাজেশন যোগ হয়েছে!");
 document.querySelectorAll("#addSuggestionModal input,#addSuggestionModal textarea").forEach(x=>x.value="");
+document.querySelectorAll("#addSuggestionModal select").forEach(x=>x.selectedIndex=0);
 $("sugBoxWidth").value="100%";
 $("sugBoxHeight").value="auto";
 closeModals();
@@ -647,11 +675,6 @@ loadAppData();
 };
 
 loadAppData();
-setTimeout(()=>{
- document.body.classList.add("app-ready");
- const loader=document.getElementById("initialLoader");
- if(loader) loader.classList.add("hidden");
-},8000);
 </script>
 
 </body>
