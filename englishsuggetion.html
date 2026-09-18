@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #f7f2f0;">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#090512">
+    <meta name="theme-color" content="#05030a">
     <title>সাজেশন | DMRC Quiz 2026</title>
 
     <!-- FONT -->
@@ -12,16 +12,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- ইনস্ট্যান্ট থিম অ্যাপ্লাই স্ক্রিপ্ট -->
+    <script>
+        const themePalettes = {
+            dusty_rose: { bg: "#f7f2f0", card: "#e8ded8", heading: "#5a3e36", subHeading: "#7c584d", text: "#4a332c", muted: "#8c7268", border: "rgba(90, 62, 54, 0.15)" },
+            olive_green: { bg: "#f4f5f0", card: "#e2e6db", heading: "#384232", subHeading: "#55634d", text: "#2e3629", muted: "#6f7d67", border: "rgba(56, 66, 50, 0.15)" },
+            warm_toupe: { bg: "#24201e", card: "#1b1715", heading: "#d8c5b2", subHeading: "#b39c87", text: "#e6d7cc", muted: "#8c7c70", border: "rgba(216, 197, 178, 0.15)" },
+            sage_green: { bg: "#f2f7f5", card: "#e3ede9", heading: "#2c4a3e", subHeading: "#44705e", text: "#223b31", muted: "#6a8c7f", border: "rgba(44, 74, 62, 0.15)" },
+            mocha: { bg: "#f5f0eb", card: "#e6dbd0", heading: "#4a3525", subHeading: "#73533c", text: "#3b2a1d", muted: "#8c7362", border: "rgba(74, 53, 37, 0.15)" },
+            dusty_blue: { bg: "#f0f4f8", card: "#dce6f0", heading: "#23405c", subHeading: "#3a6085", text: "#1b3147", muted: "#6a85a3", border: "rgba(35, 64, 92, 0.15)" },
+            warm_caramel: { bg: "#241e1b", card: "#1a1513", heading: "#e09f63", subHeading: "#b8763a", text: "#f2d6bd", muted: "#9c7c63", border: "rgba(224, 159, 99, 0.15)" }
+        };
+        const savedTheme = localStorage.getItem('dmrc_theme') || 'dusty_rose';
+        const p = themePalettes[savedTheme] || themePalettes['dusty_rose'];
+        const r = document.documentElement;
+        r.style.setProperty('--bg', p.bg);
+        r.style.setProperty('--card', p.card);
+        r.style.setProperty('--heading-color', p.heading);
+        r.style.setProperty('--sub-heading', p.subHeading);
+        r.style.setProperty('--text', p.text);
+        r.style.setProperty('--muted', p.muted);
+        r.style.setProperty('--border', p.border);
+        r.style.backgroundColor = p.bg;
+    </script>
+
     <style>
         :root {
-            --bg: #05030a;
-            --card: #2c2225; /* ডিফল্ট Dusty rose + warm beige */
+            --bg: #f7f2f0;
+            --card: #e8ded8;
             --card-text: #5a3e36;
-            --heading-color: #3b2520;
+            --heading-color: #5a3e36;
             --sub-heading: #7c584d;
-            --text: #3b2520;
-            --muted: #6b534a;
-            --border: rgba(90, 62, 54, 0.2);
+            --text: #4a332c;
+            --muted: #8c7268;
+            --border: rgba(90, 62, 54, 0.15);
             --card-padding: 30px;
             --card-width: 100%;
         }
@@ -43,7 +67,6 @@
             color: var(--text);
             font-family: "Inter", "Hind Siliguri", sans-serif;
             background: var(--bg);
-            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .page {
@@ -61,7 +84,6 @@
             border-radius: 30px;
             background: var(--card);
             box-shadow: 0 30px 80px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.1);
-            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         /* Header Centered */
@@ -140,7 +162,7 @@
         }
 
         .admin-trigger-btn {
-            display: none; /* ডিফল্টভাবে হাইড থাকবে, ইউআরএল প্যারামিটার পেলে শো হবে */
+            display: none;
             position: absolute;
             top: 25px;
             right: 25px;
@@ -181,7 +203,6 @@
             overflow: hidden;
         }
 
-        /* ডানপাশে নেওয়া হয়েছে */
         .card-super-sub {
             font-size: 12px;
             color: var(--sub-heading);
@@ -225,7 +246,6 @@
             flex-wrap: wrap;
         }
 
-        /* মান বণ্টন কালার স্টাইল */
         .marks-badge {
             display: inline-block;
             padding: 5px 14px;
@@ -237,7 +257,6 @@
             font-weight: 700;
         }
 
-        /* সিগনেচার আলাদা বাটন স্টাইল */
         .signature-btn {
             display: inline-flex;
             align-items: center;
@@ -264,7 +283,6 @@
             padding: 40px;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 30px 20px;
@@ -293,7 +311,6 @@
             font-size: 11px;
         }
 
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -466,7 +483,7 @@
             <header class="app-header">
                 <button class="admin-trigger-btn" id="settingsBtn">⚙️ অ্যাডমিন</button>
                 <div class="badge-top">
-                    <span></span> DMRC • QUIZ ROUTINE 2026
+                    <span id="displayBadgeText">DMRC • QUIZ ROUTINE 2026</span>
                 </div>
                 <div class="super-sub-header" id="displaySuperSub">শ্রেণি: দ্বাদশ</div>
                 <h1 class="college-title" id="displayHeaderTitle">ড. মাহবুবুর রহমান মোল্লা কলেজ</h1>
@@ -522,7 +539,7 @@
             <div class="modal-title">অ্যাডমিন কন্ট্রোল প্যানেল</div>
             <div class="menu-options">
                 <button class="menu-option-btn" onclick="openHeaderEditModal()">
-                    <span>১. হেডার, সাব ও সুপার হেডার এডিট করুন</span> <span>✏️</span>
+                    <span>১. হেডার ও এক্সাম নেম এডিট করুন</span> <span>✏️</span>
                 </button>
                 <button class="menu-option-btn" onclick="openAddSuggestionModal()">
                     <span>২. নতুন সাজেশন যোগ করুন</span> <span>➕</span>
@@ -546,18 +563,22 @@
     <!-- 3. Header Edit Modal -->
     <div class="modal" id="headerEditModal">
         <div class="modal-content">
-            <div class="modal-title">হেডার কাস্টমাইজেশন</div>
+            <div class="modal-title">হেডার ও এক্সাম নেম কাস্টমাইজেশন</div>
+            <div class="form-group">
+                <label>ব্যাজ টেক্সট (যেমন: DMRC • QUIZ ROUTINE 2026)</label>
+                <input type="text" id="editBadgeText" class="form-control" placeholder="যেমন: DMRC • QUIZ ROUTINE 2026">
+            </div>
             <div class="form-group">
                 <label>সাজেশন সুপার সাব হেড</label>
                 <input type="text" id="editSuperSub" class="form-control" placeholder="যেমন: শ্রেণি: দ্বাদশ">
             </div>
             <div class="form-group">
-                <label>সাজেশন হেডলাইন</label>
+                <label>সাজেশন হেডলাইন (কলেজের নাম)</label>
                 <input type="text" id="editHeaderTitle" class="form-control" placeholder="যেমন: ড. মাহবুবুর রহমান মোল্লা কলেজ">
             </div>
             <div class="form-group">
-                <label>সাজেশন সাব হেড</label>
-                <input type="text" id="editSubHeader" class="form-control" placeholder="যেমন: ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬">
+                <label>এক্সামের নাম / সাব হেড (যেমন: Dmrc কুইজ -২০২৬)</label>
+                <input type="text" id="editSubHeader" class="form-control" placeholder="যেমন: Dmrc কুইজ -২০২৬">
             </div>
             <div class="form-group">
                 <label>নিচের ইনফো</label>
@@ -570,7 +591,7 @@
         </div>
     </div>
 
-    <!-- 4. Add Suggestion Modal -->
+   <!-- 4. Add Suggestion Modal -->
     <div class="modal" id="addSuggestionModal">
         <div class="modal-content">
             <div class="modal-title">নতুন সাজেশন যোগ করুন</div>
@@ -609,7 +630,7 @@
                 <label>কনটেন্ট বক্স ডাইমেনশন (দৈর্ঘ্য ও প্রস্থ)</label>
                 <div style="display: flex; gap: 8px;">
                     <input type="text" id="sugBoxWidth" class="form-control" placeholder="Width যেমন: 100%" value="100%">
-                    <input type="text" id="sugBoxHeight" class="form-control" placeholder="Min-Height যেমন: auto" value="auto">
+                    <input type="text" id="sugBoxHeight" class="form-control" placeholder="Min-Height جیسے: auto" value="auto">
                 </div>
             </div>
             <div class="btn-group">
@@ -694,6 +715,7 @@
 
         const suggestionContainer = document.getElementById("suggestionContainer");
         const settingsBtn = document.getElementById("settingsBtn");
+        const displayBadgeText = document.getElementById("displayBadgeText");
         const displaySuperSub = document.getElementById("displaySuperSub");
         const displayHeaderTitle = document.getElementById("displayHeaderTitle");
         const displaySubHeader = document.getElementById("displaySubHeader");
@@ -715,8 +737,7 @@
             settingsBtn.style.display = "block";
         }
 
-        // ৭টি থিমের সুনির্দিষ্ট কালার কনফিগারেশন ম্যাপ
-        const themePalettes = {
+        const themePalettesObj = {
             dusty_rose: { bg: "#f7f2f0", card: "#e8ded8", heading: "#5a3e36", subHeading: "#7c584d", text: "#4a332c", muted: "#8c7268", border: "rgba(90, 62, 54, 0.15)" },
             olive_green: { bg: "#f4f5f0", card: "#e2e6db", heading: "#384232", subHeading: "#55634d", text: "#2e3629", muted: "#6f7d67", border: "rgba(56, 66, 50, 0.15)" },
             warm_toupe: { bg: "#24201e", card: "#1b1715", heading: "#d8c5b2", subHeading: "#b39c87", text: "#e6d7cc", muted: "#8c7c70", border: "rgba(216, 197, 178, 0.15)" },
@@ -748,9 +769,10 @@
                 const docSnap = await getDoc(doc(db, "settings", "headerConfig"));
                 if (docSnap.exists()) {
                     const data = docSnap.data();
+                    document.getElementById("editBadgeText").value = data.badgeText || "DMRC • QUIZ ROUTINE 2026";
                     document.getElementById("editSuperSub").value = data.superSub || "শ্রেণি: দ্বাদশ";
                     document.getElementById("editHeaderTitle").value = data.headerTitle || "ড. মাহবুবুর রহমান মোল্লা কলেজ";
-                    document.getElementById("editSubHeader").value = data.subHeader || "ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬";
+                    document.getElementById("editSubHeader").value = data.subHeader || "Dmrc কুইজ -২০২৬";
                     document.getElementById("editClassInfo").value = data.classInfo || "পরীক্ষার্থী: বিজ্ঞান বিভাগ";
                 }
             } catch (e) {}
@@ -807,8 +829,9 @@
             }
         });
 
-        function applyTheme(themeKey) {
-            const palette = themePalettes[themeKey] || themePalettes["dusty_rose"];
+        function applyThemeToDOM(themeKey) {
+            localStorage.setItem('dmrc_theme', themeKey);
+            const palette = themePalettesObj[themeKey] || themePalettesObj["dusty_rose"];
             const root = document.documentElement;
             root.style.setProperty('--bg', palette.bg);
             root.style.setProperty('--card', palette.card);
@@ -817,6 +840,7 @@
             root.style.setProperty('--text', palette.text);
             root.style.setProperty('--muted', palette.muted);
             root.style.setProperty('--border', palette.border);
+            root.style.backgroundColor = palette.bg;
         }
 
         async function loadAppData() {
@@ -824,9 +848,10 @@
                 const docSnap = await getDoc(doc(db, "settings", "headerConfig"));
                 if (docSnap.exists()) {
                     const data = docSnap.data();
+                    displayBadgeText.innerText = data.badgeText || "DMRC • QUIZ ROUTINE 2026";
                     displaySuperSub.innerText = data.superSub || "শ্রেণি: দ্বাদশ";
                     displayHeaderTitle.innerText = data.headerTitle || "ড. মাহবুবুর রহমান মোল্লা কলেজ";
-                    displaySubHeader.innerText = data.subHeader || "ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬";
+                    displaySubHeader.innerText = data.subHeader || "Dmrc কুইজ -২০২৬";
                     displayClassInfo.innerText = data.classInfo || "পরীক্ষার্থী: বিজ্ঞান বিভাগ";
                 }
             } catch (e) {}
@@ -834,13 +859,9 @@
             try {
                 const themeSnap = await getDoc(doc(db, "settings", "themeConfig"));
                 if (themeSnap.exists() && themeSnap.data().themeName) {
-                    applyTheme(themeSnap.data().themeName);
-                } else {
-                    applyTheme("dusty_rose");
+                    applyThemeToDOM(themeSnap.data().themeName);
                 }
-            } catch (e) {
-                applyTheme("dusty_rose");
-            }
+            } catch (e) {}
 
             try {
                 const noticeSnap = await getDoc(doc(db, "settings", "noticeConfig"));
@@ -909,13 +930,14 @@
         }
 
         document.getElementById("saveHeaderBtn").addEventListener("click", async () => {
+            const badgeText = document.getElementById("editBadgeText").value.trim();
             const superSub = document.getElementById("editSuperSub").value.trim();
             const headerTitle = document.getElementById("editHeaderTitle").value.trim();
             const subHeader = document.getElementById("editSubHeader").value.trim();
             const classInfo = document.getElementById("editClassInfo").value.trim();
 
             try {
-                await setDoc(doc(db, "settings", "headerConfig"), { superSub, headerTitle, subHeader, classInfo });
+                await setDoc(doc(db, "settings", "headerConfig"), { badgeText, superSub, headerTitle, subHeader, classInfo });
                 alert("হেডার সফলভাবে আপডেট করা হয়েছে!");
                 closeModals();
                 loadAppData();
@@ -967,7 +989,7 @@
             const themeName = document.getElementById("themeSelectDropdown").value;
             try {
                 await setDoc(doc(db, "settings", "themeConfig"), { themeName });
-                applyTheme(themeName);
+                applyThemeToDOM(themeName);
                 alert("থিম সফলভাবে এপ্লাই করা হয়েছে!");
                 closeModals();
                 loadAppData();
