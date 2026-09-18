@@ -15,17 +15,15 @@
     <style>
         :root {
             --bg: #05030a;
-            --bg-light: #10091b;
-            --card: rgba(25, 15, 38, .76);
-            --text: #ffffff;
-            --muted: #a99bb7;
-            --dim: #766783;
-            --purple: #ae7aff;
-            --violet: #744dff;
-            --pink: #e57aff;
-            --blue: #66b8ff;
-            --border: rgba(255,255,255,.09);
-            --glow: rgba(174,122,255,.16);
+            --card: #2c2225; /* ডিফল্ট Dusty rose + warm beige */
+            --card-text: #5a3e36;
+            --heading-color: #3b2520;
+            --sub-heading: #7c584d;
+            --text: #3b2520;
+            --muted: #6b534a;
+            --border: rgba(90, 62, 54, 0.2);
+            --card-padding: 30px;
+            --card-width: 100%;
         }
 
         * {
@@ -44,10 +42,8 @@
             overflow-x: hidden;
             color: var(--text);
             font-family: "Inter", "Hind Siliguri", sans-serif;
-            background: radial-gradient(circle at 10% 0%, rgba(147,78,255,.17), transparent 30%),
-                        radial-gradient(circle at 90% 10%, rgba(224,93,255,.12), transparent 28%),
-                        radial-gradient(circle at 50% 100%, rgba(80,110,255,.10), transparent 35%),
-                        linear-gradient(135deg, #030207, #0c0616 50%, #040209);
+            background: var(--bg);
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .page {
@@ -63,10 +59,9 @@
             overflow: hidden;
             border: 1px solid var(--border);
             border-radius: 30px;
-            background: linear-gradient(145deg, rgba(28,17,43,.86), rgba(5,3,11,.88));
-            box-shadow: 0 40px 110px rgba(0,0,0,.58), inset 0 1px 0 rgba(255,255,255,.065);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            background: var(--card);
+            box-shadow: 0 30px 80px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.1);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         /* Header Centered */
@@ -82,11 +77,11 @@
             align-items: center;
             gap: 8px;
             padding: 6px 16px;
-            background: rgba(174,122,255,0.06);
-            border: 1px solid rgba(174,122,255,0.2);
+            background: rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
             border-radius: 50px;
             font-size: 13px;
-            color: var(--purple);
+            color: var(--sub-heading);
             font-weight: 600;
             margin-bottom: 15px;
         }
@@ -94,9 +89,8 @@
         .badge-top span {
             width: 6px;
             height: 6px;
-            background: var(--purple);
+            background: var(--sub-heading);
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--purple);
         }
 
         .super-sub-header {
@@ -113,15 +107,13 @@
             font-weight: 800;
             font-family: "Hind Siliguri", sans-serif;
             margin-bottom: 8px;
-            background: linear-gradient(100deg, #ffffff 20%, #d6bdff 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--heading-color);
         }
 
         .exam-title {
             font-size: clamp(16px, 3vw, 22px);
             font-weight: 700;
-            color: #ded6e8;
+            color: var(--sub-heading);
             margin-bottom: 6px;
             font-family: "Hind Siliguri", sans-serif;
         }
@@ -132,30 +124,29 @@
             font-family: "Hind Siliguri", sans-serif;
         }
 
-        /* Notice Banner */
         .notice-banner {
             display: none;
-            background: rgba(174, 122, 255, 0.1);
-            border-bottom: 1px solid rgba(174, 122, 255, 0.2);
+            background: rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border);
             padding: 12px 20px;
             text-align: left;
-            color: #d6bdff;
+            color: var(--text);
             font-size: 14px;
             font-family: "Hind Siliguri", sans-serif;
         }
         .notice-banner strong {
-            color: var(--pink);
+            color: var(--heading-color);
             margin-right: 8px;
         }
 
         .admin-trigger-btn {
-            display: none; /* скрыত থাকে, ইউআরএলে /admin69 থাকলে দেখাবে */
+            display: none; /* ডিফল্টভাবে হাইড থাকবে, ইউআরএল প্যারামিটার পেলে শো হবে */
             position: absolute;
             top: 25px;
             right: 25px;
-            background: rgba(255,255,255,0.04);
+            background: rgba(0,0,0,0.05);
             border: 1px solid var(--border);
-            color: var(--muted);
+            color: var(--text);
             padding: 8px 16px;
             border-radius: 50px;
             font-size: 13px;
@@ -164,9 +155,7 @@
         }
 
         .admin-trigger-btn:hover {
-            color: var(--purple);
-            border-color: rgba(174,122,255,0.3);
-            background: rgba(174,122,255,0.08);
+            opacity: 0.8;
         }
 
         .content {
@@ -178,26 +167,49 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            align-items: center;
         }
 
         .suggestion-card {
-            padding: 30px;
+            padding: var(--card-padding);
+            width: var(--card-width);
             border: 1px solid var(--border);
             border-radius: 20px;
-            background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+            background: rgba(255, 255, 255, 0.04);
             text-align: left;
             position: relative;
+            overflow: hidden;
+        }
+
+        /* ডানপাশে নেওয়া হয়েছে */
+        .card-super-sub {
+            font-size: 12px;
+            color: var(--sub-heading);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            font-weight: 700;
+            text-align: right; 
+        }
+
+        .card-sub-head {
+            font-size: 14px;
+            color: var(--sub-heading);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: right; 
         }
 
         .suggestion-card h3 {
-            color: var(--purple);
+            color: var(--heading-color);
             margin-bottom: 12px;
             font-size: 20px;
             font-family: "Hind Siliguri", sans-serif;
         }
 
         .suggestion-card p {
-            color: #ded6e8;
+            color: var(--text);
+            opacity: 0.95;
             font-size: 16px;
             line-height: 1.6;
             white-space: pre-line;
@@ -213,26 +225,36 @@
             flex-wrap: wrap;
         }
 
+        /* মান বণ্টন কালার স্টাইল */
         .marks-badge {
             display: inline-block;
-            padding: 4px 14px;
-            background: rgba(116, 77, 255, 0.15);
-            border: 1px solid rgba(116, 77, 255, 0.3);
-            border-radius: 20px;
-            font-size: 13px;
-            color: #d6bdff;
-            font-weight: 600;
-        }
-
-        .edited-badge {
-            display: inline-block;
-            padding: 4px 14px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 14px;
+            background: rgba(0, 0, 0, 0.08);
             border: 1px solid var(--border);
             border-radius: 20px;
             font-size: 13px;
-            color: var(--muted);
-            margin-left: auto; /* ডান দিকে সরানোর জন্য */
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+
+        /* সিগনেচার আলাদা বাটন স্টাইল */
+        .signature-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            background: var(--heading-color);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #fff;
+            font-weight: 600;
+            margin-left: auto;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .signature-btn:hover {
+            opacity: 0.85;
         }
 
         .no-data {
@@ -249,25 +271,25 @@
             border-top: 1px solid var(--border);
             color: var(--muted);
             font-size: 13px;
-            background: rgba(3, 2, 7, 0.3);
+            background: rgba(0, 0, 0, 0.03);
             margin-top: auto;
         }
 
         .footer .dev-name {
-            color: #fff;
+            color: var(--heading-color);
             font-weight: 700;
         }
 
         .footer .details {
             margin-top: 5px;
-            color: var(--dim);
+            color: var(--muted);
             font-size: 12px;
             letter-spacing: 0.5px;
         }
 
         .footer .copy {
             margin-top: 8px;
-            color: var(--dim);
+            color: var(--muted);
             font-size: 11px;
         }
 
@@ -276,31 +298,32 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(3, 2, 7, 0.85);
+            background: rgba(0, 0, 0, 0.7);
             z-index: 999;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
         }
 
         .modal-content {
             width: min(500px, 100%);
-            background: #130a21;
-            border: 1px solid rgba(174,122,255,0.3);
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 24px;
             padding: 30px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
             position: relative;
             max-height: 90vh;
             overflow-y: auto;
+            color: var(--text);
         }
 
         .modal-title {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #fff;
+            color: var(--heading-color);
             text-align: center;
         }
 
@@ -311,19 +334,20 @@
         .form-group label {
             display: block;
             font-size: 12px;
-            color: var(--muted);
+            color: var(--sub-heading);
             margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 700;
         }
 
         .form-control {
             width: 100%;
             padding: 12px 16px;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.06);
             border: 1px solid var(--border);
             border-radius: 12px;
-            color: #fff;
+            color: inherit;
             font-size: 15px;
             font-family: inherit;
             outline: none;
@@ -331,8 +355,7 @@
         }
 
         .form-control:focus {
-            border-color: var(--purple);
-            background: rgba(174,122,255,0.05);
+            border-color: var(--heading-color);
         }
 
         textarea.form-control {
@@ -358,28 +381,26 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--violet), var(--purple));
+            background: var(--heading-color);
             color: #fff;
         }
 
         .btn-primary:hover {
             opacity: 0.9;
-            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: rgba(255,255,255,0.06);
-            color: var(--muted);
+            background: rgba(0,0,0,0.08);
+            color: var(--text);
             border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            color: #fff;
+            background: rgba(0,0,0,0.12);
         }
 
         .btn-danger {
-            background: #ff4d6d;
+            background: #d9534f;
             color: #fff;
         }
 
@@ -393,10 +414,10 @@
             width: 100%;
             padding: 15px;
             text-align: left;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.04);
             border: 1px solid var(--border);
             border-radius: 14px;
-            color: #fff;
+            color: inherit;
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
@@ -407,9 +428,7 @@
         }
 
         .menu-option-btn:hover {
-            background: rgba(174,122,255,0.08);
-            border-color: rgba(174,122,255,0.3);
-            color: var(--purple);
+            background: rgba(255,255,255,0.08);
         }
 
         .delete-item-row {
@@ -417,7 +436,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 12px;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255,255,255,0.03);
             border: 1px solid var(--border);
             border-radius: 10px;
             margin-bottom: 10px;
@@ -425,7 +444,6 @@
 
         .delete-item-row span {
             font-size: 14px;
-            color: #ddd;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -461,7 +479,7 @@
                 <strong>📢 নোটিশ:</strong> <span id="noticeTextContent">এখানে নোটিশ প্রদর্শিত হবে।</span>
             </div>
 
-            <!-- CONTENT (Left-aligned suggestions) -->
+            <!-- CONTENT -->
             <main class="content">
                 <div id="suggestionContainer" class="suggestion-list">
                     <div class="no-data">সাজেশন লোড হচ্ছে...</div>
@@ -509,11 +527,14 @@
                 <button class="menu-option-btn" onclick="openAddSuggestionModal()">
                     <span>২. নতুন সাজেশন যোগ করুন</span> <span>➕</span>
                 </button>
+                <button class="menu-option-btn" onclick="openThemeModal()">
+                    <span>৩. থিম প্যালেট সিলেক্ট করুন</span> <span>🎨</span>
+                </button>
                 <button class="menu-option-btn" onclick="openNoticeModal()">
-                    <span>৩. নোটিশ ম্যানেজ করুন</span> <span>📢</span>
+                    <span>৪. নোটিশ ম্যানেজ করুন</span> <span>📢</span>
                 </button>
                 <button class="menu-option-btn" onclick="openDeleteModal()">
-                    <span>৪. সাজেশন ডিলিট করুন</span> <span>🗑️</span>
+                    <span>৫. সাজেশন ডিলিট করুন</span> <span>🗑️</span>
                 </button>
             </div>
             <div class="btn-group" style="margin-top: 25px;">
@@ -527,15 +548,15 @@
         <div class="modal-content">
             <div class="modal-title">হেডার কাস্টমাইজেশন</div>
             <div class="form-group">
-                <label>সুপার সাব-হেডার</label>
+                <label>সাজেশন সুপার সাব হেড</label>
                 <input type="text" id="editSuperSub" class="form-control" placeholder="যেমন: শ্রেণি: দ্বাদশ">
             </div>
             <div class="form-group">
-                <label>হেডার (মূল শিরোনাম)</label>
+                <label>সাজেশন হেডলাইন</label>
                 <input type="text" id="editHeaderTitle" class="form-control" placeholder="যেমন: ড. মাহবুবুর রহমান মোল্লা কলেজ">
             </div>
             <div class="form-group">
-                <label>সাব-হেডার</label>
+                <label>সাজেশন সাব হেড</label>
                 <input type="text" id="editSubHeader" class="form-control" placeholder="যেমন: ইংরেজি দ্বিতীয়পত্র সাজেশন - ২০২৬">
             </div>
             <div class="form-group">
@@ -549,26 +570,21 @@
         </div>
     </div>
 
-    <!-- 4. Add Suggestion Modal (with Header fields inside) -->
+    <!-- 4. Add Suggestion Modal -->
     <div class="modal" id="addSuggestionModal">
         <div class="modal-content">
-            <div class="modal-title">সাজেশন ও হেডার আপডেট</div>
+            <div class="modal-title">নতুন সাজেশন যোগ করুন</div>
             <div class="form-group">
-                <label>সুপার সাব-হেডার (ঐচ্ছিক)</label>
-                <input type="text" id="sugSuperSub" class="form-control" placeholder="যেমন: শ্রেণি: দ্বাদশ">
+                <label>সাজেশন সুপার সাব হেড</label>
+                <input type="text" id="sugSuperSubField" class="form-control" placeholder="যেমন: PART - A">
             </div>
             <div class="form-group">
-                <label>হেডার / কলেজ নাম (ঐচ্ছিক)</label>
-                <input type="text" id="sugHeaderTitle" class="form-control" placeholder="যেমন: ড. মাহবুবুর রহমান মোল্লা কলেজ">
+                <label>সাজেশন সাব হেড</label>
+                <input type="text" id="sugSubHeadField" class="form-control" placeholder="যেমন: Reading Test">
             </div>
             <div class="form-group">
-                <label>সাব-হেডার (ঐচ্ছিক)</label>
-                <input type="text" id="sugSubHeader" class="form-control" placeholder="যেমন: ইংরেজি দ্বিতীয়পত্র সাজেশন">
-            </div>
-            <hr style="border:0; border-top:1px solid var(--border); margin: 15px 0;">
-            <div class="form-group">
-                <label>সাজেশন হেডলাইন (ঐচ্ছিক)</label>
-                <input type="text" id="suggestionHeadline" class="form-control" placeholder="যেমন: Part A - Seen Passage...">
+                <label>সাজেশন হেডলাইন</label>
+                <input type="text" id="suggestionHeadline" class="form-control" placeholder="যেমন: Seen Passage 1...">
             </div>
             <div class="form-group">
                 <label>কনটেন্ট / মূল বিবরণ</label>
@@ -579,8 +595,22 @@
                 <input type="text" id="suggestionMarks" class="form-control" placeholder="যেমন: পূর্ণমান: ১০">
             </div>
             <div class="form-group">
-                <label>এডিটেড বাই (ঐচ্ছিক)</label>
-                <input type="text" id="suggestionEditedBy" class="form-control" placeholder="যেমন: Edited by: Sagor">
+                <label>সিগন্যাচার বাটন (টেক্সট ও লিংক)</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="suggestionSigText" class="form-control" placeholder="বাটনের নাম (যেমন: Sagor)" style="flex:1;">
+                    <input type="text" id="suggestionSigLink" class="form-control" placeholder="লিংক (ঐচ্ছিক)" style="flex:1;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>কনটেন্ট বক্সের ধরন (Class অপশন)</label>
+                <input type="text" id="sugBoxType" class="form-control" placeholder="যেমন: custom-card">
+            </div>
+            <div class="form-group">
+                <label>কনটেন্ট বক্স ডাইমেনশন (দৈর্ঘ্য ও প্রস্থ)</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="sugBoxWidth" class="form-control" placeholder="Width যেমন: 100%" value="100%">
+                    <input type="text" id="sugBoxHeight" class="form-control" placeholder="Min-Height যেমন: auto" value="auto">
+                </div>
             </div>
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
@@ -589,7 +619,30 @@
         </div>
     </div>
 
-<!-- 5. Notice Edit Modal -->
+    <!-- 5. Theme Palette Select Modal -->
+    <div class="modal" id="themeModal">
+        <div class="modal-content">
+            <div class="modal-title">থিম কালার প্যালেট নির্বাচন</div>
+            <div class="form-group">
+                <label>পছন্দের কালার কম্বিনেশন সিলেক্ট করুন</label>
+                <select id="themeSelectDropdown" class="form-control">
+                    <option value="dusty_rose">Dusty rose + warm beige</option>
+                    <option value="olive_green">Olive green + warm beige</option>
+                    <option value="warm_toupe">Warm toupe + dark walnut</option>
+                    <option value="sage_green">Sage green + ivory</option>
+                    <option value="mocha">Mocha + beige</option>
+                    <option value="dusty_blue">Dusty blue + crisp white</option>
+                    <option value="warm_caramel">Warm caramel + chocolate</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary" onclick="openSettingsMenu()">পেছনে</button>
+                <button type="button" class="btn btn-primary" id="saveThemeBtn">থিম এপ্লাই করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Notice Edit Modal -->
     <div class="modal" id="noticeModal">
         <div class="modal-content">
             <div class="modal-title">নোটিশ ম্যানেজ করুন</div>
@@ -604,7 +657,7 @@
         </div>
     </div>
 
-    <!-- 6. Delete Suggestion Modal -->
+    <!-- 7. Delete Suggestion Modal -->
     <div class="modal" id="deleteSuggestionModal">
         <div class="modal-content">
             <div class="modal-title">সাজেশন ডিলিট করুন</div>
@@ -639,13 +692,6 @@
         const db = getFirestore(app);
         const auth = getAuth(app);
 
-        // সিক্রেট ইউআরএল চেক (/admin69)
-        const urlParams = new URLSearchParams(window.location.search);
-        const hashVal = window.location.hash;
-        if (urlParams.get("admin") === "admin69" || hashVal.includes("admin69")) {
-            document.getElementById("settingsBtn").style.display = "block";
-        }
-
         const suggestionContainer = document.getElementById("suggestionContainer");
         const settingsBtn = document.getElementById("settingsBtn");
         const displaySuperSub = document.getElementById("displaySuperSub");
@@ -659,14 +705,33 @@
         const settingsMenuModal = document.getElementById("settingsMenuModal");
         const headerEditModal = document.getElementById("headerEditModal");
         const addSuggestionModal = document.getElementById("addSuggestionModal");
+        const themeModal = document.getElementById("themeModal");
         const noticeModal = document.getElementById("noticeModal");
         const deleteSuggestionModal = document.getElementById("deleteSuggestionModal");
+
+        // URL চেক করে ?admin=admin69 থাকলে অ্যাডমিন বাটন শো করা
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('admin') === 'admin69') {
+            settingsBtn.style.display = "block";
+        }
+
+        // ৭টি থিমের সুনির্দিষ্ট কালার কনফিগারেশন ম্যাপ
+        const themePalettes = {
+            dusty_rose: { bg: "#f7f2f0", card: "#e8ded8", heading: "#5a3e36", subHeading: "#7c584d", text: "#4a332c", muted: "#8c7268", border: "rgba(90, 62, 54, 0.15)" },
+            olive_green: { bg: "#f4f5f0", card: "#e2e6db", heading: "#384232", subHeading: "#55634d", text: "#2e3629", muted: "#6f7d67", border: "rgba(56, 66, 50, 0.15)" },
+            warm_toupe: { bg: "#24201e", card: "#1b1715", heading: "#d8c5b2", subHeading: "#b39c87", text: "#e6d7cc", muted: "#8c7c70", border: "rgba(216, 197, 178, 0.15)" },
+            sage_green: { bg: "#f2f7f5", card: "#e3ede9", heading: "#2c4a3e", subHeading: "#44705e", text: "#223b31", muted: "#6a8c7f", border: "rgba(44, 74, 62, 0.15)" },
+            mocha: { bg: "#f5f0eb", card: "#e6dbd0", heading: "#4a3525", subHeading: "#73533c", text: "#3b2a1d", muted: "#8c7362", border: "rgba(74, 53, 37, 0.15)" },
+            dusty_blue: { bg: "#f0f4f8", card: "#dce6f0", heading: "#23405c", subHeading: "#3a6085", text: "#1b3147", muted: "#6a85a3", border: "rgba(35, 64, 92, 0.15)" },
+            warm_caramel: { bg: "#241e1b", card: "#1a1513", heading: "#e09f63", subHeading: "#b8763a", text: "#f2d6bd", muted: "#9c7c63", border: "rgba(224, 159, 99, 0.15)" }
+        };
 
         window.closeModals = function() {
             passwordModal.style.display = "none";
             settingsMenuModal.style.display = "none";
             headerEditModal.style.display = "none";
             addSuggestionModal.style.display = "none";
+            themeModal.style.display = "none";
             noticeModal.style.display = "none";
             deleteSuggestionModal.style.display = "none";
         }
@@ -691,16 +756,18 @@
             } catch (e) {}
         }
 
-        window.openAddSuggestionModal = async function() {
+        window.openAddSuggestionModal = function() {
             closeModals();
             addSuggestionModal.style.display = "flex";
+        }
+
+        window.openThemeModal = async function() {
+            closeModals();
+            themeModal.style.display = "flex";
             try {
-                const docSnap = await getDoc(doc(db, "settings", "headerConfig"));
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    document.getElementById("sugSuperSub").value = data.superSub || "";
-                    document.getElementById("sugHeaderTitle").value = data.headerTitle || "";
-                    document.getElementById("sugSubHeader").value = data.subHeader || "";
+                const docSnap = await getDoc(doc(db, "settings", "themeConfig"));
+                if (docSnap.exists() && docSnap.data().themeName) {
+                    document.getElementById("themeSelectDropdown").value = docSnap.data().themeName;
                 }
             } catch (e) {}
         }
@@ -736,16 +803,21 @@
                 await signInWithEmailAndPassword(auth, email, password);
                 openSettingsMenu();
             } catch (error) {
-                let errCode = error.code;
-                if (errCode === "auth/invalid-email") {
-                    alert("invalid email");
-                } else if (errCode === "auth/wrong-password" || errCode === "auth/invalid-credential" || errCode === "auth/user-not-found") {
-                    alert("invalid password");
-                } else {
-                    alert("লগইন ব্যর্থ হয়েছে: " + error.message);
-                }
+                alert("লগইন ব্যর্থ হয়েছে: " + error.message);
             }
         });
+
+        function applyTheme(themeKey) {
+            const palette = themePalettes[themeKey] || themePalettes["dusty_rose"];
+            const root = document.documentElement;
+            root.style.setProperty('--bg', palette.bg);
+            root.style.setProperty('--card', palette.card);
+            root.style.setProperty('--heading-color', palette.heading);
+            root.style.setProperty('--sub-heading', palette.subHeading);
+            root.style.setProperty('--text', palette.text);
+            root.style.setProperty('--muted', palette.muted);
+            root.style.setProperty('--border', palette.border);
+        }
 
         async function loadAppData() {
             try {
@@ -758,6 +830,17 @@
                     displayClassInfo.innerText = data.classInfo || "পরীক্ষার্থী: বিজ্ঞান বিভাগ";
                 }
             } catch (e) {}
+
+            try {
+                const themeSnap = await getDoc(doc(db, "settings", "themeConfig"));
+                if (themeSnap.exists() && themeSnap.data().themeName) {
+                    applyTheme(themeSnap.data().themeName);
+                } else {
+                    applyTheme("dusty_rose");
+                }
+            } catch (e) {
+                applyTheme("dusty_rose");
+            }
 
             try {
                 const noticeSnap = await getDoc(doc(db, "settings", "noticeConfig"));
@@ -773,7 +856,6 @@
 
             suggestionContainer.innerHTML = `<div class="no-data">সাজেশন লোড হচ্ছে...</div>`;
             try {
-                // ক্রমান্বয়ে নিচে যাওয়ার জন্য createdAt অনুযায়ী সাজানো (Oldest to Newest অথবা Newest to Oldest)
                 const q = query(collection(db, "suggestions"), orderBy("createdAt", "asc"));
                 const querySnapshot = await getDocs(q);
                 suggestionContainer.innerHTML = "";
@@ -786,21 +868,34 @@
                 querySnapshot.forEach((docSnap) => {
                     const data = docSnap.data();
                     const card = document.createElement("div");
-                    card.className = "suggestion-card";
+                    
+                    card.className = "suggestion-card " + (data.sugBoxType || "");
+                    if (data.boxWidth) card.style.width = data.boxWidth;
+                    if (data.boxHeight) card.style.minHeight = data.boxHeight;
                     
                     let htmlContent = "";
+                    if (data.superSubField) {
+                        htmlContent += `<div class="card-super-sub">${escapeHtml(data.superSubField)}</div>`;
+                    }
+                    if (data.subHeadField) {
+                        htmlContent += `<div class="card-sub-head">${escapeHtml(data.subHeadField)}</div>`;
+                    }
                     if (data.headline) {
                         htmlContent += `<h3>${escapeHtml(data.headline)}</h3>`;
                     }
                     htmlContent += `<p>${escapeHtml(data.content)}</p>`;
                     
-                    if (data.marks || data.editedBy) {
+                    if (data.marks || data.sigText) {
                         htmlContent += `<div class="card-meta-row">`;
                         if (data.marks) {
                             htmlContent += `<div class="marks-badge">${escapeHtml(data.marks)}</div>`;
                         }
-                        if (data.editedBy) {
-                            htmlContent += `<div class="edited-badge">${escapeHtml(data.editedBy)}</div>`;
+                        if (data.sigText) {
+                            if (data.sigLink) {
+                                htmlContent += `<a href="${escapeHtml(data.sigLink)}" target="_blank" class="signature-btn">${escapeHtml(data.sigText)} ↗</a>`;
+                            } else {
+                                htmlContent += `<div class="signature-btn">${escapeHtml(data.sigText)}</div>`;
+                            }
                         }
                         htmlContent += `</div>`;
                     }
@@ -820,12 +915,7 @@
             const classInfo = document.getElementById("editClassInfo").value.trim();
 
             try {
-                await setDoc(doc(db, "settings", "headerConfig"), {
-                    superSub: superSub,
-                    headerTitle: headerTitle,
-                    subHeader: subHeader,
-                    classInfo: classInfo
-                });
+                await setDoc(doc(db, "settings", "headerConfig"), { superSub, headerTitle, subHeader, classInfo });
                 alert("হেডার সফলভাবে আপডেট করা হয়েছে!");
                 closeModals();
                 loadAppData();
@@ -835,13 +925,16 @@
         });
 
         document.getElementById("saveSuggestionBtn").addEventListener("click", async () => {
-            const sugSuperSub = document.getElementById("sugSuperSub").value.trim();
-            const sugHeaderTitle = document.getElementById("sugHeaderTitle").value.trim();
-            const sugSubHeader = document.getElementById("sugSubHeader").value.trim();
+            const superSubField = document.getElementById("sugSuperSubField").value.trim();
+            const subHeadField = document.getElementById("sugSubHeadField").value.trim();
             const headline = document.getElementById("suggestionHeadline").value.trim();
             const content = document.getElementById("suggestionContent").value.trim();
             const marks = document.getElementById("suggestionMarks").value.trim();
-            const editedBy = document.getElementById("suggestionEditedBy").value.trim();
+            const sigText = document.getElementById("suggestionSigText").value.trim();
+            const sigLink = document.getElementById("suggestionSigLink").value.trim();
+            const sugBoxType = document.getElementById("sugBoxType").value.trim();
+            const boxWidth = document.getElementById("sugBoxWidth").value.trim();
+            const boxHeight = document.getElementById("sugBoxHeight").value.trim();
 
             if (!content) {
                 alert("দয়া করে কনটেন্ট লিখুন।");
@@ -849,32 +942,19 @@
             }
 
             try {
-                // যদি হেডারের কোনো ফিল্ড দেওয়া হয়, তা হেডার কনফিগেও আপডেট করে দেবো
-                if (sugSuperSub || sugHeaderTitle || sugSubHeader) {
-                    const currentHeaderSnap = await getDoc(doc(db, "settings", "headerConfig"));
-                    let currentHeaderData = currentHeaderSnap.exists() ? currentHeaderSnap.data() : {};
-                    await setDoc(doc(db, "settings", "headerConfig"), {
-                        superSub: sugSuperSub || currentHeaderData.superSub || "",
-                        headerTitle: sugHeaderTitle || currentHeaderData.headerTitle || "",
-                        subHeader: sugSubHeader || currentHeaderData.subHeader || "",
-                        classInfo: currentHeaderData.classInfo || ""
-                    });
-                }
-
                 await addDoc(collection(db, "suggestions"), {
-                    headline: headline,
-                    content: content,
-                    marks: marks,
-                    editedBy: editedBy,
-                    createdAt: new Date()
+                    superSubField, subHeadField, headline, content, marks, sigText, sigLink, sugBoxType, boxWidth, boxHeight, createdAt: new Date()
                 });
                 
                 alert("সাজেশন সফলভাবে যোগ করা হয়েছে!");
-                
+                document.getElementById("sugSuperSubField").value = "";
+                document.getElementById("sugSubHeadField").value = "";
                 document.getElementById("suggestionHeadline").value = "";
                 document.getElementById("suggestionContent").value = "";
                 document.getElementById("suggestionMarks").value = "";
-                document.getElementById("suggestionEditedBy").value = "";
+                document.getElementById("suggestionSigText").value = "";
+                document.getElementById("suggestionSigLink").value = "";
+                document.getElementById("sugBoxType").value = "";
                 
                 closeModals();
                 loadAppData();
@@ -883,12 +963,23 @@
             }
         });
 
+        document.getElementById("saveThemeBtn").addEventListener("click", async () => {
+            const themeName = document.getElementById("themeSelectDropdown").value;
+            try {
+                await setDoc(doc(db, "settings", "themeConfig"), { themeName });
+                applyTheme(themeName);
+                alert("থিম সফলভাবে এপ্লাই করা হয়েছে!");
+                closeModals();
+                loadAppData();
+            } catch (error) {
+                alert("থিম সেভ করতে সমস্যা হয়েছে: " + error.message);
+            }
+        });
+
         document.getElementById("saveNoticeBtn").addEventListener("click", async () => {
             const noticeText = document.getElementById("noticeInputText").value.trim();
             try {
-                await setDoc(doc(db, "settings", "noticeConfig"), {
-                    noticeText: noticeText
-                });
+                await setDoc(doc(db, "settings", "noticeConfig"), { noticeText });
                 alert("নোটিশ সফলভাবে আপডেট করা হয়েছে!");
                 closeModals();
                 loadAppData();
@@ -916,14 +1007,11 @@
                 }
 
                 deleteAllContainer.style.display = "block";
-
                 querySnapshot.forEach((docSnap) => {
                     const data = docSnap.data();
                     const row = document.createElement("div");
                     row.className = "delete-item-row";
-                    
                     const titleText = data.headline ? data.headline : (data.content.substring(0, 30) + "...");
-                    
                     row.innerHTML = `
                         <span>${escapeHtml(titleText)}</span>
                         <button class="btn btn-danger" style="padding: 6px 12px; font-size:12px; flex:none;" onclick="deleteSuggestionItem('${docSnap.id}')">ডিলিট</button>
@@ -956,7 +1044,6 @@
                     querySnapshot.forEach((docSnap) => {
                         deletePromises.push(deleteDoc(doc(db, "suggestions", docSnap.id)));
                     });
-
                     await Promise.all(deletePromises);
                     alert("সকল সাজেশন সফলভাবে ডিলিট করা হয়েছে!");
                     openDeleteModal();
@@ -968,13 +1055,8 @@
         }
 
         function escapeHtml(text) {
-            const map = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
+            if (!text) return "";
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
             return text.replace(/[&<>"']/g, function(m) { return map[m]; });
         }
 
@@ -983,4 +1065,3 @@
 </body>
 
 </html>
-
