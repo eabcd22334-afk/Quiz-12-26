@@ -2,34 +2,84 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#07111f">
-
-    <title>
-        সাজেশন + রুটিন created by SAGOR
-    </title>
+    <title>সাজেশন + রুটিন created by SAGOR</title>
 
     <!-- Google Font -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
+    <!-- Firebase SDKs (Compat Version for Easy Authentication) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
     <style>
+        /* =========================================
+           THEMES (Default & 7 Premium Themes)
+        ========================================= */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #030711, #07111f, #0a1628);
+            --container-bg: rgba(10, 23, 39, 0.72);
+            --border-color: rgba(255,255,255,0.10);
+            --text-main: #ffffff;
+            --accent-color: #66ddff;
+            --card-bg: linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.018));
+            --card-border: rgba(255,255,255,0.10);
+        }
+
+        body.theme-cyberpunk {
+            --bg-gradient: linear-gradient(135deg, #120018, #2a0845, #00f0ff);
+            --container-bg: rgba(20, 5, 30, 0.85);
+            --accent-color: #ff007f;
+        }
+
+        body.theme-emerald {
+            --bg-gradient: linear-gradient(135deg, #021c0b, #053b1b, #085c2b);
+            --container-bg: rgba(5, 35, 18, 0.8);
+            --accent-color: #2ecc71;
+        }
+
+        body.theme-sunset {
+            --bg-gradient: linear-gradient(135deg, #2c0b0e, #5c1822, #8c2635);
+            --container-bg: rgba(45, 12, 17, 0.8);
+            --accent-color: #ff7675;
+        }
+
+        body.theme-royal {
+            --bg-gradient: linear-gradient(135deg, #1b0c3a, #2c1654, #48218a);
+            --container-bg: rgba(25, 12, 50, 0.8);
+            --accent-color: #a29bfe;
+        }
+
+        body.theme-midnight {
+            --bg-gradient: linear-gradient(135deg, #050505, #111111, #1f1f1f);
+            --container-bg: rgba(15, 15, 15, 0.85);
+            --accent-color: #f1c40f;
+        }
+
+        body.theme-ocean {
+            --bg-gradient: linear-gradient(135deg, #001e3d, #003366, #004080);
+            --container-bg: rgba(0, 30, 60, 0.8);
+            --accent-color: #00cec9;
+        }
+
+        body.theme-ruby {
+            --bg-gradient: linear-gradient(135deg, #3d0000, #660000, #990000);
+            --container-bg: rgba(40, 0, 0, 0.8);
+            --accent-color: #ff4d4d;
+        }
+
+        body.theme-gold {
+            --bg-gradient: linear-gradient(135deg, #2b2300, #544600, #7d6800);
+            --container-bg: rgba(35, 30, 0, 0.8);
+            --accent-color: #f39c12;
+        }
 
         /* =========================================
            GLOBAL
         ========================================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -42,1173 +92,627 @@
 
         body {
             min-height: 100vh;
-
-            font-family:
-                "Hind Siliguri",
-                "Noto Sans Bengali",
-                sans-serif;
-
-            color: #ffffff;
-
-            background:
-                radial-gradient(
-                    circle at 10% 10%,
-                    rgba(0, 200, 255, 0.18),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 90% 15%,
-                    rgba(124, 92, 255, 0.18),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 50% 100%,
-                    rgba(0, 170, 255, 0.10),
-                    transparent 35%
-                ),
-
-                linear-gradient(
-                    135deg,
-                    #030711,
-                    #07111f,
-                    #0a1628
-                );
-
+            font-family: "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+            color: var(--text-main);
+            background: var(--bg-gradient);
             padding: 25px 15px;
-
             overflow-x: hidden;
+            transition: background 0.5s ease;
         }
 
-
-        /* Background Grid */
-
         body::before {
-
             content: "";
-
             position: fixed;
-
             inset: 0;
-
             pointer-events: none;
-
             opacity: 0.25;
-
-            background-image:
-
-                linear-gradient(
-                    rgba(255,255,255,0.025) 1px,
-                    transparent 1px
-                ),
-
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.025) 1px,
-                    transparent 1px
-                );
-
+            background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
             background-size: 35px 35px;
-
             z-index: -1;
         }
 
-
-        /* =========================================
-           MAIN CONTAINER
-        ========================================= */
-
         .container {
-
             width: 100%;
-
             max-width: 1100px;
-
             margin: auto;
-
-            background:
-                rgba(10, 23, 39, 0.72);
-
-            border:
-                1px solid
-                rgba(255,255,255,0.10);
-
+            background: var(--container-bg);
+            border: 1px solid var(--border-color);
             border-radius: 28px;
-
             overflow: hidden;
-
-            box-shadow:
-
-                0 30px 80px
-                rgba(0,0,0,0.45),
-
-                inset 0 1px 0
-                rgba(255,255,255,0.08);
-
+            box-shadow: 0 30px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
             backdrop-filter: blur(20px);
-
             -webkit-backdrop-filter: blur(20px);
         }
-
 
         /* =========================================
            HEADER
         ========================================= */
-
         .header {
-
             text-align: center;
-
-            padding:
-                45px
-                25px
-                35px;
-
+            padding: 45px 25px 35px;
             position: relative;
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,0.09);
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(255,255,255,0.04),
-                    transparent
-                );
+            border-bottom: 1px solid rgba(255,255,255,0.09);
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
         }
 
-
-        /* Top Badge */
+        .settings-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+            font-size: 16px;
+            transition: 0.3s;
+            z-index: 10;
+        }
+        .settings-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
 
         .badge {
-
             display: inline-flex;
-
             align-items: center;
-
             gap: 8px;
-
-            padding:
-                7px
-                16px;
-
+            padding: 7px 16px;
             border-radius: 50px;
-
             font-size: 13px;
-
             font-weight: 600;
-
             letter-spacing: 1px;
-
-            color: #66ddff;
-
-            border:
-                1px solid
-                rgba(102,221,255,0.25);
-
-            background:
-                rgba(102,221,255,0.07);
-
-            box-shadow:
-                0 0 25px
-                rgba(102,221,255,0.06);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            background: rgba(102,221,255,0.07);
         }
-
 
         .badge-dot {
-
             width: 7px;
-
             height: 7px;
-
             border-radius: 50%;
-
-            background: #66ddff;
-
-            box-shadow:
-                0 0 12px
-                #66ddff;
+            background: var(--accent-color);
+            box-shadow: 0 0 12px var(--accent-color);
         }
-
-
-        /* College Name */
 
         .college-name {
-
             margin-top: 20px;
-
-            font-size:
-                clamp(
-                    25px,
-                    5vw,
-                    48px
-                );
-
+            font-size: clamp(25px, 5vw, 48px);
             line-height: 1.2;
-
             font-weight: 800;
-
             letter-spacing: -1px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    #d9f7ff,
-                    #ffffff
-                );
-
-            -webkit-background-clip: text;
-
-            background-clip: text;
-
-            color: transparent;
         }
 
-
-        /* Exam Name */
-
         .exam-name {
-
             margin-top: 8px;
-
-            font-size:
-                clamp(
-                    20px,
-                    3vw,
-                    30px
-                );
-
+            font-size: clamp(20px, 3vw, 30px);
             font-weight: 700;
-
             color: #cfe7f5;
         }
 
-
-        /* Class */
-
         .class-info {
-
             margin-top: 8px;
-
             color: #9fb3c8;
-
             font-size: 17px;
-
             font-weight: 500;
         }
 
-
-        /* Header Glow */
-
-        .header::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-
-            height: 180px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(70,210,255,0.08);
-
-            filter: blur(50px);
-
-            top: -100px;
-
-            right: -50px;
-
-            pointer-events: none;
+        /* Notice Banner */
+        .notice-banner {
+            background: rgba(255, 193, 7, 0.15);
+            border-left: 4px solid #ffc107;
+            padding: 12px 20px;
+            margin: 20px 30px 0;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #ffeaa7;
+            text-align: left;
+            display: none;
         }
 
-
         /* =========================================
-           CONTENT
+           CONTENT & SUBJECT GRID
         ========================================= */
-
         .content {
-
             padding: 30px;
         }
 
-
         .section-title {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 15px;
-
             margin-bottom: 22px;
         }
 
-
         .section-title h2 {
-
             font-size: 24px;
-
             font-weight: 700;
-
-            color: #f4f9ff;
         }
-
-
-        .section-title span {
-
-            color: #8297ad;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================
-           SUBJECT GRID
-        ========================================= */
 
         .subject-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
-
-        /* =========================================
-           SUBJECT CARD
-           Ratio = 4:3
-        ========================================= */
-
         .subject-card {
-
             position: relative;
-
             aspect-ratio: 4 / 3;
-
             text-decoration: none;
-
             color: white;
-
             border-radius: 21px;
-
             overflow: hidden;
-
             padding: 20px;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: space-between;
-
-            border:
-                1px solid
-                rgba(255,255,255,0.10);
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.065),
-                    rgba(255,255,255,0.018)
-                );
-
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
-
-
-        /* Card Shine */
-
-        .subject-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 150px;
-
-            height: 150px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(78,215,255,0.08);
-
-            right: -70px;
-
-            top: -70px;
-
-            transition:
-                transform 0.3s ease;
-        }
-
-
-        .subject-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    transparent 35%,
-                    rgba(255,255,255,0.05),
-                    transparent 65%
-                );
-
-            transform:
-                translateX(-120%);
-
-            transition:
-                transform 0.6s ease;
-
-            pointer-events: none;
-        }
-
 
         .subject-card:hover {
-
-            transform:
-                translateY(-7px);
-
-            border-color:
-                rgba(80,220,255,0.45);
-
-            box-shadow:
-
-                0 20px 40px
-                rgba(0,0,0,0.35),
-
-                0 0 25px
-                rgba(80,220,255,0.07);
+            transform: translateY(-7px);
+            border-color: var(--accent-color);
         }
-
-
-        .subject-card:hover::before {
-
-            transform:
-                scale(1.3);
-        }
-
-
-        .subject-card:hover::after {
-
-            transform:
-                translateX(120%);
-        }
-
-
-        /* Card Top */
 
         .card-top {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
         }
 
-
         .card-number {
-
             width: 34px;
-
             height: 34px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             border-radius: 10px;
-
-            color: #70dcff;
-
-            background:
-                rgba(70,210,255,0.08);
-
-            border:
-                1px solid
-                rgba(70,210,255,0.15);
-
+            color: var(--accent-color);
+            background: rgba(70,210,255,0.08);
+            border: 1px solid rgba(70,210,255,0.15);
             font-size: 13px;
-
             font-weight: 700;
         }
 
-
         .quiz-label {
-
             font-size: 11px;
-
             color: #71869b;
-
             letter-spacing: 1px;
-
             font-weight: 600;
         }
 
-
-        /* Subject Name */
-
         .subject-name {
-
-            font-size:
-                clamp(
-                    16px,
-                    2vw,
-                    21px
-                );
-
+            font-size: clamp(16px, 2vw, 21px);
             line-height: 1.45;
-
             font-weight: 700;
-
-            color: #f2f7fb;
         }
 
-
-        /* Card Bottom */
-
         .card-bottom {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
         }
 
-
         .subject-code {
-
             color: #8499ad;
-
             font-size: 13px;
         }
 
-
         .arrow {
-
             width: 34px;
-
             height: 34px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             border-radius: 50%;
-
-            color: #70dcff;
-
-            background:
-                rgba(70,210,255,0.07);
-
-            border:
-                1px solid
-                rgba(70,210,255,0.13);
-
-            font-size: 17px;
-
-            transition:
-                transform 0.25s ease;
+            color: var(--accent-color);
+            background: rgba(70,210,255,0.07);
+            border: 1px solid rgba(70,210,255,0.13);
         }
 
-
-        .subject-card:hover .arrow {
-
-            transform:
-                translate(3px,-3px);
+        /* Delete button for subjects in admin mode */
+        .delete-sub-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 11px;
+            display: none;
+            z-index: 5;
+        }
+        body.admin-mode .delete-sub-btn {
+            display: block;
         }
 
+        /* =========================================
+           MODALS & ADMIN PANEL
+        ========================================= */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #0d1b2a;
+            border: 1px solid var(--accent-color);
+            padding: 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            color: #fff;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-color);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .btn-secondary {
+            background: #e74c3c;
+            color: #fff;
+        }
 
         /* =========================================
            FOOTER
         ========================================= */
-
         .footer {
-
             text-align: center;
-
-            padding:
-                25px
-                20px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.08);
-
+            padding: 25px 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
             color: #7f94a8;
-
             font-size: 14px;
-
             line-height: 1.8;
         }
 
-
-        .footer strong {
-
-            color: #d9e9f5;
-
-            font-weight: 700;
-        }
-
-
-        .footer .roll {
-
-            font-size: 12px;
-
-            color: #61778c;
-        }
-
-
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
-
         @media (max-width: 850px) {
-
-            .subject-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
+            .subject-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
-
         @media (max-width: 550px) {
-
-            body {
-
-                padding: 10px;
-            }
-
-
-            .container {
-
-                border-radius: 20px;
-            }
-
-
-            .header {
-
-                padding:
-                    32px
-                    15px
-                    28px;
-            }
-
-
-            .content {
-
-                padding: 18px;
-            }
-
-
-            .subject-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                gap: 10px;
-            }
-
-
-            .subject-card {
-
-                padding: 13px;
-
-                border-radius: 16px;
-            }
-
-
-            .subject-name {
-
-                font-size: 15px;
-            }
-
-
-            .card-number {
-
-                width: 28px;
-
-                height: 28px;
-
-                font-size: 11px;
-            }
-
-
-            .quiz-label {
-
-                font-size: 8px;
-            }
-
-
-            .subject-code {
-
-                font-size: 10px;
-            }
-
-
-            .arrow {
-
-                width: 28px;
-
-                height: 28px;
-
-                font-size: 14px;
-            }
-
+            .subject-grid { grid-template-columns: repeat(1, 1fr); }
         }
-
     </style>
 </head>
-
-
 <body>
 
-
 <div class="container">
-
-
-    <!-- =========================================
-         HEADER
-    ========================================== -->
-
+    <!-- HEADER -->
     <header class="header">
-
+        <button class="settings-btn" id="settingsBtn" onclick="openLoginModal()">⚙️ সেটিংস</button>
         <div class="badge">
-
             <span class="badge-dot"></span>
-
             DMRC • QUIZ ROUTINE 2026
-
         </div>
-
-
-        <h1 class="college-name">
-
-            ড. মাহবুবুর রহমান মোল্লা কলেজ
-
-        </h1>
-
-
-        <div class="exam-name">
-
-            কুইজ পরীক্ষা - ২০২৬
-
-        </div>
-
-
-        <div class="class-info">
-
-            শ্রেণি: দ্বাদশ
-
-        </div>
-
+        <h1 class="college-name">ড. মাহবুবুর রহমান মোল্লা কলেজ</h1>
+        <div class="exam-name">কুইজ পরীক্ষা - ২০২৬</div>
+        <div class="class-info">শ্রেণি: দ্বাদশ</div>
+        
+        <!-- Notice Display Banner -->
+        <div id="noticeBanner" class="notice-banner"></div>
     </header>
 
-
-
-    <!-- =========================================
-         CONTENT
-    ========================================== -->
-
+    <!-- CONTENT -->
     <main class="content">
+        <div id="mainContainer">
+            <div class="section-title">
+                <h2>📚 পরীক্ষার বিষয়সমূহ</h2>
+                <span>Subject Routine</span>
+            </div>
 
-
-        <div class="section-title">
-
-            <h2>
-                📚 পরীক্ষার বিষয়সমূহ
-            </h2>
-
-            <span>
-                Subject Routine
-            </span>
-
+            <div class="subject-grid" id="subjectGrid">
+                <!-- Subjects will be rendered dynamically -->
+            </div>
         </div>
 
-
-
-        <div class="subject-grid">
-
-
-            <!-- 01 Physics -->
-
-            <a
-                href="physicsroutine.html"
-                class="subject-card"
-            >
-
-                <div class="card-top">
-
-                    <div class="card-number">
-                        ০১
-                    </div>
-
-                    <div class="quiz-label">
-                        QUIZ
-                    </div>
-
-                </div>
-
-
-                <div class="subject-name">
-
-                    পদার্থবিজ্ঞান ২য় পত্র
-
-                </div>
-
-
-                <div class="card-bottom">
-
-                    <span class="subject-code">
-
-                        কোড: ১৭৫
-
-                    </span>
-
-                    <span class="arrow">
-                        ↗
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- 02 Higher Math -->
-
-            <a
-                href="higher-mathroutine.html"
-                class="subject-card"
-            >
-
-                <div class="card-top">
-
-                    <div class="card-number">
-                        ০২
-                    </div>
-
-                    <div class="quiz-label">
-                        QUIZ
-                    </div>
-
-                </div>
-
-
-                <div class="subject-name">
-
-                    উচ্চতর গণিত ২য় পত্র
-
-                </div>
-
-
-                <div class="card-bottom">
-
-                    <span class="subject-code">
-
-                        কোড: ২৬৬
-
-                    </span>
-
-                    <span class="arrow">
-                        ↗
-                    </span>
-
-                </div>
-
-            </a>
-
-
- <!-- 03 Bangla -->
-
-            <a
-                href="banglaroutine.html"
-                class="subject-card"
-            >
-
-                <div class="card-top">
-
-                    <div class="card-number">
-                      ০৩
-                    </div>
-
-                    <div class="quiz-label">
-                        QUIZ
-                    </div>
-
-                </div>
-
-
-                <div class="subject-name">
-
-                    বাংলা ২য় পত্র
-
-                </div>
-
-
-                <div class="card-bottom">
-
-                    <span class="subject-code">
-
-                        কোড: ১০২
-
-                    </span>
-
-                    <span class="arrow">
-                        ↗
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- 04 ICT -->
-
-            <a
-                href="ictroutine.html"
-                class="subject-card"
-            >
-
-                <div class="card-top">
-
-                    <div class="card-number">
-                        ০৪
-                    </div>
-
-                    <div class="quiz-label">
-                        QUIZ
-                    </div>
-
-                </div>
-
-
-                <div class="subject-name">
-
-                    তথ্য ও যোগাযোগ প্রযুক্তি
-
-                </div>
-
-
-                <div class="card-bottom">
-
-                    <span class="subject-code">
-
-                        কোড: ২৭৫
-
-                    </span>
-
-                    <span class="arrow">
-                        ↗
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- 09 English -->
-
-            <a
-                href="englishroutine.html"
-                class="subject-card"
-            >
-
-                <div class="card-top">
-
-                    <div class="card-number">
-                        ০৫
-                    </div>
-
-                    <div class="quiz-label">
-                        QUIZ
-                    </div>
-
-                </div>
-
-
-                <div class="subject-name">
-
-                    ইংরেজি ২য় পত্র
-
-                </div>
-
-
-                <div class="card-bottom">
-
-                    <span class="subject-code">
-
-                        কোড: ১০৮
-
-                    </span>
-
-                    <span class="arrow">
-                        ↗
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- 10 Chemistry -->
-
-            <a
-                href="chemistryroutine.html"
-                class="subject-card"
-            >
-
-                <div class="card-top">
-
-                    <div class="card-number">
-                        ০৬
-                    </div>
-
-                    <div class="quiz-label">
-                        QUIZ
-                    </div>
-
-                </div>
-
-
-                <div class="subject-name">
-
-                    রসায়ন ২য় পত্র
-
-                </div>
-
-
-                <div class="card-bottom">
-
-                    <span class="subject-code">
-
-                        কোড: ১৭৭
-
-                    </span>
-
-                    <span class="arrow">
-                        ↗
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
-            <!-- 11 Biology -->
-
-            <a
-                href="biologyroutine.html"
-                class="subject-card"
-            >
-
-                <div class="card-top">
-
-                    <div class="card-number">
-                        ০৭
-                    </div>
-
-                    <div class="quiz-label">
-                        QUIZ
-                    </div>
-
-                </div>
-
-
-                <div class="subject-name">
-
-                    জীববিজ্ঞান ২য় পত্র
-
-                </div>
-
-
-                <div class="card-bottom">
-
-                    <span class="subject-code">
-
-                        কোড: ১৭৯
-
-                    </span>
-
- <span class="arrow">
-                        ↗
-                    </span>
-
-                </div>
-
-            </a>
-
-
-
+        <!-- Disabled Web Screen View -->
+        <div id="disabledScreen" style="display: none; text-align: center; padding: 50px 20px;">
+            <h2 style="color: #ff4d4d; font-size: 26px; margin-bottom: 15px;">ওয়েব সাময়িকভাবে বন্ধ রয়েছে</h2>
+            <p style="font-size: 18px; color: #cbd5e1;" id="disabledMessage">পরবর্তী পরীক্ষার ডেট প্রকাশিত হলে এই পেজ দেখতে পাবেন।</p>
         </div>
-
     </main>
 
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
-
+    <!-- FOOTER -->
     <footer class="footer">
-
-        Developed by
-        <strong>
-            JOHIRUL ISLAM SAGOR
-        </strong>
-
-        <br>
-
-        <span class="roll">
-
-            ROLL - 2042
-            &nbsp; • &nbsp;
-            SECTION - D
-            &nbsp; • &nbsp;
-            DMRC
-            
-    
-
-        </span>
-<div class="copyright">
-© 2026 • DMRC QUIZ EXAMINATION
-</div>
+        Developed by <strong>JOHIRUL ISLAM SAGOR</strong><br>
+        <span class="roll">ROLL - 2042 &nbsp; • &nbsp; SECTION - D &nbsp; • &nbsp; DMRC</span>
+        <div class="copyright">© 2026 • DMRC QUIZ EXAMINATION</div>
     </footer>
-
-
 </div>
 
+<!-- FIREBASE LOGIN MODAL -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <h3>এডমিন লগইন (Firebase)</h3>
+        <div class="form-group">
+            <label>ইমেইল</label>
+            <input type="email" id="adminEmail" placeholder="admin@example.com">
+        </div>
+        <div class="form-group">
+            <label>পাসওয়ার্ড</label>
+            <input type="password" id="adminPassword" placeholder="******">
+        </div>
+        <button class="btn-primary" onclick="loginAdmin()">লগইন করুন</button>
+        <button class="btn-primary btn-secondary" onclick="closeModals()" style="margin-top: 5px;">বাতিল</button>
+    </div>
+</div>
+
+<!-- ADMIN DASHBOARD MODAL -->
+<div class="modal" id="adminModal">
+    <div class="modal-content">
+        <h3>এডমিন কন্ট্রোল প্যানেল</h3>
+        
+        <div class="form-group">
+            <label>ওয়েব স্ট্যাটাস নিয়ন্ত্রণ</label>
+            <button class="btn-primary" onclick="toggleWebsiteStatus(false)" style="background: #e74c3c;">১. ওয়েব বন্ধ করুন</button>
+            <button class="btn-primary" onclick="toggleWebsiteStatus(true)" style="background: #2ecc71;">২. ওয়েব চালু করুন</button>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px;">
+            <label>৩. নোটিশ যোগ করুন</label>
+            <textarea id="noticeInput" placeholder="নোটিশের বিবরণ লিখুন..."></textarea>
+            <button class="btn-primary" onclick="saveNotice()">নোটিশ আপডেট করুন</button>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px;">
+            <label>৪. প্রিমিয়াম থিম পরিবর্তন (৭-৮টি থিম)</label>
+            <select id="themeSelector" onchange="changeTheme(this.value)">
+                <option value="default">ডিফল্ট থিম</option>
+                <option value="theme-cyberpunk">সাইবারপাঙ্ক নিয়ন</option>
+                <option value="theme-emerald">এমেরাল্ড গ্রিন</option>
+                <option value="theme-sunset">সানসেট রেড</option>
+                <option value="theme-royal">রয়্যাল পার্পল</option>
+                <option value="theme-midnight">মিডনাইট গোল্ড</option>
+                <option value="theme-ocean">ডিপ ওশেন</option>
+                <option value="theme-ruby">রুবি রেড</option>
+                <option value="theme-gold">গোল্ডেন লাক্সারি</option>
+            </select>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+            <label>৫. নতুন সাবজেক্ট যোগ করুন</label>
+            <input type="text" id="newSubName" placeholder="সাবজেক্টের নাম (যেমন: পদার্থবিজ্ঞান)">
+            <input type="text" id="newSubCode" placeholder="কোড (যেমন: ১৭৫)">
+            <input type="text" id="newSubLink" placeholder="লিংক (যেমন: physicsroutine.html)">
+            <button class="btn-primary" onclick="addSubject()">সাবজেক্ট যোগ করুন</button>
+        </div>
+
+        <div class="form-group" style="margin-top: 15px;">
+            <p style="font-size: 13px; color: #a1a1a1; text-align: center;">* সাবজেক্ট ডিলিট করতে মূল পেজের কার্ডের উপরে থাকা ডিলিট বাটনে ক্লিক করুন।</p>
+        </div>
+
+        <button class="btn-primary btn-secondary" onclick="closeModals()" style="margin-top: 15px;">বন্ধ করুন</button>
+    </div>
+</div>
+
+<script>
+    // Your exact Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDaNdM-tMKoC1ljHjj--TN9Yzqj2t68GK0",
+        authDomain: "english-suggestion-1bbbe.firebaseapp.com",
+        databaseURL: "https://english-suggestion-1bbbe-default-rtdb.firebaseio.com",
+        projectId: "english-suggestion-1bbbe",
+        storageBucket: "english-suggestion-1bbbe.firebasestorage.app",
+        messagingSenderId: "92971469167",
+        appId: "1:92971469167:web:7d6d006a80b2ceff87c09a",
+        measurementId: "G-4T826CYGDY"
+    };
+
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+
+    // Check URL for admin view (?admin=admin69)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('admin') === 'admin69') {
+        document.getElementById('settingsBtn').style.display = 'block';
+    }
+
+    // Default Subjects Data (Second paper removed)
+    let subjects = JSON.parse(localStorage.getItem('dmrc_subjects')) || [
+        { name: "পদার্থবিজ্ঞান", code: "কোড: ১৭৫", link: "physicsroutine.html" },
+        { name: "উচ্চতর গণিত", code: "কোড: ২৬৬", link: "higher-mathroutine.html" },
+        { name: "বাংলা", code: "কোড: ১০২", link: "banglaroutine.html" },
+        { name: "তথ্য ও যোগাযোগ প্রযুক্তি", code: "কোড: ২৭৫", link: "ictroutine.html" },
+        { name: "ইংরেজি", code: "কোড: ১০৮", link: "englishroutine.html" },
+        { name: "রসায়ন", code: "কোড: ১৭৭", link: "chemistryroutine.html" },
+        { name: "জীববিজ্ঞান", code: "কোড: ১৭৯", link: "biologyroutine.html" }
+    ];
+
+    function renderSubjects() {
+        const grid = document.getElementById('subjectGrid');
+        grid.innerHTML = '';
+        subjects.forEach((sub, index) => {
+            const card = document.createElement('a');
+            card.href = sub.link;
+            card.className = 'subject-card';
+            card.innerHTML = `
+                <button class="delete-sub-btn" onclick="event.preventDefault(); deleteSubject(${index})">ডিলিট</button>
+                <div class="card-top">
+                    <div class="card-number">${String(index + 1).padStart(2, '0')}</div>
+                    <div class="quiz-label">QUIZ</div>
+                </div>
+                <div class="subject-name">${sub.name}</div>
+                <div class="card-bottom">
+                    <span class="subject-code">${sub.code}</span>
+                    <span class="arrow">↗</span>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+        localStorage.setItem('dmrc_subjects', JSON.stringify(subjects));
+    }
+
+    // Modal Control Functions
+    function openLoginModal() {
+        document.getElementById('loginModal').style.display = 'flex';
+    }
+    function closeModals() {
+        document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+    }
+
+    // Firebase Login Authentication
+    function loginAdmin() {
+        const email = document.getElementById('adminEmail').value;
+        const password = document.getElementById('adminPassword').value;
+
+        if (!email || !password) {
+            alert('দয়া করে ইমেইল এবং পাসওয়ার্ড দিন।');
+            return;
+        }
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                alert('সফলভাবে লগইন হয়েছে!');
+                closeModals();
+                document.body.classList.add('admin-mode');
+                document.getElementById('adminModal').style.display = 'flex';
+            })
+            .catch((error) => {
+                alert('লগইন ব্যর্থ হয়েছে: ' + error.message);
+            });
+    }
+
+    // 1 & 2. Website Status Toggle (Open/Close)
+    function toggleWebsiteStatus(isOpen) {
+        localStorage.setItem('web_status', isOpen ? 'open' : 'closed');
+        checkWebsiteStatus();
+        alert(isOpen ? 'ওয়েব চালু করা হয়েছে।' : 'ওয়েব বন্ধ করা হয়েছে।');
+    }
+
+    function checkWebsiteStatus() {
+        const status = localStorage.getItem('web_status') || 'open';
+        if (status === 'closed') {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('disabledScreen').style.display = 'block';
+        } else {
+            document.getElementById('mainContainer').style.display = 'block';
+            document.getElementById('disabledScreen').style.display = 'none';
+        }
+    }
+
+    // 3. Add / Update Notice
+    function saveNotice() {
+        const noticeText = document.getElementById('noticeInput').value;
+        localStorage.setItem('web_notice', noticeText);
+        displayNotice();
+        alert('নোটিশ আপডেট করা হয়েছে!');
+    }
+
+    function displayNotice() {
+        const notice = localStorage.getItem('web_notice');
+        const banner = document.getElementById('noticeBanner');
+        if (notice) {
+            banner.style.display = 'block';
+            banner.innerHTML = '📢 <strong>নোটিশ:</strong> ' + notice;
+        } else {
+            banner.style.display = 'none';
+        }
+    }
+
+    // 4. Premium Themes Change
+    function changeTheme(themeName) {
+        document.body.className = themeName;
+        if(document.body.classList.contains('admin-mode')) {
+            document.body.classList.add('admin-mode');
+        }
+        localStorage.setItem('selected_theme', themeName);
+    }
+
+    // Load Saved Theme
+    const savedTheme = localStorage.getItem('selected_theme');
+    if (savedTheme) {
+        document.body.className = savedTheme;
+        document.getElementById('themeSelector').value = savedTheme;
+    }
+
+    // 5. Add Subject Option
+    function addSubject() {
+        const name = document.getElementById('newSubName'].value;
+        const code = document.getElementById('newSubCode'].value;
+        const link = document.getElementById('newSubLink'].value || '#';
+
+        if (!name || !code) {
+            alert('দয়া করে নাম এবং কোড দিন।');
+            return;
+        }
+
+        subjects.push({ name, code: 'কোড: ' + code, link });
+        renderSubjects();
+        document.getElementById('newSubName').value = '';
+        document.getElementById('newSubCode').value = '';
+        document.getElementById('newSubLink').value = '';
+        alert('নতুন সাবজেক্ট সফলভাবে যোগ হয়েছে!');
+    }
+
+    // 6. Delete Subject Option
+    function deleteSubject(index) {
+        if (confirm('আপনি কি এই সাবজেক্টটি ডিলিট করতে চান?')) {
+            subjects.splice(index, 1);
+            renderSubjects();
+        }
+    }
+
+    // Initial Render & Checks
+    window.onload = function() {
+        renderSubjects();
+        checkWebsiteStatus();
+        displayNotice();
+    };
+</script>
 
 </body>
 </html>
