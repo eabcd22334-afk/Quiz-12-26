@@ -1,0 +1,3558 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#07111f">
+
+<title>DMRC Quiz 2026 • সাজেশন + রুটিন</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    font-family:
+        "Hind Siliguri",
+        "Noto Sans Bengali",
+        sans-serif;
+
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            var(--glow1),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            var(--glow2),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            var(--glow3),
+            transparent 35%
+        ),
+        var(--background);
+
+    padding:25px 15px;
+
+    overflow-x:hidden;
+
+    transition:
+        background .35s ease,
+        color .35s ease;
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.25;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:35px 35px;
+
+    z-index:-1;
+}
+
+
+/* =====================================================
+   THEMES
+===================================================== */
+
+body.theme-dusty-rose{
+    --background:linear-gradient(
+        135deg,
+        #10070b,
+        #241019,
+        #321421
+    );
+
+    --container:rgba(34,15,24,.78);
+
+    --accent:#ff91b8;
+    --accent-soft:rgba(255,145,184,.10);
+
+    --glow1:rgba(255,100,150,.17);
+    --glow2:rgba(180,80,255,.12);
+    --glow3:rgba(255,100,150,.08);
+
+    --text:#fff;
+    --muted:#a98d9c;
+}
+
+body.theme-olive{
+    --background:linear-gradient(
+        135deg,
+        #080d08,
+        #121a10,
+        #1a2415
+    );
+
+    --container:rgba(18,27,16,.78);
+
+    --accent:#b8d88a;
+    --accent-soft:rgba(184,216,138,.10);
+
+    --glow1:rgba(150,210,90,.15);
+    --glow2:rgba(80,180,120,.10);
+    --glow3:rgba(150,210,90,.07);
+
+    --text:#fff;
+    --muted:#9ca990;
+}
+
+body.theme-sage{
+    --background:linear-gradient(
+        135deg,
+        #07100f,
+        #10201e,
+        #16302c
+    );
+
+    --container:rgba(13,30,28,.78);
+
+    --accent:#8ee3cf;
+    --accent-soft:rgba(142,227,207,.10);
+
+    --glow1:rgba(70,220,190,.16);
+    --glow2:rgba(70,170,255,.10);
+    --glow3:rgba(70,220,190,.08);
+
+    --text:#fff;
+    --muted:#91aaa6;
+}
+
+body.theme-mocha{
+    --background:linear-gradient(
+        135deg,
+        #100b08,
+        #211611,
+        #302018
+    );
+
+    --container:rgba(34,22,17,.80);
+
+    --accent:#d8ad87;
+    --accent-soft:rgba(216,173,135,.10);
+
+    --glow1:rgba(220,150,90,.15);
+    --glow2:rgba(180,100,70,.10);
+    --glow3:rgba(220,150,90,.07);
+
+    --text:#fff;
+    --muted:#a99688;
+}
+
+body.theme-dusty-blue{
+    --background:linear-gradient(
+        135deg,
+        #050b13,
+        #0c1828,
+        #10263b
+    );
+
+    --container:rgba(10,23,39,.78);
+
+    --accent:#78caff;
+    --accent-soft:rgba(120,202,255,.10);
+
+    --glow1:rgba(60,180,255,.18);
+    --glow2:rgba(110,100,255,.13);
+    --glow3:rgba(40,160,255,.08);
+
+    --text:#fff;
+    --muted:#91a9bf;
+}
+
+body.theme-warm-caramel{
+    --background:linear-gradient(
+        135deg,
+        #110b06,
+        #21170c,
+        #30200f
+    );
+
+    --container:rgba(31,22,13,.79);
+
+    --accent:#e7bd79;
+    --accent-soft:rgba(231,189,121,.10);
+
+    --glow1:rgba(240,180,70,.15);
+    --glow2:rgba(210,120,60,.10);
+    --glow3:rgba(240,180,70,.07);
+
+    --text:#fff;
+    --muted:#a99982;
+}
+
+body.theme-midnight{
+    --background:linear-gradient(
+        135deg,
+        #02040a,
+        #07101e,
+        #0b1730
+    );
+
+    --container:rgba(6,15,29,.80);
+
+    --accent:#8fa8ff;
+    --accent-soft:rgba(143,168,255,.10);
+
+    --glow1:rgba(80,100,255,.16);
+    --glow2:rgba(100,210,255,.11);
+    --glow3:rgba(80,100,255,.08);
+
+    --text:#fff;
+    --muted:#8e9ab0;
+}
+
+body.theme-plum{
+    --background:linear-gradient(
+        135deg,
+        #09050d,
+        #180c20,
+        #251033
+    );
+
+    --container:rgba(25,12,33,.79);
+
+    --accent:#d59aff;
+    --accent-soft:rgba(213,154,255,.10);
+
+    --glow1:rgba(190,80,255,.16);
+    --glow2:rgba(90,100,255,.11);
+    --glow3:rgba(190,80,255,.07);
+
+    --text:#fff;
+    --muted:#a18cae;
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    background:var(--container);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    transition:background .35s ease;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    text-align:center;
+
+    padding:
+        42px
+        25px
+        35px;
+
+    position:relative;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.09);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.04),
+            transparent
+        );
+}
+
+
+/* SETTINGS BUTTON */
+
+.settings-btn{
+
+    display:none;
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.25s;
+}
+
+.settings-btn.admin-visible{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.settings-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:
+        var(--accent-soft);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 50%,
+            transparent
+        );
+
+    color:var(--accent);
+}
+
+
+/* BADGE */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        7px
+        16px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    color:var(--accent);
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 25%,
+            transparent
+        );
+
+    background:var(--accent-soft);
+}
+
+.badge-dot{
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    box-shadow:
+        0 0 12px var(--accent);
+}
+
+
+/* COLLEGE */
+
+.college-name{
+
+    margin-top:20px;
+
+    font-size:
+        clamp(25px,5vw,48px);
+
+    line-height:1.2;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            color-mix(
+                in srgb,
+                var(--accent) 35%,
+                #fff
+            ),
+            #fff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+
+/* EXAM */
+
+.exam-name{
+
+    margin-top:8px;
+
+    font-size:
+        clamp(20px,3vw,30px);
+
+    font-weight:700;
+
+    color:#d8e5ee;
+}
+
+
+/* CLASS */
+
+.class-info{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:17px;
+
+    font-weight:500;
+}
+
+
+/* HEADER GLOW */
+
+.header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--accent) 9%,
+            transparent
+        );
+
+    filter:blur(50px);
+
+    top:-100px;
+    right:-50px;
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice{
+
+    display:none;
+
+    margin:
+        22px
+        30px
+        0;
+
+    padding:
+        15px
+        18px;
+
+    border-radius:16px;
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 25%,
+            transparent
+        );
+
+    background:
+        var(--accent-soft);
+
+    color:#eaf7ff;
+
+    text-align:center;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+.notice.show{
+    display:block;
+}
+
+
+/* =====================================================
+   CLOSED PAGE
+===================================================== */
+
+.closed-page{
+
+    display:none;
+
+    min-height:420px;
+
+    padding:60px 25px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+}
+
+.closed-page.show{
+    display:flex;
+}
+
+.closed-icon{
+
+    width:72px;
+    height:72px;
+
+    margin:auto auto 20px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:22px;
+
+    background:var(--accent-soft);
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 30%,
+            transparent
+        );
+
+    color:var(--accent);
+
+    font-size:30px;
+}
+
+.closed-page h2{
+
+    font-size:25px;
+
+    margin-bottom:8px;
+}
+
+.closed-page p{
+
+    color:var(--muted);
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content{
+
+    padding:30px;
+}
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:22px;
+}
+
+.section-title h2{
+
+    font-size:24px;
+
+    font-weight:700;
+}
+
+.section-title span{
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   SUBJECT GRID
+===================================================== */
+
+.subject-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+
+/* =====================================================
+   SUBJECT CARD
+===================================================== */
+
+.subject-card{
+
+    position:relative;
+
+    aspect-ratio:4 / 3;
+
+    text-decoration:none;
+
+    color:white;
+
+    border-radius:21px;
+
+    overflow:hidden;
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.subject-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--accent) 9%,
+            transparent
+        );
+
+    right:-70px;
+    top:-70px;
+
+    transition:
+        transform .3s ease;
+}
+
+.subject-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 35%,
+            rgba(255,255,255,.05),
+            transparent 65%
+        );
+
+    transform:translateX(-120%);
+
+    transition:
+        transform .6s ease;
+
+    pointer-events:none;
+}
+
+.subject-card:hover{
+
+    transform:translateY(-7px);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 45%,
+            transparent
+        );
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.35),
+        0 0 25px
+        color-mix(
+            in srgb,
+            var(--accent) 10%,
+            transparent
+        );
+}
+
+.subject-card:hover::before{
+    transform:scale(1.3);
+}
+
+.subject-card:hover::after{
+    transform:translateX(120%);
+}
+
+
+/* CARD */
+
+.card-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.card-number{
+
+    width:34px;
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    color:var(--accent);
+
+    background:var(--accent-soft);
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 18%,
+            transparent
+        );
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.quiz-label{
+
+    font-size:11px;
+
+    color:var(--muted);
+
+    letter-spacing:1px;
+
+    font-weight:600;
+}
+
+.subject-name{
+
+    font-size:
+        clamp(16px,2vw,21px);
+
+    line-height:1.45;
+
+    font-weight:700;
+
+    color:#f2f7fb;
+}
+
+.card-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.subject-code{
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+.arrow{
+
+    width:34px;
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:var(--accent);
+
+    background:var(--accent-soft);
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 15%,
+            transparent
+        );
+
+    font-size:17px;
+
+    transition:
+        transform .25s ease;
+}
+
+.subject-card:hover .arrow{
+    transform:translate(3px,-3px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    text-align:center;
+
+    padding:25px 20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+.footer strong{
+    color:#d9e9f5;
+}
+
+.footer .roll{
+
+    font-size:12px;
+
+    color:
+        color-mix(
+            in srgb,
+            var(--muted) 75%,
+            transparent
+        );
+}
+
+.copyright{
+    margin-top:4px;
+}
+
+
+/* =====================================================
+   ADMIN MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        rgba(0,0,0,.72);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+
+    width:100%;
+
+    max-width:600px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    padding:25px;
+
+    border-radius:24px;
+
+    background:
+        #0b1523;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55);
+}
+
+.modal-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.modal-header h2{
+    font-size:23px;
+}
+
+.close-btn{
+
+    width:38px;
+    height:38px;
+
+    border-radius:12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#b7c7d5;
+
+    font-size:14px;
+}
+
+.form-input,
+.form-textarea{
+
+    width:100%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    outline:none;
+
+    border-radius:13px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    color:#fff;
+
+    padding:
+        12px
+        14px;
+
+    font-family:inherit;
+
+    font-size:14px;
+}
+
+.form-textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus{
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 55%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 0 3px
+        color-mix(
+            in srgb,
+            var(--accent) 8%,
+            transparent
+        );
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.admin-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+
+    margin-top:18px;
+}
+
+.btn{
+
+    border:0;
+
+    border-radius:13px;
+
+    padding:12px 15px;
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+
+    background:var(--accent);
+
+    color:#07111f;
+}
+
+.btn-danger{
+
+    background:
+        rgba(255,70,90,.12);
+
+    color:#ff8190;
+
+    border:
+        1px solid
+        rgba(255,70,90,.20);
+}
+
+.btn-secondary{
+
+    background:
+        rgba(255,255,255,.07);
+
+    color:#fff;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+}
+
+
+/* =====================================================
+   THEME GRID
+===================================================== */
+
+.theme-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+}
+
+.theme-option{
+
+    height:55px;
+
+    border-radius:14px;
+
+    border:
+        2px solid
+        transparent;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.theme-option.active{
+
+    border-color:#fff;
+
+    box-shadow:
+        0 0 0 2px var(--accent);
+}
+
+
+/* theme previews */
+
+.theme-option[data-theme="dusty_rose"]{
+    background:linear-gradient(135deg,#321421,#ff91b8);
+}
+
+.theme-option[data-theme="olive_green"]{
+    background:linear-gradient(135deg,#121a10,#b8d88a);
+}
+
+.theme-option[data-theme="sage_green"]{
+    background:linear-gradient(135deg,#10201e,#8ee3cf);
+}
+
+.theme-option[data-theme="mocha"]{
+    background:linear-gradient(135deg,#211611,#d8ad87);
+}
+
+.theme-option[data-theme="dusty_blue"]{
+    background:linear-gradient(135deg,#0c1828,#78caff);
+}
+
+.theme-option[data-theme="warm_caramel"]{
+    background:linear-gradient(135deg,#21170c,#e7bd79);
+}
+
+.theme-option[data-theme="midnight"]{
+    background:linear-gradient(135deg,#02040a,#8fa8ff);
+}
+
+.theme-option[data-theme="plum"]{
+    background:linear-gradient(135deg,#180c20,#d59aff);
+}
+
+
+/* =====================================================
+   SUBJECT ADMIN LIST
+===================================================== */
+
+.subject-admin-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:9px;
+
+    margin-top:12px;
+}
+
+.subject-admin-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:12px;
+
+    border-radius:13px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+.subject-admin-info{
+
+    min-width:0;
+}
+
+.subject-admin-info strong{
+
+    display:block;
+
+    color:#fff;
+
+    font-size:14px;
+}
+
+.subject-admin-info small{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:#778b9d;
+
+    font-size:11px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+    max-width:350px;
+}
+
+.delete-subject{
+
+    flex:none;
+
+    width:35px;
+    height:35px;
+
+    border-radius:10px;
+
+    border:
+        1px solid
+        rgba(255,70,90,.18);
+
+    background:
+        rgba(255,70,90,.08);
+
+    color:#ff7e8c;
+
+    cursor:pointer;
+}
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-view{
+    display:none;
+}
+
+.login-view.show{
+    display:block;
+}
+
+.admin-view{
+    display:none;
+}
+
+.admin-view.show{
+    display:block;
+}
+
+.login-description{
+
+    color:#8498aa;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+
+    line-height:1.6;
+}
+
+.login-error{
+
+    display:none;
+
+    margin-top:10px;
+
+    color:#ff8a98;
+
+    font-size:13px;
+}
+
+.login-error.show{
+    display:block;
+}
+
+
+/* =====================================================
+   TOGGLE
+===================================================== */
+
+.status-box{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    margin-bottom:18px;
+}
+
+.status-title{
+
+    font-weight:700;
+
+    font-size:15px;
+}
+
+.status-text{
+
+    color:#8194a5;
+
+    font-size:12px;
+
+    margin-top:3px;
+}
+
+.switch{
+
+    position:relative;
+
+    width:52px;
+    height:30px;
+
+    flex:none;
+}
+
+.switch input{
+    display:none;
+}
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    cursor:pointer;
+
+    border-radius:30px;
+
+    background:#263442;
+
+    transition:.25s;
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:22px;
+    height:22px;
+
+    left:4px;
+    top:4px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    transition:.25s;
+}
+
+.switch input:checked + .slider{
+    background:#45d39a;
+}
+
+.switch input:checked + .slider::before{
+    transform:translateX(22px);
+}
+
+
+/* =====================================================
+   ADMIN SECTION
+===================================================== */
+
+.admin-section{
+
+    padding:
+        18px 0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.admin-section:first-child{
+    border-top:0;
+}
+
+.admin-section h3{
+
+    font-size:16px;
+
+    margin-bottom:12px;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:
+        translate(-50%,20px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:2000;
+
+    padding:
+        12px
+        18px;
+
+    border-radius:14px;
+
+    background:#132131;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35);
+
+    color:#fff;
+
+    font-size:13px;
+
+    transition:.25s;
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:3000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#030711;
+
+    transition:.3s;
+}
+
+.loading.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.loader{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:
+        3px solid
+        rgba(255,255,255,.10);
+
+    border-top-color:#70dcff;
+
+    animation:
+        spin .8s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:850px){
+
+    .subject-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px){
+
+    body{
+        padding:10px;
+    }
+
+    .container{
+        border-radius:20px;
+    }
+
+    .header{
+        padding:
+            32px
+            15px
+            28px;
+    }
+
+    .settings-btn{
+        right:12px;
+        top:12px;
+
+        width:38px;
+        height:38px;
+    }
+
+    .content{
+        padding:18px;
+    }
+
+    .notice{
+        margin:
+            15px
+            18px
+            0;
+    }
+
+    .subject-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .subject-card{
+        padding:13px;
+        border-radius:16px;
+    }
+
+    .subject-name{
+        font-size:15px;
+    }
+
+    .card-number{
+        width:28px;
+        height:28px;
+        font-size:11px;
+    }
+
+    .quiz-label{
+        font-size:8px;
+    }
+
+    .subject-code{
+        font-size:10px;
+    }
+
+    .arrow{
+        width:28px;
+        height:28px;
+        font-size:14px;
+    }
+
+    .theme-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .admin-actions{
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body class="theme-dusty-rose">
+
+
+<!-- LOADING -->
+
+<div class="loading" id="loadingScreen">
+    <div class="loader"></div>
+</div>
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <button
+        class="settings-btn"
+        id="settingsButton"
+        title="Admin Settings"
+    >
+        ⚙️
+    </button>
+
+
+    <div class="badge">
+
+        <span class="badge-dot"></span>
+
+        DMRC • QUIZ ROUTINE 2026
+
+    </div>
+
+
+    <h1 class="college-name">
+
+        ড. মাহবুবুর রহমান মোল্লা কলেজ
+
+    </h1>
+
+
+    <div class="exam-name">
+
+        কুইজ পরীক্ষা - ২০২৬
+
+    </div>
+
+
+    <div class="class-info">
+
+        শ্রেণি: দ্বাদশ
+
+    </div>
+
+</header>
+
+
+<!-- NOTICE -->
+
+<div
+    class="notice"
+    id="noticeBox"
+></div>
+
+
+<!-- CLOSED PAGE -->
+
+<section
+    class="closed-page"
+    id="closedPage"
+>
+
+    <div>
+
+        <div class="closed-icon">
+            🔒
+        </div>
+
+        <h2>
+            ওয়েবসাইট বর্তমানে বন্ধ
+        </h2>
+
+        <p>
+            পরবর্তী পরীক্ষার ডেট প্রকাশিত হলে এই পেজ দেখতে পাবেন
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<main
+    class="content"
+    id="mainContent"
+>
+
+    <div class="section-title">
+
+        <h2>
+            📚 পরীক্ষার বিষয়সমূহ
+        </h2>
+
+        <span>
+            Subject Routine
+        </span>
+
+    </div>
+
+
+    <div
+        class="subject-grid"
+        id="subjectGrid"
+    ></div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    Developed by
+
+    <strong>
+        JOHIRUL ISLAM SAGOR
+    </strong>
+
+    <br>
+
+    <span class="roll">
+
+        ROLL - 2042
+        &nbsp; • &nbsp;
+        SECTION - D
+        &nbsp; • &nbsp;
+        DMRC
+
+    </span>
+
+    <div class="copyright">
+        © 2026 • DMRC QUIZ EXAMINATION
+    </div>
+
+</footer>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="adminModal"
+>
+
+    <div class="modal-box">
+
+        <!-- LOGIN -->
+
+        <div
+            class="login-view"
+            id="loginView"
+        >
+
+            <div class="modal-header">
+
+                <h2>
+                    🔐 Admin Login
+                </h2>
+
+                <button
+                    class="close-btn"
+                    id="closeModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <p class="login-description">
+
+                Firebase Email & Password Authentication
+                ব্যবহার করে Admin Panel-এ প্রবেশ করুন।
+
+            </p>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    class="form-input"
+                    id="adminEmail"
+                    placeholder="admin@example.com"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    class="form-input"
+                    id="adminPassword"
+                    placeholder="••••••••"
+                >
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                id="loginButton"
+                style="width:100%;"
+            >
+                Login
+            </button>
+
+
+            <div
+                class="login-error"
+                id="loginError"
+            ></div>
+
+        </div>
+
+
+        <!-- ADMIN PANEL -->
+
+        <div
+            class="admin-view"
+            id="adminView"
+        >
+
+            <div class="modal-header">
+
+                <h2>
+                    ⚙️ Admin Panel
+                </h2>
+
+                <button
+                    class="close-btn"
+                    id="closeAdmin"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- WEBSITE STATUS -->
+
+            <div class="admin-section">
+
+                <h3>
+                    Website Status
+                </h3>
+
+
+                <div class="status-box">
+
+                    <div>
+
+                        <div class="status-title">
+                            ওয়েব চালু রাখুন
+                        </div>
+
+                        <div
+                            class="status-text"
+                            id="statusText"
+                        >
+                            Website Active
+                        </div>
+
+                    </div>
+
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="websiteToggle"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- NOTICE -->
+
+            <div class="admin-section">
+
+                <h3>
+                    📢 Notice
+                </h3>
+
+
+                <div class="form-group">
+
+                    <textarea
+                        class="form-textarea"
+                        id="noticeInput"
+                        placeholder="এখানে Notice লিখুন..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="admin-actions">
+
+                    <button
+                        class="btn btn-primary"
+                        id="saveNotice"
+                    >
+                        Notice Save
+                    </button>
+
+                    <button
+                        class="btn btn-secondary"
+                        id="clearNotice"
+                    >
+                        Notice Remove
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- THEME -->
+
+            <div class="admin-section">
+
+                <h3>
+                    🎨 Premium Theme
+                </h3>
+
+
+                <div class="theme-grid">
+
+                    <button
+                        class="theme-option"
+                        data-theme="dusty_rose"
+                        title="Dusty Rose"
+                    ></button>
+
+                    <button
+                        class="theme-option"
+                        data-theme="olive_green"
+                        title="Olive Green"
+                    ></button>
+
+                    <button
+                        class="theme-option"
+                        data-theme="sage_green"
+                        title="Sage Green"
+                    ></button>
+
+                    <button
+                        class="theme-option"
+                        data-theme="mocha"
+                        title="Mocha"
+                    ></button>
+
+                    <button
+                        class="theme-option"
+                        data-theme="dusty_blue"
+                        title="Dusty Blue"
+                    ></button>
+
+                    <button
+                        class="theme-option"
+                        data-theme="warm_caramel"
+                        title="Warm Caramel"
+                    ></button>
+
+                    <button
+                        class="theme-option"
+                        data-theme="midnight"
+                        title="Midnight"
+                    ></button>
+
+                    <button
+                        class="theme-option"
+                        data-theme="plum"
+                        title="Plum"
+                    ></button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADD SUBJECT -->
+
+            <div class="admin-section">
+
+                <h3>
+                    ➕ Subject যোগ করুন
+                </h3>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Subject Name
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-input"
+                        id="subjectNameInput"
+                        placeholder="যেমন: পদার্থবিজ্ঞান"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Subject Link
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-input"
+                        id="subjectLinkInput"
+                        placeholder="physicsroutine.html"
+                    >
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary"
+                    id="addSubject"
+                    style="width:100%;"
+                >
+                    Subject Add
+                </button>
+
+            </div>
+
+
+            <!-- SUBJECT DELETE -->
+
+            <div class="admin-section">
+
+                <h3>
+                    🗑️ Subject Delete
+                </h3>
+
+
+                <div
+                    class="subject-admin-list"
+                    id="subjectAdminList"
+                ></div>
+
+            </div>
+
+
+            <!-- LOGOUT -->
+
+            <div class="admin-section">
+
+                <button
+                    class="btn btn-danger"
+                    id="logoutButton"
+                    style="width:100%;"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+    getAnalytics
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+    getDatabase,
+    ref,
+    onValue,
+    set,
+    push,
+    remove
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyDaNdM-tMKoC1ljHjj--TN9Yzqj2t68GK0",
+
+    authDomain:
+        "english-suggestion-1bbbe.firebaseapp.com",
+
+    databaseURL:
+        "https://english-suggestion-1bbbe-default-rtdb.firebaseio.com",
+
+    projectId:
+        "english-suggestion-1bbbe",
+
+    storageBucket:
+        "english-suggestion-1bbbe.firebasestorage.app",
+
+    messagingSenderId:
+        "92971469167",
+
+    appId:
+        "1:92971469167:web:7d6d006a80b2ceff87c09a",
+
+    measurementId:
+        "G-4T826CYGDY"
+};
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const analytics =
+    getAnalytics(app);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getDatabase(app);
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const loadingScreen =
+    document.getElementById("loadingScreen");
+
+const settingsButton =
+    document.getElementById("settingsButton");
+
+const adminModal =
+    document.getElementById("adminModal");
+
+const loginView =
+    document.getElementById("loginView");
+
+const adminView =
+    document.getElementById("adminView");
+
+const closeModal =
+    document.getElementById("closeModal");
+
+const closeAdmin =
+    document.getElementById("closeAdmin");
+
+const loginButton =
+    document.getElementById("loginButton");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+const loginError =
+    document.getElementById("loginError");
+
+const subjectGrid =
+    document.getElementById("subjectGrid");
+
+const subjectAdminList =
+    document.getElementById("subjectAdminList");
+
+const websiteToggle =
+    document.getElementById("websiteToggle");
+
+const statusText =
+    document.getElementById("statusText");
+
+const noticeBox =
+    document.getElementById("noticeBox");
+
+const noticeInput =
+    document.getElementById("noticeInput");
+
+const subjectNameInput =
+    document.getElementById("subjectNameInput");
+
+const subjectLinkInput =
+    document.getElementById("subjectLinkInput");
+
+const toast =
+    document.getElementById("toast");
+
+const mainContent =
+    document.getElementById("mainContent");
+
+const closedPage =
+    document.getElementById("closedPage");
+
+
+/* =====================================================
+   DEFAULT DATA
+===================================================== */
+
+const defaultSubjects = {
+
+    physics: {
+        name:"পদার্থবিজ্ঞান",
+        link:"physicsroutine.html"
+    },
+
+    higherMath: {
+        name:"উচ্চতর গণিত",
+        link:"higher-mathroutine.html"
+    },
+
+    bangla: {
+        name:"বাংলা",
+        link:"banglaroutine.html"
+    },
+
+    ict: {
+        name:"তথ্য ও যোগাযোগ প্রযুক্তি",
+        link:"ictroutine.html"
+    },
+
+    english: {
+        name:"ইংরেজি",
+        link:"englishroutine.html"
+    },
+
+    chemistry: {
+        name:"রসায়ন",
+        link:"chemistryroutine.html"
+    },
+
+    biology: {
+        name:"জীববিজ্ঞান",
+        link:"biologyroutine.html"
+    }
+
+};
+
+
+/* =====================================================
+   ADMIN URL
+===================================================== */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const isAdminURL =
+    urlParams.get("admin") === "admin69";
+
+
+if(isAdminURL){
+
+    settingsButton.classList.add(
+        "admin-visible"
+    );
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+function showToast(message){
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        },2500);
+}
+
+
+/
+/* =====================================================
+   THEME
+===================================================== */
+
+const themeClasses = [
+    "theme-dusty-rose",
+    "theme-olive",
+    "theme-sage",
+    "theme-mocha",
+    "theme-dusty-blue",
+    "theme-warm-caramel",
+    "theme-midnight",
+    "theme-plum"
+];
+
+
+function applyTheme(theme){
+
+    themeClasses.forEach(
+        cls =>
+            document.body.classList.remove(cls)
+    );
+
+
+    const map = {
+
+        dusty_rose:
+            "theme-dusty-rose",
+
+        olive_green:
+            "theme-olive",
+
+        sage_green:
+            "theme-sage",
+
+        mocha:
+            "theme-mocha",
+
+        dusty_blue:
+            "theme-dusty-blue",
+
+        warm_caramel:
+            "theme-warm-caramel",
+
+        midnight:
+            "theme-midnight",
+
+        plum:
+            "theme-plum"
+
+    };
+
+
+    document.body.classList.add(
+        map[theme] || "theme-dusty-rose"
+    );
+
+
+    document
+        .querySelectorAll(".theme-option")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.theme === theme
+            );
+
+        });
+}
+
+
+/* =====================================================
+   WEBSITE DATA
+===================================================== */
+
+let currentData = {
+
+    enabled:true,
+
+    notice:"",
+
+    theme:"dusty_rose",
+
+    subjects:defaultSubjects
+
+};
+
+
+/* =====================================================
+   RENDER SUBJECTS
+===================================================== */
+
+function renderSubjects(subjects){
+
+    subjectGrid.innerHTML = "";
+
+    subjectAdminList.innerHTML = "";
+
+
+    if(
+        !subjects ||
+        Object.keys(subjects).length === 0
+    ){
+
+        subjectGrid.innerHTML = `
+
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:50px 20px;
+                color:#8194a5;
+            ">
+
+                কোনো Subject যোগ করা হয়নি।
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    let index = 0;
+
+
+    Object.entries(subjects)
+        .forEach(([id, subject]) => {
+
+            index++;
+
+
+            /* SUBJECT CARD */
+
+            const card =
+                document.createElement("a");
+
+            card.className =
+                "subject-card";
+
+            card.href =
+                subject.link || "#";
+
+            card.innerHTML = `
+
+                <div class="card-top">
+
+                    <div class="card-number">
+                        ${String(index).padStart(2,"0")}
+                    </div>
+
+                    <div class="quiz-label">
+                        QUIZ
+                    </div>
+
+                </div>
+
+
+                <div class="subject-name">
+                    ${escapeHTML(subject.name || "Subject")}
+                </div>
+
+
+                <div class="card-bottom">
+
+                    <span class="subject-code">
+                        DMRC
+                    </span>
+
+                    <span class="arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+            `;
+
+            subjectGrid.appendChild(card);
+
+
+            /* ADMIN ITEM */
+
+            const adminItem =
+                document.createElement("div");
+
+            adminItem.className =
+                "subject-admin-item";
+
+            adminItem.innerHTML = `
+
+                <div class="subject-admin-info">
+
+                    <strong>
+                        ${escapeHTML(subject.name || "Subject")}
+                    </strong>
+
+                    <small>
+                        ${escapeHTML(subject.link || "")}
+                    </small>
+
+                </div>
+
+
+                <button
+                    class="delete-subject"
+                    data-id="${id}"
+                    title="Delete"
+                >
+                    🗑
+                </button>
+
+            `;
+
+            subjectAdminList.appendChild(
+                adminItem
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(".delete-subject")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                async () => {
+
+                    if(
+                        !auth.currentUser
+                    ){
+
+                        showToast(
+                            "প্রথমে Admin Login করুন"
+                        );
+
+                        return;
+                    }
+
+
+                    const id =
+                        button.dataset.id;
+
+
+                    const confirmed =
+                        confirm(
+                            "এই Subject-টি Delete করতে চান?"
+                        );
+
+
+                    if(!confirmed) return;
+
+
+                    try{
+
+                        await remove(
+                            ref(
+                                db,
+                                `dmrcQuiz/subjects/${id}`
+                            )
+                        );
+
+                        showToast(
+                            "Subject Deleted"
+                        );
+
+                    }catch(error){
+
+                        console.error(error);
+
+                        showToast(
+                            "Delete করা যায়নি"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =====================================================
+   HTML ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+
+        .replaceAll("&","&amp;")
+
+        .replaceAll("<","&lt;")
+
+        .replaceAll(">","&gt;")
+
+        .replaceAll('"',"&quot;")
+
+        .replaceAll("'","&#039;");
+}
+
+
+/* =====================================================
+   MAIN UI
+===================================================== */
+
+function updateMainUI(data){
+
+    currentData = data;
+
+
+    applyTheme(
+        data.theme || "dusty_rose"
+    );
+
+
+    /* NOTICE */
+
+    if(
+        data.notice &&
+        String(data.notice).trim()
+    ){
+
+        noticeBox.textContent =
+            data.notice;
+
+        noticeBox.classList.add(
+            "show"
+        );
+
+    }else{
+
+        noticeBox.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    /* WEBSITE STATUS */
+
+    const enabled =
+        data.enabled !== false;
+
+
+    if(enabled){
+
+        mainContent.style.display =
+            "";
+
+        closedPage.classList.remove(
+            "show"
+        );
+
+    }else{
+
+        mainContent.style.display =
+            "none";
+
+        closedPage.classList.add(
+            "show"
+        );
+
+    }
+
+
+    renderSubjects(
+        data.subjects || {}
+    );
+
+
+    /* ADMIN VALUES */
+
+    websiteToggle.checked =
+        enabled;
+
+    statusText.textContent =
+        enabled
+            ? "Website Active"
+            : "Website Closed";
+
+    noticeInput.value =
+        data.notice || "";
+
+}
+
+
+/* =====================================================
+   FIREBASE REALTIME DATA
+===================================================== */
+
+const settingsRef =
+    ref(
+        db,
+        "dmrcQuiz"
+    );
+
+
+onValue(
+    settingsRef,
+    snapshot => {
+
+        const firebaseData =
+            snapshot.val();
+
+
+        if(!firebaseData){
+
+            updateMainUI({
+                enabled:true,
+                notice:"",
+                theme:"dusty_rose",
+                subjects:defaultSubjects
+            });
+
+            return;
+        }
+
+
+        updateMainUI({
+
+            enabled:
+                firebaseData.enabled !== false,
+
+            notice:
+                firebaseData.notice || "",
+
+            theme:
+                firebaseData.theme || "dusty_rose",
+
+            subjects:
+                firebaseData.subjects ||
+                defaultSubjects
+
+        });
+
+
+        loadingScreen.classList.add(
+            "hide"
+        );
+
+    },
+
+    error => {
+
+        console.error(error);
+
+        loadingScreen.classList.add(
+            "hide"
+        );
+
+        showToast(
+            "Firebase data load হয়নি"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SETTINGS BUTTON
+===================================================== */
+
+settingsButton.addEventListener(
+    "click",
+    () => {
+
+        if(!isAdminURL)
+            return;
+
+
+        adminModal.classList.add(
+            "show"
+        );
+
+
+        if(auth.currentUser){
+
+            loginView.classList.remove(
+                "show"
+            );
+
+            adminView.classList.add(
+                "show"
+            );
+
+        }else{
+
+            loginView.classList.add(
+                "show"
+            );
+
+            adminView.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+closeModal.addEventListener(
+    "click",
+    () => {
+
+        adminModal.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+closeAdmin.addEventListener(
+    "click",
+    () => {
+
+        adminModal.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+adminModal.addEventListener(
+    "click",
+    event => {
+
+        if(
+            event.target ===
+            adminModal
+        ){
+
+            adminModal.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+loginButton.addEventListener(
+    "click",
+    async () => {
+
+        const email =
+            document
+                .getElementById("adminEmail")
+                .value
+                .trim();
+
+        const password =
+            document
+                .getElementById("adminPassword")
+                .value;
+
+
+        loginError.classList.remove(
+            "show"
+        );
+
+
+        if(!email || !password){
+
+            loginError.textContent =
+                "Email এবং Password দিন।";
+
+            loginError.classList.add(
+                "show"
+            );
+
+            return;
+        }
+
+
+        loginButton.disabled =
+            true;
+
+        loginButton.textContent =
+            "Logging in...";
+
+
+        try{
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+            showToast(
+                "Admin Login Successful"
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            loginError.textContent =
+                "Email অথবা Password সঠিক নয়।";
+
+            loginError.classList.add(
+                "show"
+            );
+
+        }
+
+
+        loginButton.disabled =
+            false;
+
+        loginButton.textContent =
+            "Login";
+
+    }
+);
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        if(user){
+
+            loginView.classList.remove(
+                "show"
+            );
+
+            adminView.classList.add(
+                "show"
+            );
+
+        }else{
+
+            adminView.classList.remove(
+                "show"
+            );
+
+            if(
+                adminModal.classList.contains(
+                    "show"
+                )
+            ){
+
+                loginView.classList.add(
+                    "show"
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+logoutButton.addEventListener(
+    "click",
+    async () => {
+
+        try{
+
+            await signOut(auth);
+
+            adminView.classList.remove(
+                "show"
+            );
+
+            loginView.classList.add(
+                "show"
+            );
+
+            showToast(
+                "Logout Successful"
+            );
+
+        }catch(error){
+
+            console.error(error);
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   WEBSITE TOGGLE
+===================================================== */
+
+websiteToggle.addEventListener(
+    "change",
+    async () => {
+
+        if(!auth.currentUser){
+
+            websiteToggle.checked =
+                !websiteToggle.checked;
+
+            return;
+
+        }
+
+
+        try{
+
+            await set(
+                ref(
+                    db,
+                    "dmrcQuiz/enabled"
+                ),
+                websiteToggle.checked
+            );
+
+
+            statusText.textContent =
+                websiteToggle.checked
+                    ? "Website Active"
+                    : "Website Closed";
+
+
+            showToast(
+                websiteToggle.checked
+                    ? "Website চালু হয়েছে"
+                    : "Website বন্ধ হয়েছে"
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Status update হয়নি"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SAVE NOTICE
+===================================================== */
+
+document
+    .getElementById("saveNotice")
+    .addEventListener(
+        "click",
+        async () => {
+
+            if(!auth.currentUser)
+                return;
+
+
+            const notice =
+                noticeInput.value.trim();
+
+
+            try{
+
+                await set(
+                    ref(
+                        db,
+                        "dmrcQuiz/notice"
+                    ),
+                    notice
+                );
+
+
+                showToast(
+                    "Notice Saved"
+                );
+
+            }catch(error){
+
+                console.error(error);
+
+                showToast(
+                    "Notice Save হয়নি"
+                );
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   CLEAR NOTICE
+===================================================== */
+
+document
+    .getElementById("clearNotice")
+    .addEventListener(
+        "click",
+        async () => {
+
+            if(!auth.currentUser)
+                return;
+
+
+            try{
+
+                await set(
+                    ref(
+                        db,
+                        "dmrcQuiz/notice"
+                    ),
+                    ""
+                );
+
+
+                noticeInput.value =
+                    "";
+
+                showToast(
+                    "Notice Removed"
+                );
+
+            }catch(error){
+
+                console.error(error);
+
+                showToast(
+                    "Notice Remove হয়নি"
+                );
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   THEME CHANGE
+===================================================== */
+
+document
+    .querySelectorAll(".theme-option")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            async () => {
+
+                if(!auth.currentUser){
+
+                    showToast(
+                        "Admin Login করুন"
+                    );
+
+                    return;
+
+                }
+
+
+                const theme =
+                    button.dataset.theme;
+
+
+                try{
+
+                    await set(
+                        ref(
+                            db,
+                            "dmrcQuiz/theme"
+                        ),
+                        theme
+                    );
+
+
+                    showToast(
+                        "Theme Changed"
+                    );
+
+                }catch(error){
+
+                    console.error(error);
+
+                    showToast(
+                        "Theme Save হয়নি"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   ADD SUBJECT
+===================================================== */
+
+document
+    .getElementById("addSubject")
+    .addEventListener(
+        "click",
+        async () => {
+
+            if(!auth.currentUser)
+                return;
+
+
+            const name =
+                subjectNameInput.value.trim();
+
+            const link =
+                subjectLinkInput.value.trim();
+
+
+            if(!name){
+
+                showToast(
+                    "Subject Name দিন"
+                );
+
+                return;
+            }
+
+
+            if(!link){
+
+                showToast(
+                    "Subject Link দিন"
+                );
+
+                return;
+            }
+
+
+            try{
+
+                const subjectsRef =
+                    ref(
+                        db,
+                        "dmrcQuiz/subjects"
+                    );
+
+
+                const newSubject =
+                    push(subjectsRef);
+
+
+                await set(
+                    newSubject,
+                    {
+                        name:name,
+                        link:link
+                    }
+                );
+
+
+                subjectNameInput.value =
+                    "";
+
+                subjectLinkInput.value =
+                    "";
+
+
+                showToast(
+                    "Subject Added"
+                );
+
+            }catch(error){
+
+                console.error(error);
+
+                showToast(
+                    "Subject Add হয়নি"
+                );
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   ENTER KEY LOGIN
+===================================================== */
+
+document
+    .getElementById("adminPassword")
+    .addEventListener(
+        "keydown",
+        event => {
+
+            if(
+                event.key === "Enter"
+            ){
+
+                loginButton.click();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   INITIAL LOADING FALLBACK
+===================================================== */
+
+setTimeout(
+    () => {
+
+        loadingScreen.classList.add(
+            "hide"
+        );
+
+    },
+    5000
+);
+
+</script>
+
+</body>
+</html>
