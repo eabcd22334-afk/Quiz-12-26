@@ -11,14 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Firebase SDKs (Compat Version for Easy Authentication) -->
+    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
     <style>
-        /* =========================================
-           THEMES (Default & 7 Premium Themes)
-        ========================================= */
         :root {
             --bg-gradient: linear-gradient(135deg, #030711, #07111f, #0a1628);
             --container-bg: rgba(10, 23, 39, 0.72);
@@ -77,9 +74,6 @@
             --accent-color: #f39c12;
         }
 
-        /* =========================================
-           GLOBAL
-        ========================================= */
         * {
             margin: 0;
             padding: 0;
@@ -100,18 +94,6 @@
             transition: background 0.5s ease;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            opacity: 0.25;
-            background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 35px 35px;
-            z-index: -1;
-        }
-
         .container {
             width: 100%;
             max-width: 1100px;
@@ -120,20 +102,15 @@
             border: 1px solid var(--border-color);
             border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.45);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
         }
 
-        /* =========================================
-           HEADER
-        ========================================= */
         .header {
             text-align: center;
             padding: 45px 25px 35px;
             position: relative;
             border-bottom: 1px solid rgba(255,255,255,0.09);
-            background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
         }
 
         .settings-btn {
@@ -146,9 +123,8 @@
             padding: 8px 12px;
             border-radius: 10px;
             cursor: pointer;
-            display: none; /* Initially hidden */
+            display: none; 
             font-size: 16px;
-            transition: 0.3s;
             z-index: 10;
         }
         .settings-btn:hover {
@@ -164,7 +140,6 @@
             border-radius: 50px;
             font-size: 13px;
             font-weight: 600;
-            letter-spacing: 1px;
             color: var(--accent-color);
             border: 1px solid var(--accent-color);
             background: rgba(102,221,255,0.07);
@@ -175,21 +150,17 @@
             height: 7px;
             border-radius: 50%;
             background: var(--accent-color);
-            box-shadow: 0 0 12px var(--accent-color);
         }
 
         .college-name {
             margin-top: 20px;
             font-size: clamp(25px, 5vw, 48px);
-            line-height: 1.2;
             font-weight: 800;
-            letter-spacing: -1px;
         }
 
         .exam-name {
             margin-top: 8px;
             font-size: clamp(20px, 3vw, 30px);
-            font-weight: 700;
             color: #cfe7f5;
         }
 
@@ -197,10 +168,8 @@
             margin-top: 8px;
             color: #9fb3c8;
             font-size: 17px;
-            font-weight: 500;
         }
 
-        /* Notice Banner */
         .notice-banner {
             background: rgba(255, 193, 7, 0.15);
             border-left: 4px solid #ffc107;
@@ -213,9 +182,6 @@
             display: none;
         }
 
-        /* =========================================
-           CONTENT & SUBJECT GRID
-        ========================================= */
         .content {
             padding: 30px;
         }
@@ -224,13 +190,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 15px;
             margin-bottom: 22px;
-        }
-
-        .section-title h2 {
-            font-size: 24px;
-            font-weight: 700;
         }
 
         .subject-grid {
@@ -252,17 +212,14 @@
             justify-content: space-between;
             border: 1px solid var(--card-border);
             background: var(--card-bg);
-            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
         .subject-card:hover {
-            transform: translateY(-7px);
             border-color: var(--accent-color);
         }
 
         .card-top {
             display: flex;
-            align-items: center;
             justify-content: space-between;
         }
 
@@ -275,48 +232,29 @@
             border-radius: 10px;
             color: var(--accent-color);
             background: rgba(70,210,255,0.08);
-            border: 1px solid rgba(70,210,255,0.15);
             font-size: 13px;
-            font-weight: 700;
-        }
-
-        .quiz-label {
-            font-size: 11px;
-            color: #71869b;
-            letter-spacing: 1px;
-            font-weight: 600;
         }
 
         .subject-name {
             font-size: clamp(16px, 2vw, 21px);
-            line-height: 1.45;
             font-weight: 700;
         }
 
         .card-bottom {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
 
-        .subject-code {
+        .quiz-label-text {
             color: #8499ad;
             font-size: 13px;
         }
 
         .arrow {
-            width: 34px;
-            height: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
             color: var(--accent-color);
-            background: rgba(70,210,255,0.07);
-            border: 1px solid rgba(70,210,255,0.13);
         }
 
-        /* Delete button for subjects in admin mode */
         .delete-sub-btn {
             position: absolute;
             top: 10px;
@@ -335,9 +273,6 @@
             display: block;
         }
 
-        /* =========================================
-           MODALS & ADMIN PANEL
-        ========================================= */
         .modal {
             position: fixed;
             inset: 0;
@@ -361,12 +296,6 @@
             overflow-y: auto;
         }
 
-        .modal-content h3 {
-            margin-bottom: 20px;
-            color: var(--accent-color);
-            text-align: center;
-        }
-
         .form-group {
             margin-bottom: 15px;
         }
@@ -374,7 +303,6 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            font-size: 14px;
             color: #cbd5e1;
         }
 
@@ -385,7 +313,6 @@
             border: 1px solid rgba(255,255,255,0.2);
             background: rgba(255,255,255,0.05);
             color: #fff;
-            font-family: inherit;
         }
 
         .btn-primary {
@@ -398,23 +325,19 @@
             border-radius: 8px;
             cursor: pointer;
             margin-top: 10px;
-            transition: 0.3s;
         }
+
         .btn-secondary {
             background: #e74c3c;
             color: #fff;
         }
 
-        /* =========================================
-           FOOTER
-        ========================================= */
         .footer {
             text-align: center;
             padding: 25px 20px;
             border-top: 1px solid rgba(255,255,255,0.08);
             color: #7f94a8;
             font-size: 14px;
-            line-height: 1.8;
         }
 
         @media (max-width: 850px) {
@@ -428,9 +351,9 @@
 <body>
 
 <div class="container">
-    <!-- HEADER -->
     <header class="header">
         <button class="settings-btn" id="settingsBtn" onclick="openLoginModal()">⚙️ সেটিংস</button>
+        
         <div class="badge">
             <span class="badge-dot"></span>
             DMRC • QUIZ ROUTINE 2026
@@ -439,39 +362,31 @@
         <div class="exam-name">কুইজ পরীক্ষা - ২০২৬</div>
         <div class="class-info">শ্রেণি: দ্বাদশ</div>
         
-        <!-- Notice Display Banner -->
         <div id="noticeBanner" class="notice-banner"></div>
     </header>
 
-    <!-- CONTENT -->
     <main class="content">
         <div id="mainContainer">
             <div class="section-title">
                 <h2>📚 পরীক্ষার বিষয়সমূহ</h2>
                 <span>Subject Routine</span>
             </div>
-
-            <div class="subject-grid" id="subjectGrid">
-                <!-- Subjects will be rendered dynamically -->
-            </div>
+            <div class="subject-grid" id="subjectGrid"></div>
         </div>
 
-        <!-- Disabled Web Screen View -->
         <div id="disabledScreen" style="display: none; text-align: center; padding: 50px 20px;">
             <h2 style="color: #ff4d4d; font-size: 26px; margin-bottom: 15px;">ওয়েব সাময়িকভাবে বন্ধ রয়েছে</h2>
-            <p style="font-size: 18px; color: #cbd5e1;" id="disabledMessage">পরবর্তী পরীক্ষার ডেট প্রকাশিত হলে এই পেজ দেখতে পাবেন।</p>
+            <p style="font-size: 18px; color: #cbd5e1;">পরবর্তী পরীক্ষার ডেট প্রকাশিত হলে এই পেজ দেখতে পাবেন।</p>
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
         Developed by <strong>JOHIRUL ISLAM SAGOR</strong><br>
         <span class="roll">ROLL - 2042 &nbsp; • &nbsp; SECTION - D &nbsp; • &nbsp; DMRC</span>
-        <div class="copyright">© 2026 • DMRC QUIZ EXAMINATION</div>
     </footer>
 </div>
 
-<!-- FIREBASE LOGIN MODAL -->
+<!-- Login Modal -->
 <div class="modal" id="loginModal">
     <div class="modal-content">
         <h3>এডমিন লগইন (Firebase)</h3>
@@ -484,11 +399,11 @@
             <input type="password" id="adminPassword" placeholder="******">
         </div>
         <button class="btn-primary" onclick="loginAdmin()">লগইন করুন</button>
-        <button class="btn-primary btn-secondary" onclick="closeModals()" style="margin-top: 5px;">বাতিল</button>
+        <button class="btn-primary btn-secondary" onclick="closeModals()">বাতিল</button>
     </div>
 </div>
 
-<!-- ADMIN DASHBOARD MODAL -->
+<!-- Admin Dashboard Modal -->
 <div class="modal" id="adminModal">
     <div class="modal-content">
         <h3>এডমিন কন্ট্রোল প্যানেল</h3>
@@ -499,14 +414,14 @@
             <button class="btn-primary" onclick="toggleWebsiteStatus(true)" style="background: #2ecc71;">২. ওয়েব চালু করুন</button>
         </div>
 
-        <div class="form-group" style="margin-top: 20px;">
+        <div class="form-group">
             <label>৩. নোটিশ যোগ করুন</label>
             <textarea id="noticeInput" placeholder="নোটিশের বিবরণ লিখুন..."></textarea>
             <button class="btn-primary" onclick="saveNotice()">নোটিশ আপডেট করুন</button>
         </div>
 
-        <div class="form-group" style="margin-top: 20px;">
-            <label>৪. প্রিমিয়াম থিম পরিবর্তন (৭-৮টি থিম)</label>
+        <div class="form-group">
+            <label>৪. প্রিমিয়াম থিম পরিবর্তন</label>
             <select id="themeSelector" onchange="changeTheme(this.value)">
                 <option value="default">ডিফল্ট থিম</option>
                 <option value="theme-cyberpunk">সাইবারপাঙ্ক নিয়ন</option>
@@ -520,16 +435,11 @@
             </select>
         </div>
 
-        <div class="form-group" style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+        <div class="form-group">
             <label>৫. নতুন সাবজেক্ট যোগ করুন</label>
-            <input type="text" id="newSubName" placeholder="সাবজেক্টের নাম (যেমন: পদার্থবিজ্ঞান)">
-            <input type="text" id="newSubCode" placeholder="কোড (যেমন: ১৭৫)">
-            <input type="text" id="newSubLink" placeholder="লিংক (যেমন: physicsroutine.html)">
+            <input type="text" id="newSubName" placeholder="সাবজেক্ট নাম (যেমন: পদার্থবিজ্ঞান)">
+            <input type="text" id="newSubLink" placeholder="লিংক (অন্য পেজ এ যেতে, যেমন: physics.html)">
             <button class="btn-primary" onclick="addSubject()">সাবজেক্ট যোগ করুন</button>
-        </div>
-
-        <div class="form-group" style="margin-top: 15px;">
-            <p style="font-size: 13px; color: #a1a1a1; text-align: center;">* সাবজেক্ট ডিলিট করতে মূল পেজের কার্ডের উপরে থাকা ডিলিট বাটনে ক্লিক করুন।</p>
         </div>
 
         <button class="btn-primary btn-secondary" onclick="closeModals()" style="margin-top: 15px;">বন্ধ করুন</button>
@@ -537,7 +447,6 @@
 </div>
 
 <script>
-    // Your exact Firebase configuration
     const firebaseConfig = {
         apiKey: "AIzaSyDaNdM-tMKoC1ljHjj--TN9Yzqj2t68GK0",
         authDomain: "english-suggestion-1bbbe.firebaseapp.com",
@@ -549,27 +458,24 @@
         measurementId: "G-4T826CYGDY"
     };
 
-    // Initialize Firebase
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
     const auth = firebase.auth();
 
-    // Check URL for admin view (?admin=admin69)
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('admin') === 'admin69') {
         document.getElementById('settingsBtn').style.display = 'block';
     }
 
-    // Default Subjects Data (Second paper removed)
     let subjects = JSON.parse(localStorage.getItem('dmrc_subjects')) || [
-        { name: "পদার্থবিজ্ঞান", code: "কোড: ১৭৫", link: "physicsroutine.html" },
-        { name: "উচ্চতর গণিত", code: "কোড: ২৬৬", link: "higher-mathroutine.html" },
-        { name: "বাংলা", code: "কোড: ১০২", link: "banglaroutine.html" },
-        { name: "তথ্য ও যোগাযোগ প্রযুক্তি", code: "কোড: ২৭৫", link: "ictroutine.html" },
-        { name: "ইংরেজি", code: "কোড: ১০৮", link: "englishroutine.html" },
-        { name: "রসায়ন", code: "কোড: ১৭৭", link: "chemistryroutine.html" },
-        { name: "জীববিজ্ঞান", code: "কোড: ১৭৯", link: "biologyroutine.html" }
+        { name: "পদার্থবিজ্ঞান", link: "physicsroutine.html" },
+        { name: "উচ্চতর গণিত", link: "higher-mathroutine.html" },
+        { name: "বাংলা", link: "banglaroutine.html" },
+        { name: "তথ্য ও যোগাযোগ প্রযুক্তি", link: "ictroutine.html" },
+        { name: "ইংরেজি", link: "englishroutine.html" },
+        { name: "রসায়ন", link: "chemistryroutine.html" },
+        { name: "জীববিজ্ঞান", link: "biologyroutine.html" }
     ];
 
     function renderSubjects() {
@@ -587,7 +493,7 @@
                 </div>
                 <div class="subject-name">${sub.name}</div>
                 <div class="card-bottom">
-                    <span class="subject-code">${sub.code}</span>
+                    <span class="quiz-label-text">ক্লিক করুন</span>
                     <span class="arrow">↗</span>
                 </div>
             `;
@@ -596,7 +502,6 @@
         localStorage.setItem('dmrc_subjects', JSON.stringify(subjects));
     }
 
-    // Modal Control Functions
     function openLoginModal() {
         document.getElementById('loginModal').style.display = 'flex';
     }
@@ -604,18 +509,12 @@
         document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
     }
 
-    // Firebase Login Authentication
     function loginAdmin() {
         const email = document.getElementById('adminEmail').value;
         const password = document.getElementById('adminPassword').value;
 
-        if (!email || !password) {
-            alert('দয়া করে ইমেইল এবং পাসওয়ার্ড দিন।');
-            return;
-        }
-
         auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
+            .then(() => {
                 alert('সফলভাবে লগইন হয়েছে!');
                 closeModals();
                 document.body.classList.add('admin-mode');
@@ -626,7 +525,6 @@
             });
     }
 
-    // 1 & 2. Website Status Toggle (Open/Close)
     function toggleWebsiteStatus(isOpen) {
         localStorage.setItem('web_status', isOpen ? 'open' : 'closed');
         checkWebsiteStatus();
@@ -644,7 +542,6 @@
         }
     }
 
-    // 3. Add / Update Notice
     function saveNotice() {
         const noticeText = document.getElementById('noticeInput').value;
         localStorage.setItem('web_notice', noticeText);
@@ -663,7 +560,6 @@
         }
     }
 
-    // 4. Premium Themes Change
     function changeTheme(themeName) {
         document.body.className = themeName;
         if(document.body.classList.contains('admin-mode')) {
@@ -672,33 +568,28 @@
         localStorage.setItem('selected_theme', themeName);
     }
 
-    // Load Saved Theme
     const savedTheme = localStorage.getItem('selected_theme');
     if (savedTheme) {
         document.body.className = savedTheme;
         document.getElementById('themeSelector').value = savedTheme;
     }
 
-    // 5. Add Subject Option
     function addSubject() {
-        const name = document.getElementById('newSubName'].value;
-        const code = document.getElementById('newSubCode'].value;
-        const link = document.getElementById('newSubLink'].value || '#';
+        const name = document.getElementById('newSubName').value;
+        const link = document.getElementById('newSubLink').value || '#';
 
-        if (!name || !code) {
-            alert('দয়া করে নাম এবং কোড দিন।');
+        if (!name) {
+            alert('দয়া করে সাবজেক্টের নাম দিন।');
             return;
         }
 
-        subjects.push({ name, code: 'কোড: ' + code, link });
+        subjects.push({ name, link });
         renderSubjects();
         document.getElementById('newSubName').value = '';
-        document.getElementById('newSubCode').value = '';
         document.getElementById('newSubLink').value = '';
         alert('নতুন সাবজেক্ট সফলভাবে যোগ হয়েছে!');
     }
 
-    // 6. Delete Subject Option
     function deleteSubject(index) {
         if (confirm('আপনি কি এই সাবজেক্টটি ডিলিট করতে চান?')) {
             subjects.splice(index, 1);
@@ -706,7 +597,6 @@
         }
     }
 
-    // Initial Render & Checks
     window.onload = function() {
         renderSubjects();
         checkWebsiteStatus();
