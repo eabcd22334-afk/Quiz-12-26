@@ -7,14 +7,44 @@
 <title>AURA — Secure Merchant Payment</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root{color-scheme:dark;--bg:#0c1822;--card:#142431;--ink:#e6f0f4;--muted:#8ba3b0;--green:#14b88f;--green2:#0e9272;--line:#29404e;--ok:#3ddc9a;--err:#ff7777}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:22px;background:radial-gradient(ellipse at 50% -10%,#145342 0,transparent 42%),var(--bg);color:var(--ink);font-family:'Hind Siliguri',system-ui,sans-serif;display:grid;place-items:center}
-.wrap{width:min(100%,460px)}.brand{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:22px}.logo{width:45px;height:45px;border-radius:14px 14px 14px 4px;background:#fff;color:var(--green2);display:grid;place-items:center;font-size:25px;font-weight:700}.brand strong{font-size:23px;letter-spacing:.3px}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:-4px}
-.card{background:linear-gradient(160deg,#172b38,#12222e);border:1px solid #2b4653;border-radius:24px;padding:25px;box-shadow:0 24px 70px #0007}.secure{display:flex;align-items:center;justify-content:center;gap:7px;color:var(--ok);font-size:12px;margin-bottom:17px}.heading{text-align:center;font-size:21px;font-weight:600}.sub{text-align:center;color:var(--muted);font-size:13px;margin-top:2px}.merchant{margin:22px 0 16px;padding:14px;border-radius:15px;background:#0d1b25;border:1px solid var(--line);display:flex;align-items:center;gap:12px}.merchant-icon{width:42px;height:42px;border-radius:13px;background:#173d38;display:grid;place-items:center;font-size:21px}.merchant div:last-child{min-width:0}.merchant b{display:block;font-size:15px}.merchant small{color:var(--muted);font-size:12px}.amount{padding:18px 12px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:18px}.amount small{color:var(--muted);font-size:13px}.amount strong{display:block;font-size:36px;line-height:1.25;color:var(--green);margin-top:3px}.field{margin-top:14px}label{display:block;font-size:13px;color:#b5c7ce;margin-bottom:6px}input{width:100%;border:1px solid var(--line);border-radius:12px;background:#0b1922;color:var(--ink);padding:13px 14px;font:inherit;font-size:16px;outline:none}input:focus{border-color:var(--green);box-shadow:0 0 0 3px #14b88f20}.hint{color:var(--muted);font-size:11px;margin-top:5px}.summary{display:flex;justify-content:space-between;gap:12px;margin-top:19px;padding:13px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}.summary b{color:var(--ink);white-space:nowrap}.pay{width:100%;border:0;border-radius:13px;padding:14px;background:linear-gradient(135deg,var(--green),var(--green2));color:#06231c;font:inherit;font-size:17px;font-weight:700;cursor:pointer;margin-top:8px}.pay:disabled{opacity:.55;cursor:wait}.cancel{width:100%;border:1px solid var(--line);border-radius:13px;padding:11px;background:transparent;color:var(--muted);font:inherit;margin-top:10px;cursor:pointer}.message{min-height:22px;text-align:center;font-size:13px;margin-top:13px;color:var(--err)}.message.ok{color:var(--ok)}.success{display:none;text-align:center;padding:12px 0}.success.show{display:block}.success .check{width:65px;height:65px;border-radius:50%;display:grid;place-items:center;background:#123c32;color:var(--ok);font-size:34px;margin:0 auto 12px}.success h2{margin:0;font-size:22px}.success p{color:var(--muted);font-size:13px}.continue{width:100%;border:0;border-radius:13px;padding:14px;background:var(--green);color:#06231c;font:inherit;font-weight:700;font-size:16px;cursor:pointer}.footer{text-align:center;color:#718995;font-size:11px;margin-top:17px}.hide{display:none!important}@media(max-width:380px){body{padding:14px}.card{padding:20px}.amount strong{font-size:32px}}
-/* ---- সফল পেজ ---- */
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:22px;background:radial-gradient(ellipse at 50% -10%,#145342 0,transparent 42%),var(--bg);color:var(--ink);font-family:'Hind Siliguri',system-ui,sans-serif;display:grid;place-items:center}
+.wrap{width:min(100%,460px)}
+.brand{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:22px}
+.logo{width:45px;height:45px;border-radius:14px 14px 14px 4px;background:#fff;color:var(--green2);display:grid;place-items:center;font-size:25px;font-weight:700}
+.brand strong{font-size:23px;letter-spacing:.3px}
+.brand small{display:block;color:var(--muted);font-size:12px;margin-top:-4px}
+.card{background:linear-gradient(160deg,#172b38,#12222e);border:1px solid #2b4653;border-radius:24px;padding:25px;box-shadow:0 24px 70px #0007}
+.secure{display:flex;align-items:center;justify-content:center;gap:7px;color:var(--ok);font-size:12px;margin-bottom:17px}
+.heading{text-align:center;font-size:21px;font-weight:600}
+.sub{text-align:center;color:var(--muted);font-size:13px;margin-top:2px}
+.merchant{margin:22px 0 16px;padding:14px;border-radius:15px;background:#0d1b25;border:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.merchant-icon{width:42px;height:42px;border-radius:13px;background:#173d38;display:grid;place-items:center;font-size:21px}
+.merchant div:last-child{min-width:0}
+.merchant b{display:block;font-size:15px}
+.merchant small{color:var(--muted);font-size:12px}
+.amount{padding:18px 12px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:18px}
+.amount small{color:var(--muted);font-size:13px}
+.amount strong{display:block;font-size:36px;line-height:1.25;color:var(--green);margin-top:3px}
+.field{margin-top:14px}
+label{display:block;font-size:13px;color:#b5c7ce;margin-bottom:6px}
+input{width:100%;border:1px solid var(--line);border-radius:12px;background:#0b1922;color:var(--ink);padding:13px 14px;font:inherit;font-size:16px;outline:none}
+input:focus{border-color:var(--green);box-shadow:0 0 0 3px #14b88f20}
+.hint{color:var(--muted);font-size:11px;margin-top:5px}
+.summary{display:flex;justify-content:space-between;gap:12px;margin-top:19px;padding:13px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.summary b{color:var(--ink);white-space:nowrap}
+.pay{width:100%;border:0;border-radius:13px;padding:14px;background:linear-gradient(135deg,var(--green),var(--green2));color:#06231c;font:inherit;font-size:17px;font-weight:700;cursor:pointer;margin-top:8px}
+.pay:disabled{opacity:.55;cursor:wait}
+.cancel{width:100%;border:1px solid var(--line);border-radius:13px;padding:11px;background:transparent;color:var(--muted);font:inherit;margin-top:10px;cursor:pointer}
+.message{min-height:22px;text-align:center;font-size:13px;margin-top:13px;color:var(--err)}
+.message.ok{color:var(--ok)}
+.success{display:none;text-align:center;padding:12px 0}
+.success.show{display:block}
 .success{position:relative;overflow:hidden;padding:30px 24px 24px}
-.success.show{display:block;animation:rise .5s cubic-bezier(.2,.8,.2,1)}
+.success.show{animation:rise .5s cubic-bezier(.2,.8,.2,1)}
 .success::before{content:"";position:absolute;inset:-60px -40px auto;height:220px;background:radial-gradient(ellipse at 50% 0,#14b88f44,transparent 70%);pointer-events:none}
 .ring{position:relative;width:84px;height:84px;margin:0 auto 16px;border-radius:50%;background:linear-gradient(135deg,#3ddc9a,#14b88f);display:grid;place-items:center;box-shadow:0 0 0 8px #14b88f22,0 0 0 18px #14b88f11,0 10px 30px #14b88f55;animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
 .tick{stroke-dasharray:50;stroke-dashoffset:50;animation:draw .5s .35s ease forwards}
@@ -28,119 +58,283 @@
 .receipt .row b{font-weight:600;color:var(--ink);text-align:right;word-break:break-all}
 .receipt .row b.g{color:var(--green)}
 .status-pill{display:inline-block;margin-bottom:16px;padding:5px 14px;border-radius:99px;background:#123c32;color:var(--ok);font-size:12px;font-weight:600}
-.continue{box-shadow:0 8px 22px #14b88f44;transition:transform .15s}
+.continue{width:100%;border:0;border-radius:13px;padding:14px;background:var(--green);color:#06231c;font:inherit;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 8px 22px #14b88f44;transition:transform .15s}
 .continue:active{transform:scale(.98)}
 .redir{margin-top:11px;color:var(--muted);font-size:12px;min-height:16px}
 .burst{position:absolute;left:50%;top:70px;width:0;height:0}
 .burst span{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--ok);opacity:0;animation:spark .9s .2s ease-out forwards}
 .burst span:nth-child(odd){background:#fff;width:5px;height:5px}
-.burst span:nth-child(1){--x:-90px;--y:-30px}.burst span:nth-child(2){--x:90px;--y:-34px}
-.burst span:nth-child(3){--x:-62px;--y:36px}.burst span:nth-child(4){--x:66px;--y:40px}
-.burst span:nth-child(5){--x:-20px;--y:-62px}.burst span:nth-child(6){--x:24px;--y:-60px}
-.burst span:nth-child(7){--x:-110px;--y:8px}.burst span:nth-child(8){--x:112px;--y:6px}
+.burst span:nth-child(1){--x:-90px;--y:-30px}
+.burst span:nth-child(2){--x:90px;--y:-34px}
+.burst span:nth-child(3){--x:-62px;--y:36px}
+.burst span:nth-child(4){--x:66px;--y:40px}
+.burst span:nth-child(5){--x:-20px;--y:-62px}
+.burst span:nth-child(6){--x:24px;--y:-60px}
+.burst span:nth-child(7){--x:-110px;--y:8px}
+.burst span:nth-child(8){--x:112px;--y:6px}
+.footer{text-align:center;color:#718995;font-size:11px;margin-top:17px}
+.hide{display:none!important}
 @keyframes rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes pop{0%{transform:scale(.3);opacity:0}100%{transform:scale(1);opacity:1}}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes spark{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.3)}}
+@media(max-width:380px){body{padding:14px}.card{padding:20px}.amount strong{font-size:32px}}
 @media(prefers-reduced-motion:reduce){.success.show,.ring,.tick,.burst span{animation:none}.tick{stroke-dashoffset:0}}
 </style>
 </head>
+
 <body>
 <main class="wrap">
-  <div class="brand"><div class="logo">A</div><div><strong>AURA</strong><small>SECURE WALLET PAYMENT</small></div></div>
-  <section class="card" id="checkout">
-    <div class="secure">▣ নিরাপদ AURA পেমেন্ট</div>
-    <div class="heading">পেমেন্ট নিশ্চিত করুন</div>
-    <div class="sub">পেমেন্ট সম্পন্ন করতে আপনার AURA তথ্য দিন</div>
-    <div class="merchant"><div class="merchant-icon">🛍️</div><div><b>Merchant Payment</b><small>ডিজিটাল সার্ভিস পেমেন্ট</small></div></div>
-    <div class="amount"><small>সর্বমোট পেমেন্ট</small><strong>৳১০০.০০</strong></div>
-    <div class="field"><label for="code">AURA Account Code</label><input id="code" inputmode="numeric" autocomplete="off" maxlength="15" placeholder="১৫ সংখ্যার AURA কোড"><div class="hint">আপনার ১৫ সংখ্যার অ্যাকাউন্ট কোড লিখুন</div></div>
-    <div class="field"><label for="pin">AURA PIN</label><input id="pin" type="password" inputmode="numeric" autocomplete="current-password" maxlength="5" placeholder="৫ সংখ্যার PIN"></div>
-    <div class="summary"><span>সার্ভিস চার্জ</span><b>৳১০০.০০</b></div>
-    <div class="summary" style="margin-top:-14px;border:0;padding-top:0"><span>পেমেন্ট পদ্ধতি</span><b>AURA Wallet</b></div>
-    <button class="pay" id="pay">৳১০০ পেমেন্ট করুন</button>
-    <button class="cancel" id="cancel">বাতিল করুন</button>
-    <div class="message" id="message" role="status"></div>
-  </section>
-  <section class="card success" id="success">
-    <div class="burst"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="ring"><svg viewBox="0 0 52 52" width="44" height="44"><path class="tick" d="M14 27l8 8 16-17" fill="none" stroke="#06231c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <h2>পেমেন্ট সফল হয়েছে</h2>
-    <p class="lead">আপনার AURA Wallet থেকে পেমেন্ট সম্পন্ন হয়েছে</p>
-    <div class="paid-amount">৳200.00</div>
-    <div class="receipt">
-      <div class="row"><span>মার্চেন্ট</span><b>Merchant Payment</b></div>
-      <div class="row"><span>পেমেন্ট পদ্ধতি</span><b>AURA Wallet</b></div>
-      <div class="row"><span>অ্যাকাউন্ট</span><b id="r-acc">—</b></div>
-      <div class="row"><span>লেনদেন আইডি</span><b id="r-id">—</b></div>
-      <div class="row"><span>তারিখ ও সময়</span><b id="r-time">—</b></div>
-      <div class="row"><span>অবশিষ্ট ব্যালেন্স</span><b id="r-bal" class="g">—</b></div>
-    </div>
-    <div class="status-pill">● সম্পন্ন</div>
-    <button class="continue" id="continue">এগিয়ে যান</button>
-    <div class="redir" id="redir"></div>
-  </section>
-  <div class="footer">AURA Wallet · Secure Merchant Checkout</div>
+
+<div class="brand">
+<div class="logo">A</div>
+<div><strong>AURA</strong><small>SECURE WALLET PAYMENT</small></div>
+</div>
+
+<section class="card" id="checkout">
+<div class="secure">▣ নিরাপদ AURA পেমেন্ট</div>
+<div class="heading">পেমেন্ট নিশ্চিত করুন</div>
+<div class="sub">পেমেন্ট সম্পন্ন করতে আপনার AURA তথ্য দিন</div>
+
+<div class="merchant">
+<div class="merchant-icon">🛍️</div>
+<div><b>Merchant Payment</b><small>ডিজিটাল সার্ভিস পেমেন্ট</small></div>
+</div>
+
+<div class="amount">
+<small>সর্বমোট পেমেন্ট</small>
+<strong>৳২০০.০০</strong>
+</div>
+
+<div class="field">
+<label for="code">AURA Account Code</label>
+<input id="code" inputmode="numeric" autocomplete="off" maxlength="15" placeholder="১৫ সংখ্যার AURA কোড">
+<div class="hint">আপনার ১৫ সংখ্যার অ্যাকাউন্ট কোড লিখুন</div>
+</div>
+
+<div class="field">
+<label for="pin">AURA PIN</label>
+<input id="pin" type="password" inputmode="numeric" autocomplete="current-password" maxlength="5" placeholder="৫ সংখ্যার PIN">
+</div>
+
+<div class="summary"><span>সার্ভিস চার্জ</span><b>৳২০০.০০</b></div>
+<div class="summary" style="margin-top:-14px;border:0;padding-top:0"><span>পেমেন্ট পদ্ধতি</span><b>AURA Wallet</b></div>
+
+<button class="pay" id="pay">৳২০০ পেমেন্ট করুন</button>
+<button class="cancel" id="cancel">বাতিল করুন</button>
+<div class="message" id="message" role="status"></div>
+</section>
+
+<section class="card success" id="success">
+<div class="burst">
+<span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span>
+</div>
+
+<div class="ring">
+<svg viewBox="0 0 52 52" width="44" height="44">
+<path class="tick" d="M14 27l8 8 16-17" fill="none" stroke="#06231c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+
+<h2>পেমেন্ট সফল হয়েছে</h2>
+<p class="lead">আপনার AURA Wallet থেকে পেমেন্ট সম্পন্ন হয়েছে</p>
+
+<div class="paid-amount">৳২০০.০০</div>
+
+<div class="receipt">
+<div class="row"><span>মার্চেন্ট</span><b>Merchant Payment</b></div>
+<div class="row"><span>পেমেন্ট পদ্ধতি</span><b>AURA Wallet</b></div>
+<div class="row"><span>অ্যাকাউন্ট</span><b id="r-acc">—</b></div>
+<div class="row"><span>লেনদেন আইডি</span><b id="r-id">—</b></div>
+<div class="row"><span>তারিখ ও সময়</span><b id="r-time">—</b></div>
+<div class="row"><span>অবশিষ্ট ব্যালেন্স</span><b id="r-bal" class="g">—</b></div>
+</div>
+
+<div class="status-pill">● সম্পন্ন</div>
+<button class="continue" id="continue">এগিয়ে যান</button>
+<div class="redir" id="redir"></div>
+</section>
+
+<div class="footer">AURA Wallet · Secure Merchant Checkout</div>
 </main>
+
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getDatabase, ref, get, runTransaction, push } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
-const firebaseConfig={apiKey:'AIzaSyBX_fCBwMaaaQV3K8lPOs3FHC_QC5PlqkU',authDomain:'bank-a9ef9.firebaseapp.com',databaseURL:'https://bank-a9ef9-default-rtdb.firebaseio.com',projectId:'bank-a9ef9',storageBucket:'bank-a9ef9.firebasestorage.app',messagingSenderId:'641927445122',appId:'1:641927445122:web:4d49da036e333ab0ec129b',measurementId:'G-NR850734Y2'};
+import {
+getDatabase,ref,get,runTransaction,push
+} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
+
+const firebaseConfig={
+apiKey:'AIzaSyBX_fCBwMaaaQV3K8lPOs3FHC_QC5PlqkU',
+authDomain:'bank-a9ef9.firebaseapp.com',
+databaseURL:'https://bank-a9ef9-default-rtdb.firebaseio.com',
+projectId:'bank-a9ef9',
+storageBucket:'bank-a9ef9.firebasestorage.app',
+messagingSenderId:'641927445122',
+appId:'1:641927445122:web:4d49da036e333ab0ec129b',
+measurementId:'G-NR850734Y2'
+};
+
 const db=getDatabase(initializeApp(firebaseConfig));
-const $=id=>document.getElementById(id);const FEE=200.00;const DESTINATION='https://1122.com';let paid=false;
-// বাংলা অঙ্ককে ইংরেজি অঙ্কে রূপান্তর
-const en=s=>String(s||'').replace(/[০-৯]/g,d=>'০১২৩৪৫৬৭৮৯'.indexOf(d)).replace(/\s+/g,'');
-// balance ফিল্ড কোন নামে আছে তা খুঁজে বের করা
+const $=id=>document.getElementById(id);
+
+// পেমেন্টের পরিমাণ
+const FEE=200.00;
+
+const DESTINATION='https://1122.com';
+let paid=false;
+
+const en=s=>String(s||'')
+.replace(/[০-৯]/g,d=>'০১২৩৪৫৬৭৮৯'.indexOf(d))
+.replace(/\s+/g,'');
+
 const BAL_KEYS=['balance','bal','amount','wallet','money'];
-const findBalKey=u=>BAL_KEYS.find(k=>u&&u[k]!==undefined&&u[k]!==null)||'balance';
 
-$('cancel').onclick=()=>{history.length>1?history.back():location.assign('./index.html')};
-$('continue').onclick=()=>{if(paid)location.href=DESTINATION};
+const findBalKey=u=>
+BAL_KEYS.find(k=>u&&u[k]!==undefined&&u[k]!==null)||'balance';
+
+$('cancel').onclick=()=>{
+history.length>1?history.back():location.assign('./index.html');
+};
+
+$('continue').onclick=()=>{
+if(paid)location.href=DESTINATION;
+};
+
 $('pay').onclick=async()=>{
- const code=en($('code').value),pin=en($('pin').value),msg=$('message');msg.className='message';msg.textContent='';
- if(!/^\d{15}$/.test(code)){msg.textContent='সঠিক ১৫ সংখ্যার AURA Code দিন';return}
- if(!/^\d{5}$/.test(pin)){msg.textContent='সঠিক ৫ সংখ্যার PIN দিন';return}
- $('pay').disabled=true;$('pay').textContent='যাচাই করা হচ্ছে…';
- try{
-  const snap=await get(ref(db,'users/'+code));
-  if(!snap.exists())throw new Error('এই AURA Code-এ কোনো অ্যাকাউন্ট পাওয়া যায়নি');
-  const user=snap.val();
-  if(user.status==='disabled')throw new Error('এই অ্যাকাউন্টটি বন্ধ রয়েছে');
-  if(String(user.pin)!==pin)throw new Error('AURA PIN সঠিক নয়');
 
-  const balKey=findBalKey(user);
-  const knownBalance=Number(user[balKey]);
-  if(!Number.isFinite(knownBalance))throw new Error('অ্যাকাউন্টে ব্যালেন্স ফিল্ড পাওয়া যায়নি বা সংখ্যা নয় (ফিল্ড: '+balKey+', মান: '+user[balKey]+')');
-  if(knownBalance<FEE)throw new Error('পর্যাপ্ত ব্যালেন্স নেই। বর্তমান ব্যালেন্স: ৳'+knownBalance);
+const code=en($('code').value);
+const pin=en($('pin').value);
+const msg=$('message');
 
-  const balanceRef=ref(db,'users/'+code+'/'+balKey);
-  const result=await runTransaction(balanceRef,current=>{
-   // প্রথমবার current প্রায়ই null আসে; তখন আগে পড়া ব্যালেন্স ধরা হয়
-   const balance=current===null?knownBalance:Number(current);
-   if(!Number.isFinite(balance)||balance<FEE)return; // abort
-   return balance-FEE;
-  });
-  if(!result.committed)throw new Error('সার্ভারে ব্যালেন্স যাচাই ব্যর্থ হয়েছে, আবার চেষ্টা করুন');
+msg.className='message';
+msg.textContent='';
 
-  const ts=Date.now();
-  let txKey='AP'+ts.toString(36).toUpperCase();
-  try{const r=await push(ref(db,'txs/'+code),{type:'pay',label:'AURA Merchant Payment',amount:-FEE,ts});if(r&&r.key)txKey='AP'+r.key.slice(-8).toUpperCase();}
-  catch(logError){console.error('Transaction history write failed:',logError)}
-  const bn=n=>Number(n).toLocaleString('bn-BD',{minimumFractionDigits:2,maximumFractionDigits:2});
-  const left=result.snapshot.val();
-  $('r-acc').textContent='••••••••••'+code.slice(-5);
-  $('r-id').textContent=txKey;
-  $('r-time').textContent=new Date(ts).toLocaleString('bn-BD',{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit'});
-  $('r-bal').textContent=Number.isFinite(Number(left))?'৳'+bn(left):'—';
-  $('redir').textContent='রিসিট সংরক্ষণ করতে স্ক্রিনশট নিয়ে রাখুন';
-  paid=true;window.scrollTo({top:0});$('checkout').classList.add('hide');$('success').classList.add('show');
- }catch(e){
-  console.error('AURA payment error:',e);
-  if(e.code==='PERMISSION_DENIED'||String(e.message||'').toLowerCase().includes('permission_denied')){
-   msg.textContent='Firebase Database Rules পেমেন্ট অনুমোদন করছে না। users/{AURA Code}-এ read ও write অনুমতি পরীক্ষা করুন।';
-  }else{msg.textContent=e.message||'পেমেন্ট করা যায়নি। আবার চেষ্টা করুন'}
- }
- finally{$('pay').disabled=false;$('pay').textContent='৳200.00 পেমেন্ট করুন'}
+if(!/^\d{15}$/.test(code)){
+msg.textContent='সঠিক ১৫ সংখ্যার AURA Code দিন';
+return;
+}
+
+if(!/^\d{5}$/.test(pin)){
+msg.textContent='সঠিক ৫ সংখ্যার PIN দিন';
+return;
+}
+
+$('pay').disabled=true;
+$('pay').textContent='যাচাই করা হচ্ছে…';
+
+try{
+
+const snap=await get(ref(db,'users/'+code));
+
+if(!snap.exists())
+throw new Error('এই AURA Code-এ কোনো অ্যাকাউন্ট পাওয়া যায়নি');
+
+const user=snap.val();
+
+if(user.status==='disabled')
+throw new Error('এই অ্যাকাউন্টটি বন্ধ রয়েছে');
+
+if(String(user.pin)!==pin)
+throw new Error('AURA PIN সঠিক নয়');
+
+const balKey=findBalKey(user);
+const knownBalance=Number(user[balKey]);
+
+if(!Number.isFinite(knownBalance))
+throw new Error('অ্যাকাউন্টে ব্যালেন্স ফিল্ড পাওয়া যায়নি বা সংখ্যা নয়');
+
+if(knownBalance<FEE)
+throw new Error('পর্যাপ্ত ব্যালেন্স নেই। বর্তমান ব্যালেন্স: ৳'+knownBalance);
+
+const balanceRef=ref(db,'users/'+code+'/'+balKey);
+
+const result=await runTransaction(balanceRef,current=>{
+
+const balance=current===null?knownBalance:Number(current);
+
+if(!Number.isFinite(balance)||balance<FEE)return;
+
+return balance-FEE;
+
+});
+
+if(!result.committed)
+throw new Error('সার্ভারে ব্যালেন্স যাচাই ব্যর্থ হয়েছে, আবার চেষ্টা করুন');
+
+const ts=Date.now();
+
+let txKey='AP'+ts.toString(36).toUpperCase();
+
+try{
+
+const r=await push(ref(db,'txs/'+code),{
+type:'pay',
+label:'AURA Merchant Payment',
+amount:-FEE,
+ts
+});
+
+if(r&&r.key)
+txKey='AP'+r.key.slice(-8).toUpperCase();
+
+}catch(logError){
+console.error('Transaction history write failed:',logError);
+}
+
+const bn=n=>Number(n).toLocaleString('bn-BD',{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+});
+
+const left=result.snapshot.val();
+
+$('r-acc').textContent='••••••••••'+code.slice(-5);
+$('r-id').textContent=txKey;
+
+$('r-time').textContent=new Date(ts).toLocaleString('bn-BD',{
+day:'numeric',
+month:'short',
+year:'numeric',
+hour:'numeric',
+minute:'2-digit'
+});
+
+$('r-bal').textContent=
+Number.isFinite(Number(left))?'৳'+bn(left):'—';
+
+$('redir').textContent='রিসিট সংরক্ষণ করতে স্ক্রিনশট নিয়ে রাখুন';
+
+paid=true;
+
+window.scrollTo({top:0});
+
+$('checkout').classList.add('hide');
+$('success').classList.add('show');
+
+}catch(e){
+
+console.error('AURA payment error:',e);
+
+if(e.code==='PERMISSION_DENIED'||
+String(e.message||'').toLowerCase().includes('permission_denied')){
+
+msg.textContent='Firebase Database Rules পেমেন্ট অনুমোদন করছে না। users/{AURA Code}-এ read ও write অনুমতি পরীক্ষা করুন।';
+
+}else{
+
+msg.textContent=e.message||'পেমেন্ট করা যায়নি। আবার চেষ্টা করুন';
+
+}
+
+}finally{
+
+$('pay').disabled=false;
+$('pay').textContent='৳২০০ পেমেন্ট করুন';
+
+}
+
 };
 </script>
 </body>
