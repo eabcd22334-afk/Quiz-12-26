@@ -1519,29 +1519,12 @@
     </div>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-         BANGLA COUNTDOWN
-    ====================================================== -->
+    ==================================== -->
 
     <script>
 
 
-        /*
-         * ================================================
-         * BANGLA 2ND PAPER EXAM (PRE-TEST 2026)
-         *
-         * Date:
-         * 23 November 2026 (Monday)
-         *
-         * Time:
-         * 1:30 pm - 4:30 pm
-         *
-         * Bangladesh Time:
-         * UTC +06:00
-         * ================================================
-         */
-
+        /
 
         const examDate =
             new Date(
@@ -1549,7 +1532,7 @@
             );
 
 
-        /* ================= BANGLA NUMBER ================= -->
+        
 
         function banglaNumber(number) {
 
@@ -1581,8 +1564,7 @@
         }
 
 
-        /* ================= UPDATE ================= -->
-
+        
         function updateCountdown() {
 
 
@@ -1596,7 +1578,6 @@
                 now.getTime();
 
 
-            /* ================= EXAM STARTED ================= -->
 
             if (difference <= 0) {
 
@@ -1632,7 +1613,7 @@
             }
 
 
-            /* ================= CALCULATION ================= -->
+            
 
             const totalSeconds =
                 Math.floor(
@@ -1663,9 +1644,6 @@
             const seconds =
                 totalSeconds % 60;
 
-
-            /* ================= DISPLAY ================= -->
-
             document
                 .getElementById("days")
                 .textContent =
@@ -1692,12 +1670,11 @@
         }
 
 
-        /* ================= START ================= -->
+
 
         updateCountdown();
 
 
-        /* ================= EVERY SECOND ================= -->
 
         setInterval(
             updateCountdown,
