@@ -12,7 +12,7 @@
           content="#faf6f0">
 
     <title>
-        বাংলা ২য় পত্র | DMRC Quiz 2026
+        বাংলা ২য় পত্র | DMRC Pre-Test 2026
     </title>
 
 
@@ -55,7 +55,7 @@
         }
 
 
-        /* ================= RESET ================= */
+        /* ================= RESET ================= -->
 
         * {
 
@@ -118,7 +118,7 @@
         }
 
 
-        /* ================= BACKGROUND GRID ================= */
+        /* ================= BACKGROUND GRID ================= -->
 
         body::before {
 
@@ -152,7 +152,7 @@
         }
 
 
-        /* ================= PAGE ================= */
+        /* ================= PAGE ================= -->
 
         .page {
 
@@ -163,7 +163,7 @@
         }
 
 
-        /* ================= CONTAINER ================= */
+        /* ================= CONTAINER ================= -->
 
         .container {
 
@@ -200,7 +200,7 @@
         }
 
 
-        /* ================= TOP GLOW ================= */
+        /* ================= TOP GLOW ================= -->
 
         .top-glow {
 
@@ -229,7 +229,7 @@
         }
 
 
-        /* ================= HEADER ================= */
+        /* ================= HEADER ================= -->
 
         .header {
 
@@ -247,7 +247,7 @@
         }
 
 
-        /* ================= BACK BUTTON ================= */
+        /* ================= BACK BUTTON ================= -->
 
         .back {
 
@@ -305,7 +305,7 @@
         }
 
 
-        /* ================= BADGE ================= */
+        /* ================= BADGE ================= -->
 
         .subject-badge {
 
@@ -357,7 +357,7 @@
         }
 
 
-        /* ================= TITLE ================= */
+        /* ================= TITLE ================= -->
 
         .subject-title {
 
@@ -410,7 +410,7 @@
         }
 
 
-        /* ================= CONTENT ================= */
+        /* ================= CONTENT ================= -->
 
         .content {
 
@@ -419,7 +419,7 @@
         }
 
 
-        /* ================= INFO GRID ================= */
+        /* ================= INFO GRID ================= -->
 
         .info-grid {
 
@@ -433,7 +433,7 @@
         }
 
 
-        /* ================= INFO CARD ================= */
+        /* ================= INFO CARD ================= -->
 
         .info-card {
 
@@ -504,7 +504,7 @@
         }
 
 
-        /* ================= LABEL ================= */
+        /* ================= LABEL ================= -->
 
         .info-label {
 
@@ -522,7 +522,7 @@
         }
 
 
-        /* ================= VALUE ================= */
+        /* ================= VALUE ================= -->
 
         .info-value {
 
@@ -548,7 +548,7 @@
         }
 
 
-        /* ================= COUNTDOWN ================= */
+        /* ================= COUNTDOWN ================= -->
 
         .countdown-section {
 
@@ -595,7 +595,7 @@
         }
 
 
-        /* ================= COUNTDOWN GRID ================= */
+        /* ================= COUNTDOWN GRID ================= -->
 
         .countdown {
 
@@ -609,7 +609,7 @@
         }
 
 
-        /* ================= TIME BOX ================= */
+        /* ================= TIME BOX ================= -->
 
         .time-box {
 
@@ -697,7 +697,7 @@
         }
 
 
-        /* ================= STATUS ================= */
+        /* ================= STATUS ================= -->
 
         .countdown-status {
 
@@ -719,7 +719,7 @@
         }
 
 
-        /* ================= SUGGESTION ================= */
+        /* ================= SUGGESTION ================= -->
 
         .suggestion-wrapper {
 
@@ -734,16 +734,18 @@
 
             display: inline-flex;
 
+            flex-direction: column;
+
             align-items: center;
 
             justify-content: center;
 
-            gap: 10px;
+            gap: 2px;
 
             min-width: 250px;
 
             padding:
-                14px 25px;
+                13px 25px;
 
             border:
                 1px solid
@@ -767,15 +769,39 @@
                 "Hind Siliguri",
                 sans-serif;
 
-            font-size: 16px;
-
-            font-weight: 700;
-
             box-shadow:
                 0 10px 25px
                 rgba(166, 106, 56, 0.25);
 
             transition: .28s ease;
+
+        }
+
+
+        .suggestion-main {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+        }
+
+
+        .suggestion-sub {
+
+            font-size: 11px;
+
+            font-weight: 500;
+
+            opacity: 0.85;
+
+            letter-spacing: 0.4px;
 
         }
 
@@ -808,7 +834,7 @@
         }
 
 
-        /* ================= FOOTER ================= */
+        /* ================= FOOTER ================= -->
 
         .footer {
 
@@ -1157,7 +1183,7 @@
 
                     <span class="dot"></span>
 
-                    BANGLA • QUIZ 2026
+                    BANGLA • PRE-TEST 2026
 
                 </div>
 
@@ -1179,7 +1205,7 @@
             </header>
 
 
-             <!-- ================= CONTENT ================= -->
+           <!-- ================= CONTENT ================= -->
 
             <main class="content">
 
@@ -1372,20 +1398,30 @@
                 <div class="suggestion-wrapper">
 
 
-                    <a href="mar-ban.html"
+                    <a href="banglasuggetion.html"
                        class="suggestion-button">
 
-                        <span class="suggestion-icon">
+                        <span class="suggestion-main">
 
-                            📖
+                            <span class="suggestion-icon">
+
+                                📖
+
+                            </span>
+
+                            সাজেশন দেখুন
+
+                            <span>
+
+                                →
+
+                            </span>
 
                         </span>
 
-                        সাজেশন দেখুন
+                        <span class="suggestion-sub">
 
-                        <span>
-
-                            →
+                            by পেমেন্ট
 
                         </span>
 
@@ -1463,7 +1499,7 @@
 
                 <div class="copyright">
 
-                    © 2026 • DMRC Quiz Examination
+                    © 2026 • DMRC Pre-Test Examination
 
                 </div>
 
