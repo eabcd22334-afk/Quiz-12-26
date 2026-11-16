@@ -31,787 +31,148 @@
 
     <style>
 
-        :root {
-
-            --bg: #fdfbf7;
-            --bg2: #f7f2ea;
-
-            --card: rgba(255, 255, 255, 0.88);
-
-            --text: #1e242b;
-
-            --muted: #5c6672;
-
-            --dim: #7c8794;
-
-            --accent: #0284c7;
-            --accent-soft: #e0f2fe;
-            --teal: #0d9488;
-            --sugar-warm: #f59e0b;
-
-            --border: rgba(30, 36, 43, 0.09);
-
-            --border-accent: rgba(2, 132, 199, 0.28);
-
-        }
-
-
-        /* ================= RESET ================= */
-
-        * {
-
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-
-        }
-
-
-        html {
-
-            scroll-behavior: smooth;
-
-        }
-
-
-        body {
-
-            min-height: 100vh;
-
-            color: var(--text);
-
-            font-family:
-                "Inter",
-                "Hind Siliguri",
-                sans-serif;
-
-            padding: 35px 18px;
-
-            overflow-x: hidden;
-
-            background:
-
-                radial-gradient(
-                    circle at 10% 6%,
-                    rgba(253, 230, 138, 0.35),
-                    transparent 35%
-                ),
-
-                radial-gradient(
-                    circle at 90% 8%,
-                    rgba(186, 230, 253, 0.42),
-                    transparent 35%
-                ),
-
-                radial-gradient(
-                    circle at 50% 100%,
-                    rgba(254, 215, 170, 0.32),
-                    transparent 40%
-                ),
-
-                linear-gradient(
-                    135deg,
-                    #fffdf9,
-                    #f8f4ec 50%,
-                    #fdfbf7
-                );
-
-        }
-
-
-        /* ================= BACKGROUND GRID ================= */
-
-        body::before {
-
-            content: "";
-
-            position: fixed;
-
-            inset: 0;
-
-            pointer-events: none;
-
-            opacity: .55;
-
-            background-image:
-
-                linear-gradient(
-                    rgba(30, 36, 43, 0.03) 1px,
-                    transparent 1px
-                ),
-
-                linear-gradient(
-                    90deg,
-                    rgba(30, 36, 43, 0.03) 1px,
-                    transparent 1px
-                );
-
-            background-size: 40px 40px;
-
-            z-index: -5;
-
-        }
-
-
-        /* ================= PAGE ================= */
-
-        .page {
-
-            width: min(1050px, 94%);
-
-            margin: auto;
-
-        }
-
-
-        /* ================= CONTAINER ================= */
-
-        .container {
-
-            position: relative;
-
-            overflow: hidden;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius: 30px;
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    rgba(255, 255, 255, 0.92),
-                    rgba(252, 249, 243, 0.88)
-                );
-
-            box-shadow:
-
-                0 25px 70px
-                rgba(140, 120, 95, 0.12),
-
-                inset 0 1px 0
-                rgba(255, 255, 255, 0.9);
-
-            backdrop-filter: blur(25px);
-
-            -webkit-backdrop-filter: blur(25px);
-
-        }
-
-
-        /* ================= TOP GLOW ================= */
-
-        .top-glow {
-
-            position: absolute;
-
-            width: 460px;
-
-            height: 460px;
-
-            left: 50%;
-
-            top: -320px;
-
-            transform:
-                translateX(-50%);
-
-            border-radius: 50%;
-
-            background:
-                rgba(251, 191, 36, 0.16);
-
-            filter: blur(90px);
-
-            pointer-events: none;
-
-        }
-
-
-        /* ================= HEADER ================= */
-
-        .header {
-
-            position: relative;
-
-            text-align: center;
-
-            padding:
-                45px 30px 35px;
-
-            border-bottom:
-                1px solid
-                var(--border);
-
-        }
-
-
-        /* ================= BACK BUTTON ================= */
-
-        .back {
-
-            position: absolute;
-
-            left: 28px;
-
-            top: 28px;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            padding:
-                8px 14px;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius: 50px;
-
-            color: var(--muted);
-
-            background:
-                rgba(255, 255, 255, 0.75);
-
-            text-decoration: none;
-
-            font-family:
-                "Hind Siliguri",
-                sans-serif;
-
-            font-size: 12px;
-
-            font-weight: 600;
-
-            transition: .25s ease;
-
-        }
-
-
-        .back:hover {
-
-            color: var(--accent);
-
-            border-color:
-                var(--border-accent);
-
-            background:
-                #ffffff;
-
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
-
-        }
-
-
-        /* ================= BADGE ================= */
-
-        .subject-badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding:
-                8px 17px;
-
-            border:
-                1px solid
-                rgba(2, 132, 199, 0.22);
-
-            border-radius: 50px;
-
-            background:
-                rgba(224, 242, 254, 0.65);
-
-            color:
-                var(--accent);
-
-            font-size: 10px;
-
-            font-weight: 700;
-
-            letter-spacing: 1.5px;
-
-        }
-
-
-        .dot {
-
-            width: 7px;
-
-            height: 7px;
-
-            border-radius: 50%;
-
-            background:
-                var(--accent);
-
-            box-shadow:
-                0 0 10px
-                rgba(2, 132, 199, 0.5);
-
-        }
-
-
-        /* ================= TITLE ================= */
-
-        .subject-title {
-
-            margin-top: 20px;
-
-            font-family:
-                "Hind Siliguri",
-                sans-serif;
-
-            font-size:
-                clamp(26px, 4vw, 44px);
-
-            line-height: 1.2;
-
-            font-weight: 800;
-
-            background:
-
-                linear-gradient(
-                    100deg,
-                    #0f172a,
-                    #0369a1,
-                    #0f172a
-                );
-
-            -webkit-background-clip: text;
-
-            background-clip: text;
-
-            color: transparent;
-
-        }
-
-
-        .subject-subtitle {
-
-            margin-top: 7px;
-
-            color:
-                var(--muted);
-
-            font-family:
-                "Hind Siliguri",
-                sans-serif;
-
-            font-size: 16px;
-
-            font-weight: 500;
-
-        }
-
-
-        /* ================= CONTENT ================= */
-
-        .content {
-
-            padding: 40px;
-
-        }
-
-
-        /* ================= SECTION CARD ================= */
-
-        .suggestion-section {
-
-            margin-bottom: 30px;
-
-            padding: 28px;
-
-            border: 1px solid rgba(2, 132, 199, 0.16);
-
-            border-radius: 24px;
-
-            background: #ffffff;
-
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
-
-        }
-
-
-        .section-heading {
-
-            font-family: "Hind Siliguri", sans-serif;
-
-            font-size: 20px;
-
-            font-weight: 700;
-
-            color: #0f172a;
-
-            margin-bottom: 15px;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            border-bottom: 2px solid var(--accent-soft);
-
-            padding-bottom: 10px;
-
-        }
-
-
-        /* ================= TABLES ================= */
-
-        .table-container {
-
-            overflow-x: auto;
-
-            margin-top: 15px;
-
-            margin-bottom: 15px;
-
-        }
-
-        table {
-
-            width: 100%;
-
-            border-collapse: collapse;
-
-            text-align: left;
-
-            font-family: "Hind Siliguri", sans-serif;
-
-            font-size: 14px;
-
-        }
-
-        th, td {
-
-            padding: 12px 15px;
-
-            border: 1px solid rgba(30, 36, 43, 0.08);
-
-        }
-
-        th {
-
-            background: rgba(224, 242, 254, 0.5);
-
-            color: #0369a1;
-
-            font-weight: 700;
-
-        }
-
-        td {
-
-            background: #fbf9f5;
-
-            color: #1e242b;
-
-        }
-
-
-        /* ================= LIST STYLES ================= */
-
-        .suggestion-list {
-
-            list-style: none;
-
-            padding-left: 0;
-
-        }
-
-        .suggestion-list li {
-
-            position: relative;
-
-            padding-left: 20px;
-
-            margin-bottom: 10px;
-
-            font-family: "Hind Siliguri", sans-serif;
-
-            font-size: 15px;
-
-            color: #334155;
-
-            line-height: 1.6;
-
-        }
-
-        .suggestion-list li::before {
-
-            content: "▪";
-
-            position: absolute;
-
-            left: 0;
-
-            color: var(--accent);
-
-            font-weight: bold;
-
-        }
-
-
-        .sub-text {
-
-            font-size: 14px;
-
-            color: var(--muted);
-
-            margin-top: 10px;
-
-            line-height: 1.6;
-
-        }
-
-
-        /* ================= BACK TO SUBJECT BUTTON ================= */
-
-        .back-sub-wrapper {
-
-            margin-top: 35px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-        }
-
-
-        .back-sub-box {
-
-            display: inline-flex;
-
-            flex-direction: column;
-
-            align-items: stretch;
-
-        }
-
-
-        .back-sub-button {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 10px;
-
-            min-width: 260px;
-
-            padding: 14px 28px;
-
-            border: 1px solid rgba(2, 132, 199, 0.35);
-
-            border-radius: 14px;
-
-            color: #ffffff;
-
-            background: linear-gradient(135deg, #0284c7, #0d9488);
-
-            text-decoration: none;
-
-            font-family: "Hind Siliguri", sans-serif;
-
-            font-size: 16px;
-
-            font-weight: 700;
-
-            box-shadow: 0 10px 24px rgba(2, 132, 199, 0.22);
-
-            transition: .28s ease;
-
-        }
-
-
-        .back-sub-button:hover {
-
-            transform: translateY(-3px);
-
-            box-shadow: 0 14px 30px rgba(2, 132, 199, 0.3);
-
-        }
-
-
-        .by-payment {
-
-            align-self: flex-end;
-
-            margin-top: 6px;
-
-            padding-right: 4px;
-
-            font-family: "Hind Siliguri", sans-serif;
-
-            font-size: 11px;
-
-            font-weight: 600;
-
-            color: var(--muted);
-
-            letter-spacing: 0.3px;
-
-        }
-
-
-        /* ================= FOOTER ================= */
-
-        .footer {
-
-            position: relative;
-
-            text-align: center;
-
-            padding: 34px 20px 38px;
-
-            border-top: 1px solid var(--border);
-
-            background: linear-gradient(180deg, rgba(248, 244, 236, 0.5), rgba(243, 237, 226, 0.85));
-
-            overflow: hidden;
-
-        }
-
-
-        .footer-glow {
-
-            position: absolute;
-
-            width: 350px;
-
-            height: 100px;
-
-            left: 50%;
-
-            bottom: -80px;
-
-            transform: translateX(-50%);
-
-            background: rgba(2, 132, 199, 0.12);
-
-            filter: blur(50px);
-
-        }
-
-
-        .footer-label {
-
-            position: relative;
-
-            color: var(--dim);
-
-            font-size: 10px;
-
-            font-weight: 700;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 7px;
-
-        }
-
-
-        .developer {
-
-            position: relative;
-
-            font-size: 19px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.5px;
-
-            background: linear-gradient(90deg, #0f172a, #0284c7, #0f172a);
-
-            -webkit-background-clip: text;
-
-            background-clip: text;
-
-            color: transparent;
-
-        }
-
-
-        .student-info {
-
-            position: relative;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            flex-wrap: wrap;
-
-            gap: 10px;
-
-            margin-top: 14px;
-
-            color: var(--muted);
-
-            font-size: 11px;
-
-            font-weight: 600;
-
-            letter-spacing: 1px;
-
-        }
-
-
-        .footer-dot {
-
-            color: var(--accent);
-
-        }
-
-
-        .copyright {
-
-            position: relative;
-
-            margin-top: 14px;
-
-            color: var(--dim);
-
-            font-size: 10px;
-
-            letter-spacing: 1px;
-
-        }
-
-
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 550px) {
-
-            body { padding: 0; }
-            .page { width: 100%; }
-            .container { border-radius: 0; border-left: none; border-right: none; }
-            .header { padding: 75px 18px 30px; }
-            .back { left: 17px; top: 17px; }
-            .content { padding: 18px 14px; }
-            .subject-title { font-size: 24px; }
-            .back-sub-box, .back-sub-button { width: 100%; min-width: 0; }
-            .developer { font-size: 16px; }
-
-        }
-
-    </style>
+:root{
+  --bg:#f5f7fa;
+  --surface:#ffffff;
+  --surface-soft:#f8fafc;
+  --text:#17212b;
+  --muted:#64748b;
+  --line:#e6ebf1;
+  --accent:#2563eb;
+  --accent-soft:#eff6ff;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  padding:32px 18px;
+  color:var(--text);
+  background:var(--bg);
+  font-family:"Inter","Hind Siliguri",sans-serif;
+  line-height:1.65;
+}
+.page{width:min(920px,100%);margin:0 auto}
+.container{
+  overflow:hidden;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:0 12px 40px rgba(15,23,42,.06);
+}
+.top-glow,.footer-glow{display:none}
+.header{
+  position:relative;
+  padding:38px 28px 30px;
+  text-align:center;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#fbfdff 0%,#fff 100%);
+}
+.back{
+  position:absolute;top:22px;left:24px;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:8px 13px;border:1px solid var(--line);
+  border-radius:10px;background:#fff;color:var(--muted);
+  text-decoration:none;font:600 13px "Hind Siliguri",sans-serif;
+  transition:.2s ease;
+}
+.back:hover{color:var(--accent);border-color:#bfdbfe;background:var(--accent-soft)}
+.subject-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 11px;border-radius:999px;
+  color:var(--accent);background:var(--accent-soft);
+  font-size:10px;font-weight:700;letter-spacing:1.1px;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.subject-title{
+  margin-top:16px;color:var(--text);
+  font:800 clamp(25px,4vw,38px)/1.25 "Hind Siliguri",sans-serif;
+  letter-spacing:-.4px;
+}
+.subject-subtitle{
+  margin-top:8px;color:var(--muted);
+  font:500 15px "Hind Siliguri",sans-serif;
+}
+.content{padding:30px}
+.suggestion-section{
+  margin:0 0 20px;padding:23px;
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--surface);
+}
+.section-heading{
+  display:flex;align-items:center;gap:9px;
+  margin-bottom:16px;padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+  color:var(--text);font:700 19px "Hind Siliguri",sans-serif;
+}
+.table-container{width:100%;overflow-x:auto;margin:14px 0}
+table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  text-align:left;font:14px "Hind Siliguri",sans-serif;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;
+}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+th:last-child,td:last-child{border-right:0}
+tr:last-child td{border-bottom:0}
+th{background:#f1f5f9;color:#334155;font-weight:700;white-space:nowrap}
+td{background:#fff;color:#334155}
+tbody tr:last-child td{background:#f8fafc;font-weight:700}
+.suggestion-list{list-style:none;padding:0}
+.suggestion-list li{
+  position:relative;padding:0 0 0 19px;margin:0 0 15px;
+  color:#475569;font:15px/1.8 "Hind Siliguri",sans-serif;
+}
+.suggestion-list li:last-child{margin-bottom:0}
+.suggestion-list li::before{
+  content:"";position:absolute;left:1px;top:11px;
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+}
+.suggestion-list strong{color:#1e293b;font-weight:700}
+.suggestion-list em{color:#334155}
+.sub-text{margin-top:12px;color:var(--muted);font:14px/1.7 "Hind Siliguri",sans-serif}
+.back-sub-wrapper{display:flex;justify-content:center;margin:28px 0 4px}
+.back-sub-box{display:flex;flex-direction:column;align-items:center;width:min(300px,100%)}
+.back-sub-button{
+  display:flex;justify-content:center;align-items:center;gap:10px;
+  width:100%;padding:13px 20px;border:0;border-radius:12px;
+  color:#fff;background:var(--accent);text-decoration:none;
+  font:700 15px "Hind Siliguri",sans-serif;
+  box-shadow:0 5px 14px rgba(37,99,235,.16);transition:.2s ease;
+}
+.back-sub-button:hover{background:#1d4ed8;transform:translateY(-1px)}
+.by-payment{align-self:flex-end;margin-top:6px;padding-right:3px;color:#94a3b8;font:11px "Hind Siliguri",sans-serif}
+.footer{
+  padding:25px 18px 28px;text-align:center;
+  border-top:1px solid var(--line);background:#fbfcfe;
+}
+.footer-label{color:#94a3b8;font-size:9px;font-weight:700;letter-spacing:1.7px}
+.developer{margin-top:5px;color:#1e293b;font-size:16px;font-weight:800;letter-spacing:1px}
+.student-info{
+  display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:9px;
+  margin-top:10px;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.7px;
+}
+.footer-dot{color:var(--accent)}
+.copyright{margin-top:10px;color:#94a3b8;font-size:10px}
+@media(max-width:600px){
+  body{padding:0;background:#fff}
+  .page{width:100%}
+  .container{border:0;border-radius:0;box-shadow:none}
+  .header{padding:72px 18px 25px}
+  .back{top:15px;left:15px;padding:7px 11px}
+  .subject-title{font-size:25px}
+  .subject-subtitle{font-size:14px}
+  .content{padding:16px 13px}
+  .suggestion-section{padding:17px 14px;margin-bottom:14px;border-radius:15px}
+  .section-heading{font-size:17px}
+  .suggestion-list li{font-size:14px;line-height:1.85}
+  th,td{padding:10px 11px;font-size:13px}
+  .footer{padding:22px 14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+}
+
+</style>
 
 </head>
 
@@ -861,7 +222,7 @@
 
                 <div class="subject-subtitle">
 
-                    প্রি-টেস্ট পরীক্ষা প্রস্তুতি চূড়ান্ত দিকনির্দেশনা[span_2](start_span)[span_2](end_span)
+                    প্রি-টেস্ট পরীক্ষা প্রস্তুতি চূড়ান্ত দিকনির্দেশনা
 
                 </div>
 
@@ -880,7 +241,7 @@
 
                     <h2 class="section-heading">
 
-                        📊 অধ্যায়ভিত্তিক মানবণ্টন[span_3](start_span)[span_3](end_span)
+                        📊 অধ্যায়ভিত্তিক মানবণ্টন
 
                     </h2>
 
@@ -892,11 +253,11 @@
 
                                 <tr>
 
-                                    <th>অধ্যায়ের নাম[span_4](start_span)[span_4](end_span)</th>
+                                    <th>অধ্যায়ের নাম</th>
 
-                                    <th>সৃজনশীল (CQ)[span_5](start_span)[span_5](end_span)</th>
+                                    <th>সৃজনশীল (CQ)</th>
 
-                                    <th>বহুনির্বাচনি (MCQ)[span_6](start_span)[span_6](end_span)</th>
+                                    <th>বহুনির্বাচনি (MCQ)</th>
 
                                 </tr>
 
@@ -906,41 +267,41 @@
 
                                 <tr>
 
-                                    <td><strong>১ম অধ্যায়:</strong> পরিবেশ রসায়ন[span_7](start_span)[span_7](end_span)</td>
+                                    <td><strong>১ম অধ্যায়:</strong> পরিবেশ রসায়ন</td>
 
-                                    <td>০৪টি[span_8](start_span)[span_8](end_span)</td>
+                                    <td>০৪টি[span_0](start_span)[span_0](end_span)</td>
 
-                                    <td>১২টি[span_9](start_span)[span_9](end_span)</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><strong>২য় অধ্যায়:</strong> জৈব রসায়ন[span_10](start_span)[span_10](end_span)</td>
-
-                                    <td>০১টি[span_11](start_span)[span_11](end_span)</td>
-
-                                    <td>০৫টি[span_12](start_span)[span_12](end_span)</td>
+                                    <td>১২টি[span_1](start_span)[span_1](end_span)</td>
 
                                 </tr>
 
                                 <tr>
 
-                                    <td><strong>৩য় অধ্যায়:</strong> পরিমাণগত রসায়ন[span_13](start_span)[span_13](end_span)</td>
+                                    <td><strong>২য় অধ্যায়:</strong> জৈব রসায়ন</td>
 
-                                    <td>০৩টি[span_14](start_span)[span_14](end_span)</td>
+                                    <td>০১টি[span_2](start_span)[span_2](end_span)</td>
 
-                                    <td>০৮টি[span_15](start_span)[span_15](end_span)</td>
+                                    <td>০৫টি[span_3](start_span)[span_3](end_span)</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><strong>৩য় অধ্যায়:</strong> পরিমাণগত রসায়ন</td>
+
+                                    <td>০৩টি[span_4](start_span)[span_4](end_span)</td>
+
+                                    <td>০৮টি[span_5](start_span)[span_5](end_span)</td>
 
                                 </tr>
 
                                 <tr style="background: rgba(224, 242, 254, 0.4); font-weight: 700;">
 
-                                    <td>সর্বমোট প্রশ্ন সংখ্যা[span_16](start_span)[span_16](end_span)</td>
+                                    <td>সর্বমোট প্রশ্ন সংখ্যা</td>
 
-                                    <td>০৮টি[span_17](start_span)[span_17](end_span)</td>
+                                    <td>০৮টি[span_6](start_span)[span_6](end_span)</td>
 
-                                    <td>২৫টি[span_18](start_span)[span_18](end_span)</td>
+                                    <td>২৫টি[span_7](start_span)[span_7](end_span)</td>
 
                                 </tr>
 
@@ -959,7 +320,7 @@
 
                     <h2 class="section-heading">
 
-                        🎯 মোস্ট ইম্পর্ট্যান্ট (নিশ্চিত ৩টি CQ)[span_19](start_span)[span_19](end_span)
+                        🎯 মোস্ট ইম্পর্ট্যান্ট (নিশ্চিত ৩টি CQ)
 
                     </h2>
 
@@ -967,25 +328,25 @@
 
                         <li>
 
-                            <strong>১ম অধ্যায় (অংশ-১): অ্যামাগা বক্ররেখা ও গ্যাসের গতিবেগ [১টি CQ][span_20](start_span)[span_20](end_span)</strong><br>
-                            • <em>অ্যামাগা বক্ররেখা:</em> আদর্শ আচরণ থেকে বাস্তব গ্যাসের বিচ্যুতির কারণ ব্যাখ্যা। শর্ত নির্ণয়: কোন শর্তে (তাপমাত্রা ও চাপের পরিবর্তনে) একটি আদর্শ গ্যাস বাস্তব গ্যাসে রূপান্তরিত হয় এবং কোন শর্তে বাস্তব গ্যাস আদর্শ গ্যাসের ন্যায় আচরণ করে[span_21](start_span)[span_21](end_span).<br>
-                            • <em>গ্যাসের গতিবেগ নির্ণয়:</em> বর্গমূল গড় বর্গবেগ ($C_{rms}$), সম্ভাব্যতম বেগ ($C_{mpv}$) এবং গড় বেগ ($C$) নির্ণয় সংক্রান্ত গাণিতিক সমস্যা[span_22](start_span)[span_22](end_span).
+                            <strong>১ম অধ্যায় (অংশ-১): অ্যামাগা বক্ররেখা ও গ্যাসের গতিবেগ [১টি CQ]</strong><br>
+                            • <em>অ্যামাগা বক্ররেখা:</em> আদর্শ আচরণ থেকে বাস্তব গ্যাসের বিচ্যুতির কারণ ব্যাখ্যা। শর্ত নির্ণয়: কোন শর্তে (তাপমাত্রা ও চাপের পরিবর্তনে) একটি আদর্শ গ্যাস বাস্তব গ্যাসে রূপান্তরিত হয় এবং কোন শর্তে বাস্তব গ্যাস আদর্শ গ্যাসের ন্যায় আচরণ করে[span_8](start_span)[span_8](end_span).<br>
+                            • <em>গ্যাসের গতিবেগ নির্ণয়:</em> বর্গমূল গড় বর্গবেগ ($C_{rms}$), সম্ভাব্যতম বেগ ($C_{mpv}$) এবং গড় বেগ ($C$) নির্ণয় সংক্রান্ত গাণিতিক সমস্যা[span_9](start_span)[span_9](end_span).
 
                         </li>
 
                         <li style="margin-top: 15px;">
 
-                            <strong>১ম অধ্যায় (অংশ-২): আদর্শ গ্যাস সমীকরণ ও গ্যাস সূত্রসমূহ [১টি CQ][span_23](start_span)[span_23](end_span)</strong><br>
-                            • আদর্শ গ্যাস সমীকরণ ($PV=nRT$): গ্যাসের মোল সংখ্যা ($n$), অণুর সংখ্যা এবং আণবিক ভর ($M$) নির্ণয়[span_24](start_span)[span_24](end_span).<br>
-                            • গে-লুসাকের চাপীয় সূত্র: সিলিন্ডার বিস্ফোরণ হবে কি না তা গাণিতিকভাবে বিশ্লেষণ ও সূত্রের সমর্থন ($P_1/T_1 = P_2/T_2$)[span_25](start_span)[span_25](end_span).<br>
-                            • বয়েল ও চার্লসের সূত্র: উদ্দীপকের সারণি অথবা গ্রাফ (লেখচিত্র) বিশ্লেষণের মাধ্যমে বয়েল ও চার্লসের সূত্র সমর্থনকারী গ্যাস শনাক্তকরণ[span_26](start_span)[span_26](end_span).
+                            <strong>১ম অধ্যায় (অংশ-২): আদর্শ গ্যাস সমীকরণ ও গ্যাস সূত্রসমূহ [১টি CQ]</strong><br>
+                            • আদর্শ গ্যাস সমীকরণ ($PV=nRT$): গ্যাসের মোল সংখ্যা ($n$), অণুর সংখ্যা এবং আণবিক ভর ($M$) নির্ণয়[span_10](start_span)[span_10](end_span).<br>
+                            • গে-লুসাকের চাপীয় সূত্র: সিলিন্ডার বিস্ফোরণ হবে কি না তা গাণিতিকভাবে বিশ্লেষণ ও সূত্রের সমর্থন ($P_1/T_1 = P_2/T_2$)[span_11](start_span)[span_11](end_span).<br>
+                            • বয়েল ও চার্লসের সূত্র: উদ্দীপকের সারণি অথবা গ্রাফ (লেখচিত্র) বিশ্লেষণের মাধ্যমে বয়েল ও চার্লসের সূত্র সমর্থনকারী গ্যাস শনাক্তকরণ[span_12](start_span)[span_12](end_span).
 
                         </li>
 
                         <li style="margin-top: 15px;">
 
-                            <strong>৩য় অধ্যায়: জারণ-বিজারণ ও আয়রনের বিশুদ্ধতা নির্ণয় [১টি CQ][span_27](start_span)[span_27](end_span)</strong><br>
-                            • <em>আয়ন-ইলেকট্রন পদ্ধতিতে সমতাকরণ:</em> অম্লীয় মাধ্যমে বিক্রিয়া অনুশীলন[span_28](start_span)[span_28](end_span).
+                            <strong>৩য় অধ্যায়: জারণ-বিজারণ ও আয়রনের বিশুদ্ধতা নির্ণয় [১টি CQ]</strong><br>
+                            • <em>আয়ন-ইলেকট্রন পদ্ধতিতে সমতাকরণ:</em> অম্লীয় মাধ্যমে বিক্রিয়া অনুশীলন[span_13](start_span)[span_13](end_span).
 
                         </li>
 
@@ -1000,9 +361,9 @@
 
                                 <tr>
 
-                                    <th>$KMnO_4$ ভিত্তিক বিক্রিয়া[span_29](start_span)[span_29](end_span)</th>
+                                    <th>$KMnO_4$ ভিত্তিক বিক্রিয়া</th>
 
-                                    <th>$K_2Cr_2O_7$ ভিত্তিক বিক্রিয়া[span_30](start_span)[span_30](end_span)</th>
+                                    <th>$K_2Cr_2O_7$ ভিত্তিক বিক্রিয়া</th>
 
                                     </tr>
 
@@ -1012,25 +373,25 @@
 
                                 <tr>
 
-                                    <td>১. $KMnO_4 + H_2SO_4 + FeSO_4$[span_31](start_span)[span_31](end_span)</td>
+                                    <td>১. $KMnO_4 + H_2SO_4 + FeSO_4$[span_14](start_span)[span_14](end_span)</td>
 
-                                    <td>৪. $K_2Cr_2O_7 + H_2SO_4 + FeSO_4$[span_32](start_span)[span_32](end_span)</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>২. $KMnO_4 + H_2SO_4 + H_2C_2O_4$[span_33](start_span)[span_33](end_span)</td>
-
-                                    <td>৫. $K_2Cr_2O_7 + H_2SO_4 + H_2C_2O_4$[span_34](start_span)[span_34](end_span)</td>
+                                    <td>৪. $K_2Cr_2O_7 + H_2SO_4 + FeSO_4$[span_15](start_span)[span_15](end_span)</td>
 
                                 </tr>
 
                                 <tr>
 
-                                    <td>৩. $KMnO_4 + H_2SO_4 + H_2O_2$[span_35](start_span)[span_35](end_span)</td>
+                                    <td>২. $KMnO_4 + H_2SO_4 + H_2C_2O_4$[span_16](start_span)[span_16](end_span)</td>
 
-                                    <td>৬. $K_2Cr_2O_7 + H_2SO_4 + H_2O_2$[span_36](start_span)[span_36](end_span)</td>
+                                    <td>৫. $K_2Cr_2O_7 + H_2SO_4 + H_2C_2O_4$[span_17](start_span)[span_17](end_span)</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>৩. $KMnO_4 + H_2SO_4 + H_2O_2$[span_18](start_span)[span_18](end_span)</td>
+
+                                    <td>৬. $K_2Cr_2O_7 + H_2SO_4 + H_2O_2$[span_19](start_span)[span_19](end_span)</td>
 
                                 </tr>
 
@@ -1041,7 +402,7 @@
                     </div>
 
                     <p class="sub-text">
-                        <strong>পরিমাণগত বিশ্লেষণ:</strong> উল্লিখিত বিক্রিয়াগুলোর সাহায্যে আকরিক বা নমুনায় লোহার (আয়রনের) ভেজালের শতকরা হার অথবা বিশুদ্ধতা নির্ণয়[span_37](start_span)[span_37](end_span).
+                        <strong>পরিমাণগত বিশ্লেষণ:</strong> উল্লিখিত বিক্রিয়াগুলোর সাহায্যে আকরিক বা নমুনায় লোহার (আয়রনের) ভেজালের শতকরা হার অথবা বিশুদ্ধতা নির্ণয়[span_20](start_span)[span_20](end_span).
                     </p>
 
                 </section>
@@ -1053,7 +414,7 @@
 
                     <h2 class="section-heading">
 
-                        💡 নরমাল ইম্পর্ট্যান্ট (অধ্যায়ভিত্তিক গুরুত্বপূর্ণ টপিক)[span_38](start_span)[span_38](end_span)
+                        💡 নরমাল ইম্পর্ট্যান্ট (অধ্যায়ভিত্তিক গুরুত্বপূর্ণ টপিক)
 
                     </h2>
 
@@ -1061,31 +422,31 @@
 
                         <li>
 
-                            <strong>ক) ১ম অধ্যায়: পরিবেশ রসায়ন[span_39](start_span)[span_39](end_span)</strong><br>
-                            • গ্রাহামের ব্যাপন সূত্র: ব্যাপন হার ও আণবিক ভর/চাপ সম্পর্কিত গাণিতিক সমস্যা ($r_1/r_2 = \sqrt{M_2/M_1} \times \sqrt{P_1/P_2}$)[span_40](start_span)[span_40](end_span).<br>
-                            • ডাল্টনের আংশিক চাপ সূত্র: ৩ ধরনের (3 Types) গাণিতিক সমস্যার সমাধান[span_41](start_span)[span_41](end_span).<br>
-                            • অম্ল-ক্ষারক মতবাদ: ব্রনস্টেড-লাউরি (প্রোটনীয় মতবাদ) এবং লুইস (ইলেকট্রনীয় মতবাদ)[span_42](start_span)[span_42](end_span).
+                            <strong>ক) ১ম অধ্যায়: পরিবেশ রসায়ন</strong><br>
+                            • গ্রাহামের ব্যাপন সূত্র: ব্যাপন হার ও আণবিক ভর/চাপ সম্পর্কিত গাণিতিক সমস্যা ($r_1/r_2 = \sqrt{M_2/M_1} \times \sqrt{P_1/P_2}$)[span_21](start_span)[span_21](end_span).<br>
+                            • ডাল্টনের আংশিক চাপ সূত্র: ৩ ধরনের (3 Types) গাণিতিক সমস্যার সমাধান[span_22](start_span)[span_22](end_span).<br>
+                            • অম্ল-ক্ষারক মতবাদ: ব্রনস্টেড-লাউরি (প্রোটনীয় মতবাদ) এবং লুইস (ইলেকট্রনীয় মতবাদ)[span_23](start_span)[span_23](end_span).
 
                         </li>
 
                         <li style="margin-top: 15px;">
 
-                            <strong>খ) ২য় অধ্যায়: জৈব রসায়ন[span_43](start_span)[span_43](end_span)</strong><br>
-                            • স্টেরিও সমাণুতা (IUPAC নামকরণ সহ): জ্যামিতিক সমাণুতা ও আলোক সমাণুতা - এই দুটি প্রশ্নের উদ্দীপক ও অংশের মাধ্যমেই যৌগের IUPAC নামকরণ সংক্রান্ত প্রশ্ন করা হবে[span_44](start_span)[span_44](end_span).<br>
-                            • গাঠনিক সমাণুতা: জ্ঞানমূলক (ক) ও অনুধাবনমূলক (খ) প্রশ্নের জন্য সংজ্ঞা ও উদাহরণ[span_45](start_span)[span_45](end_span).
+                            <strong>খ) ২য় অধ্যায়: জৈব রসায়ন</strong><br>
+                            • স্টেরিও সমাণুতা (IUPAC নামকরণ সহ): জ্যামিতিক সমাণুতা ও আলোক সমাণুতা - এই দুটি প্রশ্নের উদ্দীপক ও অংশের মাধ্যমেই যৌগের IUPAC নামকরণ সংক্রান্ত প্রশ্ন করা হবে[span_24](start_span)[span_24](end_span).<br>
+                            • গাঠনিক সমাণুতা: জ্ঞানমূলক (ক) ও অনুধাবনমূলক (খ) প্রশ্নের জন্য সংজ্ঞা ও উদাহরণ[span_25](start_span)[span_25](end_span).
 
                         </li>
 
                         <li style="margin-top: 15px;">
 
-                            <strong>গ) ৩য় অধ্যায়: পরিমাণগত রসায়ন[span_46](start_span)[span_46](end_span)</strong><br>
-                            • ঘনমাত্রা নির্ণয় ও রূপান্তর: $ppm = 10^3 \times M \times S$, $ppb = 10^6 \times M \times S$, $ppt = 10^9 \times M \times S$[span_47](start_span)[span_47](end_span).<br>
-                            • শতকরা হার $\%(w/v)$ থেকে মোলারিটি নির্ণয়: $S = 10x/M$ এবং সাধারণ মোলারিটি: $S = w/(M \times V)$[span_48](start_span)[span_48](end_span).<br>
-                            • লঘুকরণ সূত্র: দ্রবণের মাত্রা পরিবর্তনে $V_1S_1 = V_2S_2$ সূত্রের প্রয়োগ[span_49](start_span)[span_49](end_span).<br>
-                            • মিশ্রণের প্রকৃতি নির্ণয়: ($pH$ নির্ণয়ের মাধ্যমে)[span_50](start_span)[span_50](end_span).<br>
-                            • উপযুক্ত নির্দেশক নির্বাচন: (i) সবল এসিড + সবল ক্ষার, (ii) দুর্বল এসিড + সবল ক্ষার, (iii) সবল এসিড + দুর্বল ক্ষার[span_51](start_span)[span_51](end_span).<br>
-                            • বিয়ার-ল্যাম্বার্ট সূত্র: শোষণমাত্রা ও ঘনমাত্রা নির্ণয় ($A = \varepsilon cl$)[span_52](start_span)[span_52](end_span).<br>
-                            • আয়োডোমিতি: কপারের ভেজাল নির্ণয় এবং ব্লিচিং পাউডারে সক্রিয় ক্লোরিনের ($Cl_2$) পরিমাণ নির্ণয়[span_53](start_span)[span_53](end_span).
+                            <strong>গ) ৩য় অধ্যায়: পরিমাণগত রসায়ন</strong><br>
+                            • ঘনমাত্রা নির্ণয় ও রূপান্তর: $ppm = 10^3 \times M \times S$, $ppb = 10^6 \times M \times S$, $ppt = 10^9 \times M \times S$[span_26](start_span)[span_26](end_span).<br>
+                            • শতকরা হার $\%(w/v)$ থেকে মোলারিটি নির্ণয়: $S = 10x/M$ এবং সাধারণ মোলারিটি: $S = w/(M \times V)$[span_27](start_span)[span_27](end_span).<br>
+                            • লঘুকরণ সূত্র: দ্রবণের মাত্রা পরিবর্তনে $V_1S_1 = V_2S_2$ সূত্রের প্রয়োগ[span_28](start_span)[span_28](end_span).<br>
+                            • মিশ্রণের প্রকৃতি নির্ণয়: ($pH$ নির্ণয়ের মাধ্যমে)[span_29](start_span)[span_29](end_span).<br>
+                            • উপযুক্ত নির্দেশক নির্বাচন: (i) সবল এসিড + সবল ক্ষার, (ii) দুর্বল এসিড + সবল ক্ষার, (iii) সবল এসিড + দুর্বল ক্ষার[span_30](start_span)[span_30](end_span).<br>
+                            • বিয়ার-ল্যাম্বার্ট সূত্র: শোষণমাত্রা ও ঘনমাত্রা নির্ণয় ($A = \varepsilon cl$)[span_31](start_span)[span_31](end_span).<br>
+                            • আয়োডোমিতি: কপারের ভেজাল নির্ণয় এবং ব্লিচিং পাউডারে সক্রিয় ক্লোরিনের ($Cl_2$) পরিমাণ নির্ণয়[span_32](start_span)[span_32](end_span).
 
                         </li>
 
@@ -1115,7 +476,7 @@
 
                         <span class="by-payment">
 
-                            by পেমেন্ট
+                            by পেমেন্ট[span_33](start_span)[span_33](end_span)
 
                         </span>
 
@@ -1137,14 +498,14 @@
 
                 <div class="footer-label">
 
-                    PREPARED BY MD SAJID (DMRCIAN BOY)[span_54](start_span)[span_54](end_span) | DEVELOPED BY
+                    PREPARED BY MD SAJID (DMRCIAN BOY) | DEVELOPED BY[span_34](start_span)[span_34](end_span)
 
                 </div>
 
 
                 <div class="developer">
 
-                    JOHIRUL ISLAM SAGOR
+                    JOHIRUL ISLAM SAGOR[span_35](start_span)[span_35](end_span)
 
                 </div>
 
@@ -1154,7 +515,7 @@
 
                     <span>
 
-                        ROLL - 2042
+                        ROLL - 2042[span_36](start_span)[span_36](end_span)
 
                     </span>
 
@@ -1168,7 +529,7 @@
 
                     <span>
 
-                        SECTION - D
+                        SECTION - D[span_37](start_span)[span_37](end_span)
 
                     </span>
 
@@ -1182,7 +543,7 @@
 
                     <span>
 
-                        DMRC
+                        DMRC[span_38](start_span)[span_38](end_span)
 
                     </span>
 
@@ -1192,7 +553,7 @@
 
                 <div class="copyright">
 
-                    © 2026 • DMRC প্রাক-নির্বাচনি পরীক্ষা
+                    © 2026 • DMRC প্রাক-নির্বাচনি পরীক্ষা[span_39](start_span)[span_39](end_span)
 
                 </div>
 
