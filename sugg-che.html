@@ -1,571 +1,312 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f8f7">
+<title>সাজেশন | রসায়ন ২য় পত্র - DMRC প্রাক-নির্বাচনি ২০২৬</title>
 
-    <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<!-- গাণিতিক সূত্র ($...$) সুন্দরভাবে দেখানোর জন্য। না চাইলে এই দুই ব্লক মুছে দিলেই হবে -->
+<script>
+window.MathJax = { tex: { inlineMath: [['$', '$']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js"></script>
 
-    <meta name="theme-color"
-          content="#fdfbf7">
-
-    <title>
-        সাজেশন | রসায়ন ২য় পত্র - DMRC প্রাক-নির্বাচনি ২০২৬
-    </title>
-
-
-    <!-- ================= GOOGLE FONTS ================= -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-
-    <style>
-
+<style>
 :root{
-  --bg:#f5f7fa;
-  --surface:#ffffff;
-  --surface-soft:#f8fafc;
-  --text:#17212b;
-  --muted:#64748b;
-  --line:#e6ebf1;
-  --accent:#2563eb;
-  --accent-soft:#eff6ff;
-  --radius:18px;
+  --bg:#f6f8f7;
+  --paper:#ffffff;
+  --ink:#14201d;
+  --body:#34423e;
+  --muted:#66756f;
+  --line:#dfe6e3;
+  --accent:#0f6b5c;
+  --accent-deep:#0a4f44;
+  --accent-soft:#e9f3f0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  min-height:100vh;
-  padding:32px 18px;
-  color:var(--text);
   background:var(--bg);
-  font-family:"Inter","Hind Siliguri",sans-serif;
-  line-height:1.65;
+  color:var(--body);
+  font-family:"Hind Siliguri",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.8;
+  padding:48px 20px 40px;
 }
-.page{width:min(920px,100%);margin:0 auto}
-.container{
-  overflow:hidden;
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:24px;
-  box-shadow:0 12px 40px rgba(15,23,42,.06);
-}
-.top-glow,.footer-glow{display:none}
-.header{
-  position:relative;
-  padding:38px 28px 30px;
-  text-align:center;
-  border-bottom:1px solid var(--line);
-  background:linear-gradient(180deg,#fbfdff 0%,#fff 100%);
-}
+.page{max-width:760px;margin:0 auto}
+
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* ---------- Header ---------- */
+.header{padding-bottom:32px}
 .back{
-  position:absolute;top:22px;left:24px;
-  display:inline-flex;align-items:center;gap:7px;
-  padding:8px 13px;border:1px solid var(--line);
-  border-radius:10px;background:#fff;color:var(--muted);
-  text-decoration:none;font:600 13px "Hind Siliguri",sans-serif;
-  transition:.2s ease;
+  display:inline-block;margin-bottom:28px;
+  color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;
+  transition:color .2s;
 }
-.back:hover{color:var(--accent);border-color:#bfdbfe;background:var(--accent-soft)}
-.subject-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 11px;border-radius:999px;
-  color:var(--accent);background:var(--accent-soft);
-  font-size:10px;font-weight:700;letter-spacing:1.1px;
+.back:hover{color:var(--accent)}
+.title{
+  color:var(--ink);
+  font-size:clamp(28px,5vw,40px);
+  font-weight:700;line-height:1.3;letter-spacing:-.2px;
 }
-.dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.subject-title{
-  margin-top:16px;color:var(--text);
-  font:800 clamp(25px,4vw,38px)/1.25 "Hind Siliguri",sans-serif;
-  letter-spacing:-.4px;
+.subtitle{margin-top:10px;color:var(--muted);font-size:16px}
+.exam{margin-top:2px;color:var(--accent);font-size:14px;font-weight:600}
+
+/* ---------- Sections ---------- */
+.section{
+  padding:30px 0;
+  border-top:1px solid var(--line);
 }
-.subject-subtitle{
-  margin-top:8px;color:var(--muted);
-  font:500 15px "Hind Siliguri",sans-serif;
+.section h2{
+  margin-bottom:18px;
+  color:var(--ink);font-size:20px;font-weight:700;line-height:1.4;
 }
-.content{padding:30px}
-.suggestion-section{
-  margin:0 0 20px;padding:23px;
-  border:1px solid var(--line);border-radius:var(--radius);
-  background:var(--surface);
+.section h2 small{
+  display:block;margin-top:2px;
+  color:var(--muted);font-size:14px;font-weight:500;
 }
-.section-heading{
-  display:flex;align-items:center;gap:9px;
-  margin-bottom:16px;padding-bottom:12px;
-  border-bottom:1px solid var(--line);
-  color:var(--text);font:700 19px "Hind Siliguri",sans-serif;
+
+/* priority section stands out quietly */
+.section.priority{
+  margin:6px -22px;padding:30px 22px;
+  background:var(--accent-soft);
+  border:0;border-radius:16px;
 }
-.table-container{width:100%;overflow-x:auto;margin:14px 0}
-table{
-  width:100%;border-collapse:separate;border-spacing:0;
-  text-align:left;font:14px "Hind Siliguri",sans-serif;
-  border:1px solid var(--line);border-radius:12px;overflow:hidden;
+.section.priority + .section{border-top:0}
+
+/* ---------- Table ---------- */
+.table-wrap{width:100%;overflow-x:auto;margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:15px;text-align:left}
+th,td{padding:12px 14px 12px 0;border-bottom:1px solid var(--line)}
+th{
+  color:var(--muted);font-size:13px;font-weight:600;white-space:nowrap;
+  border-bottom:1.5px solid var(--ink);
 }
-th,td{padding:12px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
-th:last-child,td:last-child{border-right:0}
-tr:last-child td{border-bottom:0}
-th{background:#f1f5f9;color:#334155;font-weight:700;white-space:nowrap}
-td{background:#fff;color:#334155}
-tbody tr:last-child td{background:#f8fafc;font-weight:700}
-.suggestion-list{list-style:none;padding:0}
-.suggestion-list li{
-  position:relative;padding:0 0 0 19px;margin:0 0 15px;
-  color:#475569;font:15px/1.8 "Hind Siliguri",sans-serif;
+td{color:var(--body)}
+td strong{color:var(--ink);font-weight:600}
+tbody tr:last-child td{border-bottom:0;color:var(--ink);font-weight:700}
+.priority th{border-bottom-color:var(--accent-deep)}
+.priority td{border-bottom-color:rgba(15,107,92,.18)}
+.priority tbody tr:last-child td{border-bottom:0}
+
+/* ---------- Topic blocks ---------- */
+.topic + .topic{margin-top:26px}
+.topic h3{
+  color:var(--ink);font-size:17px;font-weight:700;line-height:1.55;
+  margin-bottom:6px;
 }
-.suggestion-list li:last-child{margin-bottom:0}
-.suggestion-list li::before{
-  content:"";position:absolute;left:1px;top:11px;
-  width:6px;height:6px;border-radius:50%;background:var(--accent);
+.topic ul{list-style:none}
+.topic li{
+  position:relative;padding-left:18px;margin-top:6px;
+  font-size:15.5px;line-height:1.85;
 }
-.suggestion-list strong{color:#1e293b;font-weight:700}
-.suggestion-list em{color:#334155}
-.sub-text{margin-top:12px;color:var(--muted);font:14px/1.7 "Hind Siliguri",sans-serif}
-.back-sub-wrapper{display:flex;justify-content:center;margin:28px 0 4px}
-.back-sub-box{display:flex;flex-direction:column;align-items:center;width:min(300px,100%)}
-.back-sub-button{
-  display:flex;justify-content:center;align-items:center;gap:10px;
-  width:100%;padding:13px 20px;border:0;border-radius:12px;
-  color:#fff;background:var(--accent);text-decoration:none;
-  font:700 15px "Hind Siliguri",sans-serif;
-  box-shadow:0 5px 14px rgba(37,99,235,.16);transition:.2s ease;
+.topic li::before{
+  content:"";position:absolute;left:2px;top:.8em;
+  width:5px;height:5px;border-radius:50%;background:var(--accent);
 }
-.back-sub-button:hover{background:#1d4ed8;transform:translateY(-1px)}
-.by-payment{align-self:flex-end;margin-top:6px;padding-right:3px;color:#94a3b8;font:11px "Hind Siliguri",sans-serif}
+.topic em{color:var(--ink);font-style:normal;font-weight:600}
+
+.note{margin-top:20px;color:var(--body);font-size:15px;line-height:1.8}
+.note strong{color:var(--ink)}
+.priority .table-wrap{margin-top:22px}
+
+/* ---------- Back button ---------- */
+.actions{margin:12px 0 8px;padding-top:30px;border-top:1px solid var(--line)}
+.button{
+  display:block;width:100%;max-width:340px;margin:0 auto;
+  padding:14px 22px;border-radius:12px;text-align:center;
+  background:var(--accent);color:#fff;text-decoration:none;
+  font-size:16px;font-weight:600;
+  transition:background .2s;
+}
+.button:hover{background:var(--accent-deep)}
+.button:focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px}
+
+/* ---------- Footer ---------- */
 .footer{
-  padding:25px 18px 28px;text-align:center;
-  border-top:1px solid var(--line);background:#fbfcfe;
+  margin-top:36px;text-align:center;
+  color:var(--muted);font-size:13px;line-height:1.9;
 }
-.footer-label{color:#94a3b8;font-size:9px;font-weight:700;letter-spacing:1.7px}
-.developer{margin-top:5px;color:#1e293b;font-size:16px;font-weight:800;letter-spacing:1px}
-.student-info{
-  display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:9px;
-  margin-top:10px;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.7px;
-}
-.footer-dot{color:var(--accent)}
-.copyright{margin-top:10px;color:#94a3b8;font-size:10px}
+.footer strong{color:var(--ink);font-weight:600}
+
+/* ---------- Mobile ---------- */
 @media(max-width:600px){
-  body{padding:0;background:#fff}
-  .page{width:100%}
-  .container{border:0;border-radius:0;box-shadow:none}
-  .header{padding:72px 18px 25px}
-  .back{top:15px;left:15px;padding:7px 11px}
-  .subject-title{font-size:25px}
-  .subject-subtitle{font-size:14px}
-  .content{padding:16px 13px}
-  .suggestion-section{padding:17px 14px;margin-bottom:14px;border-radius:15px}
-  .section-heading{font-size:17px}
-  .suggestion-list li{font-size:14px;line-height:1.85}
-  th,td{padding:10px 11px;font-size:13px}
-  .footer{padding:22px 14px}
+  body{padding:28px 18px 32px;font-size:15.5px}
+  .header{padding-bottom:24px}
+  .back{margin-bottom:22px}
+  .section{padding:24px 0}
+  .section h2{font-size:18px}
+  .section.priority{margin:6px -10px;padding:24px 16px;border-radius:14px}
+  th,td{padding:10px 10px 10px 0;font-size:14px}
+  .topic h3{font-size:16px}
+  .topic li{font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+  *{scroll-behavior:auto!important;transition:none!important}
 }
-
 </style>
-
 </head>
 
-
 <body>
-
-
-    <!-- ================= PAGE ================= -->
-
-    <div class="page">
-
-
-        <div class="container">
-
-
-            <div class="top-glow"></div>
-
-
-            <!-- ================= HEADER ================= -->
-
-            <header class="header">
-
-
-                <a href="chemistry.html"
-                   class="back">
-
-                    ← রুটিন পেজ
-
-                </a>
-
-
-                <div class="subject-badge">
-
-                    <span class="dot"></span>
-
-                    CHEMISTRY • SUGGESTION 2026
-
-                </div>
-
-
-                <h1 class="subject-title">
-
-                    রসায়ন ২য় পত্র - সুপার সাজেশন
-
-                </h1>
-
-
-                <div class="subject-subtitle">
-
-                    প্রি-টেস্ট পরীক্ষা প্রস্তুতি চূড়ান্ত দিকনির্দেশনা
-
-                </div>
-
-
-            </header>
-
-
-            <!-- ================= CONTENT ================= -->
-
-            <main class="content">
-
-
-                <!-- MARKS DISTRIBUTION -->
-
-                <section class="suggestion-section">
-
-                    <h2 class="section-heading">
-
-                        📊 অধ্যায়ভিত্তিক মানবণ্টন
-
-                    </h2>
-
-                    <div class="table-container">
-
-                        <table>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th>অধ্যায়ের নাম</th>
-
-                                    <th>সৃজনশীল (CQ)</th>
-
-                                    <th>বহুনির্বাচনি (MCQ)</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <td><strong>১ম অধ্যায়:</strong> পরিবেশ রসায়ন</td>
-
-                                    <td>০৪টি[span_0](start_span)[span_0](end_span)</td>
-
-                                    <td>১২টি[span_1](start_span)[span_1](end_span)</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><strong>২য় অধ্যায়:</strong> জৈব রসায়ন</td>
-
-                                    <td>০১টি[span_2](start_span)[span_2](end_span)</td>
-
-                                    <td>০৫টি[span_3](start_span)[span_3](end_span)</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><strong>৩য় অধ্যায়:</strong> পরিমাণগত রসায়ন</td>
-
-                                    <td>০৩টি[span_4](start_span)[span_4](end_span)</td>
-
-                                    <td>০৮টি[span_5](start_span)[span_5](end_span)</td>
-
-                                </tr>
-
-                                <tr style="background: rgba(224, 242, 254, 0.4); font-weight: 700;">
-
-                                    <td>সর্বমোট প্রশ্ন সংখ্যা</td>
-
-                                    <td>০৮টি[span_6](start_span)[span_6](end_span)</td>
-
-                                    <td>২৫টি[span_7](start_span)[span_7](end_span)</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </section>
-
-
-               <!-- MOST IMPORTANT CQ -->
-
-                <section class="suggestion-section">
-
-                    <h2 class="section-heading">
-
-                        🎯 মোস্ট ইম্পর্ট্যান্ট (নিশ্চিত ৩টি CQ)
-
-                    </h2>
-
-                    <ul class="suggestion-list">
-
-                        <li>
-
-                            <strong>১ম অধ্যায় (অংশ-১): অ্যামাগা বক্ররেখা ও গ্যাসের গতিবেগ [১টি CQ]</strong><br>
-                            • <em>অ্যামাগা বক্ররেখা:</em> আদর্শ আচরণ থেকে বাস্তব গ্যাসের বিচ্যুতির কারণ ব্যাখ্যা। শর্ত নির্ণয়: কোন শর্তে (তাপমাত্রা ও চাপের পরিবর্তনে) একটি আদর্শ গ্যাস বাস্তব গ্যাসে রূপান্তরিত হয় এবং কোন শর্তে বাস্তব গ্যাস আদর্শ গ্যাসের ন্যায় আচরণ করে[span_8](start_span)[span_8](end_span).<br>
-                            • <em>গ্যাসের গতিবেগ নির্ণয়:</em> বর্গমূল গড় বর্গবেগ ($C_{rms}$), সম্ভাব্যতম বেগ ($C_{mpv}$) এবং গড় বেগ ($C$) নির্ণয় সংক্রান্ত গাণিতিক সমস্যা[span_9](start_span)[span_9](end_span).
-
-                        </li>
-
-                        <li style="margin-top: 15px;">
-
-                            <strong>১ম অধ্যায় (অংশ-২): আদর্শ গ্যাস সমীকরণ ও গ্যাস সূত্রসমূহ [১টি CQ]</strong><br>
-                            • আদর্শ গ্যাস সমীকরণ ($PV=nRT$): গ্যাসের মোল সংখ্যা ($n$), অণুর সংখ্যা এবং আণবিক ভর ($M$) নির্ণয়[span_10](start_span)[span_10](end_span).<br>
-                            • গে-লুসাকের চাপীয় সূত্র: সিলিন্ডার বিস্ফোরণ হবে কি না তা গাণিতিকভাবে বিশ্লেষণ ও সূত্রের সমর্থন ($P_1/T_1 = P_2/T_2$)[span_11](start_span)[span_11](end_span).<br>
-                            • বয়েল ও চার্লসের সূত্র: উদ্দীপকের সারণি অথবা গ্রাফ (লেখচিত্র) বিশ্লেষণের মাধ্যমে বয়েল ও চার্লসের সূত্র সমর্থনকারী গ্যাস শনাক্তকরণ[span_12](start_span)[span_12](end_span).
-
-                        </li>
-
-                        <li style="margin-top: 15px;">
-
-                            <strong>৩য় অধ্যায়: জারণ-বিজারণ ও আয়রনের বিশুদ্ধতা নির্ণয় [১টি CQ]</strong><br>
-                            • <em>আয়ন-ইলেকট্রন পদ্ধতিতে সমতাকরণ:</em> অম্লীয় মাধ্যমে বিক্রিয়া অনুশীলন[span_13](start_span)[span_13](end_span).
-
-                        </li>
-
-                    </ul>
-
-                    <!-- SUB-TABLE FOR OXIDATION REDUCTION REACTIONS -->
-                    <div class="table-container" style="margin-top: 15px;">
-
-                        <table>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th>$KMnO_4$ ভিত্তিক বিক্রিয়া</th>
-
-                                    <th>$K_2Cr_2O_7$ ভিত্তিক বিক্রিয়া</th>
-
-                                    </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <td>১. $KMnO_4 + H_2SO_4 + FeSO_4$[span_14](start_span)[span_14](end_span)</td>
-
-                                    <td>৪. $K_2Cr_2O_7 + H_2SO_4 + FeSO_4$[span_15](start_span)[span_15](end_span)</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>২. $KMnO_4 + H_2SO_4 + H_2C_2O_4$[span_16](start_span)[span_16](end_span)</td>
-
-                                    <td>৫. $K_2Cr_2O_7 + H_2SO_4 + H_2C_2O_4$[span_17](start_span)[span_17](end_span)</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td>৩. $KMnO_4 + H_2SO_4 + H_2O_2$[span_18](start_span)[span_18](end_span)</td>
-
-                                    <td>৬. $K_2Cr_2O_7 + H_2SO_4 + H_2O_2$[span_19](start_span)[span_19](end_span)</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <p class="sub-text">
-                        <strong>পরিমাণগত বিশ্লেষণ:</strong> উল্লিখিত বিক্রিয়াগুলোর সাহায্যে আকরিক বা নমুনায় লোহার (আয়রনের) ভেজালের শতকরা হার অথবা বিশুদ্ধতা নির্ণয়[span_20](start_span)[span_20](end_span).
-                    </p>
-
-                </section>
-
-
-                <!-- NORMAL IMPORTANT TOPICS -->
-
-                <section class="suggestion-section">
-
-                    <h2 class="section-heading">
-
-                        💡 নরমাল ইম্পর্ট্যান্ট (অধ্যায়ভিত্তিক গুরুত্বপূর্ণ টপিক)
-
-                    </h2>
-
-                    <ul class="suggestion-list">
-
-                        <li>
-
-                            <strong>ক) ১ম অধ্যায়: পরিবেশ রসায়ন</strong><br>
-                            • গ্রাহামের ব্যাপন সূত্র: ব্যাপন হার ও আণবিক ভর/চাপ সম্পর্কিত গাণিতিক সমস্যা ($r_1/r_2 = \sqrt{M_2/M_1} \times \sqrt{P_1/P_2}$)[span_21](start_span)[span_21](end_span).<br>
-                            • ডাল্টনের আংশিক চাপ সূত্র: ৩ ধরনের (3 Types) গাণিতিক সমস্যার সমাধান[span_22](start_span)[span_22](end_span).<br>
-                            • অম্ল-ক্ষারক মতবাদ: ব্রনস্টেড-লাউরি (প্রোটনীয় মতবাদ) এবং লুইস (ইলেকট্রনীয় মতবাদ)[span_23](start_span)[span_23](end_span).
-
-                        </li>
-
-                        <li style="margin-top: 15px;">
-
-                            <strong>খ) ২য় অধ্যায়: জৈব রসায়ন</strong><br>
-                            • স্টেরিও সমাণুতা (IUPAC নামকরণ সহ): জ্যামিতিক সমাণুতা ও আলোক সমাণুতা - এই দুটি প্রশ্নের উদ্দীপক ও অংশের মাধ্যমেই যৌগের IUPAC নামকরণ সংক্রান্ত প্রশ্ন করা হবে[span_24](start_span)[span_24](end_span).<br>
-                            • গাঠনিক সমাণুতা: জ্ঞানমূলক (ক) ও অনুধাবনমূলক (খ) প্রশ্নের জন্য সংজ্ঞা ও উদাহরণ[span_25](start_span)[span_25](end_span).
-
-                        </li>
-
-                        <li style="margin-top: 15px;">
-
-                            <strong>গ) ৩য় অধ্যায়: পরিমাণগত রসায়ন</strong><br>
-                            • ঘনমাত্রা নির্ণয় ও রূপান্তর: $ppm = 10^3 \times M \times S$, $ppb = 10^6 \times M \times S$, $ppt = 10^9 \times M \times S$[span_26](start_span)[span_26](end_span).<br>
-                            • শতকরা হার $\%(w/v)$ থেকে মোলারিটি নির্ণয়: $S = 10x/M$ এবং সাধারণ মোলারিটি: $S = w/(M \times V)$[span_27](start_span)[span_27](end_span).<br>
-                            • লঘুকরণ সূত্র: দ্রবণের মাত্রা পরিবর্তনে $V_1S_1 = V_2S_2$ সূত্রের প্রয়োগ[span_28](start_span)[span_28](end_span).<br>
-                            • মিশ্রণের প্রকৃতি নির্ণয়: ($pH$ নির্ণয়ের মাধ্যমে)[span_29](start_span)[span_29](end_span).<br>
-                            • উপযুক্ত নির্দেশক নির্বাচন: (i) সবল এসিড + সবল ক্ষার, (ii) দুর্বল এসিড + সবল ক্ষার, (iii) সবল এসিড + দুর্বল ক্ষার[span_30](start_span)[span_30](end_span).<br>
-                            • বিয়ার-ল্যাম্বার্ট সূত্র: শোষণমাত্রা ও ঘনমাত্রা নির্ণয় ($A = \varepsilon cl$)[span_31](start_span)[span_31](end_span).<br>
-                            • আয়োডোমিতি: কপারের ভেজাল নির্ণয় এবং ব্লিচিং পাউডারে সক্রিয় ক্লোরিনের ($Cl_2$) পরিমাণ নির্ণয়[span_32](start_span)[span_32](end_span).
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
-
-                <!-- BACK BUTTON -->
-
-                <div class="back-sub-wrapper">
-
-                    <div class="back-sub-box">
-
-                        <a href="chemistry.html"
-                           class="back-sub-button">
-
-                            <span>
-
-                                ←
-
-                            </span>
-
-                            রুটিন পেজে ফিরে যান
-
-                        </a>
-
-                        <span class="by-payment">
-
-                            by পেমেন্ট[span_33](start_span)[span_33](end_span)
-
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-            </main>
-
-
-            <!-- ================= FOOTER ================= -->
-
-            <footer class="footer">
-
-
-                <div class="footer-glow"></div>
-
-
-                <div class="footer-label">
-
-                    PREPARED BY MD SAJID (DMRCIAN BOY) | DEVELOPED BY[span_34](start_span)[span_34](end_span)
-
-                </div>
-
-
-                <div class="developer">
-
-                    JOHIRUL ISLAM SAGOR[span_35](start_span)[span_35](end_span)
-
-                </div>
-
-
-                <div class="student-info">
-
-
-                    <span>
-
-                        ROLL - 2042[span_36](start_span)[span_36](end_span)
-
-                    </span>
-
-
-                    <span class="footer-dot">
-
-                        •
-
-                    </span>
-
-
-                    <span>
-
-                        SECTION - D[span_37](start_span)[span_37](end_span)
-
-                    </span>
-
-
-                    <span class="footer-dot">
-
-                        •
-
-                    </span>
-
-
-                    <span>
-
-                        DMRC[span_38](start_span)[span_38](end_span)
-
-                    </span>
-
-
-                </div>
-
-
-                <div class="copyright">
-
-                    © 2026 • DMRC প্রাক-নির্বাচনি পরীক্ষা[span_39](start_span)[span_39](end_span)
-
-                </div>
-
-
-            </footer>
-
-
-        </div>
-
+<div class="page">
+
+  <header class="header">
+    <a href="chemistry.html" class="back">← রুটিন পেজ</a>
+    <h1 class="title">রসায়ন ২য় পত্র - সুপার সাজেশন</h1>
+    <p class="subtitle">প্রি-টেস্ট পরীক্ষা প্রস্তুতি চূড়ান্ত দিকনির্দেশনা</p>
+    <p class="exam">DMRC প্রাক-নির্বাচনি ২০২৬</p>
+  </header>
+
+  <main>
+
+    <!-- মানবণ্টন -->
+    <section class="section">
+      <h2>অধ্যায়ভিত্তিক মানবণ্টন</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>অধ্যায়ের নাম</th>
+              <th>সৃজনশীল (CQ)</th>
+              <th>বহুনির্বাচনি (MCQ)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>১ম অধ্যায়:</strong> পরিবেশ রসায়ন</td>
+              <td>০৪টি</td>
+              <td>১২টি</td>
+            </tr>
+            <tr>
+              <td><strong>২য় অধ্যায়:</strong> জৈব রসায়ন</td>
+              <td>০১টি</td>
+              <td>০৫টি</td>
+            </tr>
+            <tr>
+              <td><strong>৩য় অধ্যায়:</strong> পরিমাণগত রসায়ন</td>
+              <td>০৩টি</td>
+              <td>০৮টি</td>
+            </tr>
+            <tr>
+              <td>সর্বমোট প্রশ্ন সংখ্যা</td>
+              <td>০৮টি</td>
+              <td>২৫টি</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- মোস্ট ইম্পর্ট্যান্ট -->
+    <section class="section priority">
+      <h2>মোস্ট ইম্পর্ট্যান্ট <small>নিশ্চিত ৩টি CQ</small></h2>
+
+      <div class="topic">
+        <h3>১ম অধ্যায় (অংশ-১): অ্যামাগা বক্ররেখা ও গ্যাসের গতিবেগ [১টি CQ]</h3>
+        <ul>
+          <li><em>অ্যামাগা বক্ররেখা:</em> আদর্শ আচরণ থেকে বাস্তব গ্যাসের বিচ্যুতির কারণ ব্যাখ্যা। শর্ত নির্ণয়: কোন শর্তে (তাপমাত্রা ও চাপের পরিবর্তনে) একটি আদর্শ গ্যাস বাস্তব গ্যাসে রূপান্তরিত হয় এবং কোন শর্তে বাস্তব গ্যাস আদর্শ গ্যাসের ন্যায় আচরণ করে.</li>
+          <li><em>গ্যাসের গতিবেগ নির্ণয়:</em> বর্গমূল গড় বর্গবেগ ($C_{rms}$), সম্ভাব্যতম বেগ ($C_{mpv}$) এবং গড় বেগ ($C$) নির্ণয় সংক্রান্ত গাণিতিক সমস্যা.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h3>১ম অধ্যায় (অংশ-২): আদর্শ গ্যাস সমীকরণ ও গ্যাস সূত্রসমূহ [১টি CQ]</h3>
+        <ul>
+          <li>আদর্শ গ্যাস সমীকরণ ($PV=nRT$): গ্যাসের মোল সংখ্যা ($n$), অণুর সংখ্যা এবং আণবিক ভর ($M$) নির্ণয়.</li>
+          <li>গে-লুসাকের চাপীয় সূত্র: সিলিন্ডার বিস্ফোরণ হবে কি না তা গাণিতিকভাবে বিশ্লেষণ ও সূত্রের সমর্থন ($P_1/T_1 = P_2/T_2$).</li>
+          <li>বয়েল ও চার্লসের সূত্র: উদ্দীপকের সারণি অথবা গ্রাফ (লেখচিত্র) বিশ্লেষণের মাধ্যমে বয়েল ও চার্লসের সূত্র সমর্থনকারী গ্যাস শনাক্তকরণ.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h3>৩য় অধ্যায়: জারণ-বিজারণ ও আয়রনের বিশুদ্ধতা নির্ণয় [১টি CQ]</h3>
+        <ul>
+          <li><em>আয়ন-ইলেকট্রন পদ্ধতিতে সমতাকরণ:</em> অম্লীয় মাধ্যমে বিক্রিয়া অনুশীলন.</li>
+        </ul>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>$KMnO_4$ ভিত্তিক বিক্রিয়া</th>
+              <th>$K_2Cr_2O_7$ ভিত্তিক বিক্রিয়া</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>১. $KMnO_4 + H_2SO_4 + FeSO_4$</td>
+              <td>৪. $K_2Cr_2O_7 + H_2SO_4 + FeSO_4$</td>
+            </tr>
+            <tr>
+              <td>২. $KMnO_4 + H_2SO_4 + H_2C_2O_4$</td>
+              <td>৫. $K_2Cr_2O_7 + H_2SO_4 + H_2C_2O_4$</td>
+            </tr>
+            <tr>
+              <td>৩. $KMnO_4 + H_2SO_4 + H_2O_2$</td>
+              <td>৬. $K_2Cr_2O_7 + H_2SO_4 + H_2O_2$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note"><strong>পরিমাণগত বিশ্লেষণ:</strong> উল্লিখিত বিক্রিয়াগুলোর সাহায্যে আকরিক বা নমুনায় লোহার (আয়রনের) ভেজালের শতকরা হার অথবা বিশুদ্ধতা নির্ণয়.</p>
+    </section>
+
+    <!-- নরমাল ইম্পর্ট্যান্ট -->
+    <section class="section">
+      <h2>নরমাল ইম্পর্ট্যান্ট <small>অধ্যায়ভিত্তিক গুরুত্বপূর্ণ টপিক</small></h2>
+
+      <div class="topic">
+        <h3>ক) ১ম অধ্যায়: পরিবেশ রসায়ন</h3>
+        <ul>
+          <li>গ্রাহামের ব্যাপন সূত্র: ব্যাপন হার ও আণবিক ভর/চাপ সম্পর্কিত গাণিতিক সমস্যা ($r_1/r_2 = \sqrt{M_2/M_1} \times \sqrt{P_1/P_2}$).</li>
+          <li>ডাল্টনের আংশিক চাপ সূত্র: ৩ ধরনের (3 Types) গাণিতিক সমস্যার সমাধান.</li>
+          <li>অম্ল-ক্ষারক মতবাদ: ব্রনস্টেড-লাউরি (প্রোটনীয় মতবাদ) এবং লুইস (ইলেকট্রনীয় মতবাদ).</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h3>খ) ২য় অধ্যায়: জৈব রসায়ন</h3>
+        <ul>
+          <li>স্টেরিও সমাণুতা (IUPAC নামকরণ সহ): জ্যামিতিক সমাণুতা ও আলোক সমাণুতা - এই দুটি প্রশ্নের উদ্দীপক ও অংশের মাধ্যমেই যৌগের IUPAC নামকরণ সংক্রান্ত প্রশ্ন করা হবে.</li>
+          <li>গাঠনিক সমাণুতা: জ্ঞানমূলক (ক) ও অনুধাবনমূলক (খ) প্রশ্নের জন্য সংজ্ঞা ও উদাহরণ.</li>
+        </ul>
+      </div>
+
+      <div class="topic">
+        <h3>গ) ৩য় অধ্যায়: পরিমাণগত রসায়ন</h3>
+        <ul>
+          <li>ঘনমাত্রা নির্ণয় ও রূপান্তর: $ppm = 10^3 \times M \times S$, $ppb = 10^6 \times M \times S$, $ppt = 10^9 \times M \times S$.</li>
+          <li>শতকরা হার $\%(w/v)$ থেকে মোলারিটি নির্ণয়: $S = 10x/M$ এবং সাধারণ মোলারিটি: $S = w/(M \times V)$.</li>
+          <li>লঘুকরণ সূত্র: দ্রবণের মাত্রা পরিবর্তনে $V_1S_1 = V_2S_2$ সূত্রের প্রয়োগ.</li>
+          <li>মিশ্রণের প্রকৃতি নির্ণয়: ($pH$ নির্ণয়ের মাধ্যমে).</li>
+          <li>উপযুক্ত নির্দেশক নির্বাচন: (i) সবল এসিড + সবল ক্ষার, (ii) দুর্বল এসিড + সবল ক্ষার, (iii) সবল এসিড + দুর্বল ক্ষার.</li>
+          <li>বিয়ার-ল্যাম্বার্ট সূত্র: শোষণমাত্রা ও ঘনমাত্রা নির্ণয় ($A = \varepsilon cl$).</li>
+          <li>আয়োডোমিতি: কপারের ভেজাল নির্ণয় এবং ব্লিচিং পাউডারে সক্রিয় ক্লোরিনের ($Cl_2$) পরিমাণ নির্ণয়.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="actions">
+      <a href="chemistry.html" class="button">← রুটিন পেজে ফিরে যান</a>
     </div>
 
+  </main>
 
+  <footer class="footer">
+    <p>Prepared by <strong>MD SAJID (DMRCIAN BOY)</strong></p>
+    <p>Developed by <strong>JOHIRUL ISLAM SAGOR</strong></p>
+    <p>Roll 2042 | Section D | DMRC</p>
+    <p>© 2026 DMRC প্রাক-নির্বাচনি পরীক্ষা</p>
+  </footer>
+
+</div>
 </body>
-
 </html>
